@@ -74,10 +74,10 @@ Nous venons de changer la valeur de *a* via son pointer. Cette opération s'appe
 ## Types de pointer, void pointer et arithmétique des pointers
 Comme nous l'avons vu, un pointer a un type. Si nous voulons pointer un *int* nous devons créer un pointer qui a le type *\* int*. *C* demande que nous déclarions un type pour un pointer car ils ne permette pas seulement de stocké l'adresse d'une variable mais aussi d'accéder à sa valeur (déréférencer). Lorsque nous allons chercher la valeur qui correspond à une adresse, le compilateur doit savoir comment interpréter la donnée. En effet, un *int* ne prend pas la même place qu'un *char* et n'est pas stocké pareil qu'un *float*.
 
-Nous avons vu que les pointer 
+Nous avons vu que les pointer avaient des types. Et comme nous le savons, les types ne prennent pas le même nombre de bytes pour stocker l'information. Un *int* prend 4 bytes (sur une architecture 64 bites) alors qu'un *char* ne prend que 1 bytes. Pour connaitre la taille d'un t
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjAxNzQ2MzAsNTQ1NzYxMjY5LDUyMT
+eyJoaXN0b3J5IjpbLTE0NDQ0MDI2NzIsNTQ1NzYxMjY5LDUyMT
 U1Mjg5XX0=
 -->

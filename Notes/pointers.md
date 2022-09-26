@@ -1,8 +1,8 @@
 # Pointers
 
 ## Introduction
-
+Les pointers sont des variables 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDU3NDc2NDY3LDU0NTc2MTI2OSw1MjE1NT
-I4OV19
+eyJoaXN0b3J5IjpbMjE2NTA5MTQsNTQ1NzYxMjY5LDUyMTU1Mj
+g5XX0=
 -->

@@ -62,13 +62,14 @@ int main(void)
 	int *p = &a;
 
 	//Nous changeons la valeur de la variable via le pointer
-	printf()
+	printf("a = %d\n", a);
+	return (0);
 }
 ```
 ```bash
-
+a = 42
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzMzIwODIwOCw1NDU3NjEyNjksNTIxNT
+eyJoaXN0b3J5IjpbMTgxOTUwMDEzOSw1NDU3NjEyNjksNTIxNT
 UyODldfQ==
 -->

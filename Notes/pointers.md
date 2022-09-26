@@ -225,9 +225,9 @@ Nous pouvons mettre un tableau dans un pointer (p = arr) alors qu'il est impossi
 
 ## Tableau comme argument de fonction
 Nous pouvons passer des tableaux en argument d'une fonction. Et nous avons plusieurs manières de le faire. Cela est dû au fait que les tableaux et les pointers sont très liés. La première chose à bien comprendre est quand nous envoyons un tableau à une fonction, il est automatiquement passé par référence. Ce qui veut dire que dans la fonction qui reçois le tableau, c'est en fait, l’adresse du premier élément qui est reçu.
-Cela fait que dans la fonction, il est impossible de savoir la taille du tableau car la fonction n'a pas cette information, juste l'adresse de la première valeur du tableau.
+Cela fait que dans la fonction, il est impossible de savoir la taille du tableau car la fonction n'a pas cette information, juste l'adresse de la première valeur du tableau. Il faut parcourir le tableau et arriver au dernier au dernier élément pour connaitre sa taille réelle Ce mécanisme permet d'optimiser l'utilisation de la mémoire. Un tableau peut être gigantesque, ce qui demanderais énormément de ressources p
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUwMTYwNjExNCwxNDY3Njg5NzE4LC0xNT
+eyJoaXN0b3J5IjpbMTE5NTY1NzI0MiwxNDY3Njg5NzE4LC0xNT
 c1Njg0NjM0LC0xMzYxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4
 OV19
 -->

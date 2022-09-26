@@ -298,9 +298,19 @@ size of str : 6.
 ```
 
 ## Pointer et 2D-Array
+Pour créer un tableau à deux dimensions, cela fonctionne de la même manière que pour un tableau à une dimension.
 
+```c
+int  main(void)  
+{  
+	int arr[2][3];  
+	return  (0);  
+}
+```
+
+Ici, nous avons créé un tableau qui c
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1OTU0MTUzNCwxNDY3Njg5NzE4LC0xNT
+eyJoaXN0b3J5IjpbLTM0ODgwMTUyOSwxNDY3Njg5NzE4LC0xNT
 c1Njg0NjM0LC0xMzYxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4
 OV19
 -->

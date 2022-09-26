@@ -51,8 +51,9 @@ int main(void)
 ```bash
 0x7ffcdf0c6d0c
 ```
-Nous pouvons constater que l'adresse à changer entre les deux exemples. C'est parce que nous avons exécuté le programme deux fois. C'est le système d'exploitation qui gère l'adressage
+Nous pouvons constater que l'adresse à changer entre les deux exemples. C'est parce que nous avons exécuté le programme deux fois. C'est le système d'exploitation qui gère l'adressage et peut donc fournir des adresses différentes entre chaque exécution.
+Nous savons maintenant comment faire pointer un pointer sur une variable. Maintenant, nous allons voir comment changer la valeur de la variable en passant par le pointer. Pour se faire, nous allons utiliser l'opérateur *\** 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3NDkzMjIwNCw1NDU3NjEyNjksNTIxNT
-UyODldfQ==
+eyJoaXN0b3J5IjpbOTE4NDk4NTA3LDU0NTc2MTI2OSw1MjE1NT
+I4OV19
 -->

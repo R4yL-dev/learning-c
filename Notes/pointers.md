@@ -33,8 +33,21 @@ int main(void)
 ```bash
 0x7ffee0c47ab4
 ```
-Quand nous exécutons ce programme, le terminal nous affiche l'adresse mémoire o
+Quand nous exécutons ce programme, le terminal nous affiche l'adresse mémoire où esst stocké la variable *a*.
+Si nous affichons la valeur du pointer, le résultat est aussi l'adresse de la variable *a*.
+```c
+#include <stdio.h>
+
+int main(void)
+{
+	
+	return (0);
+}
+```
+```bash
+
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM2NDc5ODM3LDU0NTc2MTI2OSw1MjE1NT
-I4OV19
+eyJoaXN0b3J5IjpbLTg0OTg0OTY2Myw1NDU3NjEyNjksNTIxNT
+UyODldfQ==
 -->

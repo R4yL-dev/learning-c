@@ -220,9 +220,13 @@ address : 0x7ffd2bbb2f70, value : 5.
 
 Ici, nous voyons que nous pouvons accéder aux cellules d'un tableau comme s'il était un pointeur. Cela vient du faut que *arr* est en fait un pointeur sur le premier élément du tableau (arr[0]). C'est pour cela que quand nous affichons le résultat du déréférencement de *arr* nous voyons la valeur de *arr[0]*.
 
-Il y a quand même quelques différences entre un tableau et un pointer. Par exemple, il est impossible 
+Il y a quand même quelques différences entre un tableau et un pointer. Par exemple, il est impossible d'incrémenter un tableau (arr++) alors que nous pouvons le faire avec un pointer(p++).
+Nous pouvons mettre un tableau dans un pointer (p = arr) alors qu'il est impossible de faire l'inverse (arr = p).
+
+## Tableau comme argument de fonction
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0NDAwMjMxOSwxNDY3Njg5NzE4LC0xNT
+eyJoaXN0b3J5IjpbMTI3ODg0OTI5NywxNDY3Njg5NzE4LC0xNT
 c1Njg0NjM0LC0xMzYxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4
 OV19
 -->

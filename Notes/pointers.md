@@ -187,8 +187,10 @@ Ici, j'ai créé ne fonction *add_one()* qui prend comme argument un pointer sur
 Nous pouvons constater à l'affichage que la valeur de *a* a bien changé une fois la fonction appelée alors que celle-ci ne retourne rien.
 
 ## Pointer et array
-
+En *C*, le concept de pointer et le concept de tableau sont très liés. Nous allons, dans ce chapitre, en voir plus sur ce lien.
+Quand nous créons un table de 5 *int*, nous réservons 5 fois 4 bytes consécuti
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ2NzY4OTcxOCwtMTU3NTY4NDYzNCwtMT
-M2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUyODldfQ==
+eyJoaXN0b3J5IjpbLTQxODIxMjM2NywxNDY3Njg5NzE4LC0xNT
+c1Njg0NjM0LC0xMzYxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4
+OV19
 -->

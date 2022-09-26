@@ -40,14 +40,19 @@ Si nous affichons la valeur du pointer, le résultat est aussi l'adresse de la v
 
 int main(void)
 {
-	
+	int a;
+	int *p;
+
+	p = &a;
+	printf("%p\n", p);
 	return (0);
 }
 ```
 ```bash
-
+0x7ffcdf0c6d0c
 ```
+Nous pouvons constater que l'adresse à changer entre les deux exemples. C'est parce que nous avons exécuté le programme deux fois. C'est le système d'exploitation qui gère l'adressage
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg0OTg0OTY2Myw1NDU3NjEyNjksNTIxNT
+eyJoaXN0b3J5IjpbMTE3NDkzMjIwNCw1NDU3NjEyNjksNTIxNT
 UyODldfQ==
 -->

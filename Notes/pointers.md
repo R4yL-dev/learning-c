@@ -104,7 +104,7 @@ size of float : 4 bytes.
 size of double : 8 bytes.
 ```
 
-# L'arithmétique
+### L'arithmétique
 Nous pouvons faire des opérations sur les pointer, nous pouvons les additionner ou lui soustraire un entier. Comme nous venons de le voir que les types prennent différents espaces dans la mémoire, nous avons les outils pour comprendre l'arithmétique des pointers.
 
 Si nous avons un pointer sur *int* et que nous lui ajoutons 1, le résultat va être le prochain *int* disponible dans la mémoire. Nous savons qu'un *int* prend 4 bytes de mémoire, si nous lui ajoutons 1, il pointera sur l'adresse de l'*int* suivant (qui se trouve 4 bytes plus loin).
@@ -127,8 +127,11 @@ Address = 0x7ffe85ee457c, value = 42
 Address = 0x7ffe85ee4580, value = -2047982212
 ```
 
-Ici, nous pouvons constater que nous affichons l'adresse et la valeur de la variable *a* au travers d'un pointer. Et lorsque nous ajoutons 1 au pointer, l'adresse change et elle change de exactement 4 bytes (en hexadécimal). La valeur aussi change, ici, elle prend la valeur du prochain *int* dans la mémoire et vu que ce *int* n'est pas réservé par une variable, nous récupérons une données aléatoire stockée en mémoire. 
+Ici, nous pouvons constater que nous affichons l'adresse et la valeur de la variable *a* au travers d'un pointer. Et lorsque nous ajoutons 1 au pointer, l'adresse change et elle change de exactement 4 bytes (en hexadécimal). La valeur aussi change, ici, elle prend la valeur du prochain *int* dans la mémoire et vu que ce *int* n'est pas réservé par une variable, nous récupérons une données aléatoire stockée en mémoire.
+
+### Void pointer
+Nous avons la possibilité de créer des pointers de type *void* (aucun type). Vu que nous ne donnons pas de type au pointer, nous ne pouvons e 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MDgxODk3MzQsLTE1NzU2ODQ2MzQsLT
-EzNjE3Njg3NzcsNTQ1NzYxMjY5LDUyMTU1Mjg5XX0=
+eyJoaXN0b3J5IjpbMTcwMjE4MDgwMiwtMTU3NTY4NDYzNCwtMT
+M2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUyODldfQ==
 -->

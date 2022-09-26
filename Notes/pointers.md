@@ -127,8 +127,8 @@ Address = 0x7ffe85ee457c, value = 42
 Address = 0x7ffe85ee4580, value = -2047982212
 ```
 
-Ici, nous pouvons constater que nous affichons l'adresse et la valeur de la variable *a* au travers d'un pointer. Et lorsque nous ajoutons 1 au pointer, l'adresse change et elle change de exactement 4 bytes (en hexadécimal). La valeur aussi change, ici, elle prend la valeur du prochain *int* dans la mémoire et vu que ce *int* n'est pas résér
+Ici, nous pouvons constater que nous affichons l'adresse et la valeur de la variable *a* au travers d'un pointer. Et lorsque nous ajoutons 1 au pointer, l'adresse change et elle change de exactement 4 bytes (en hexadécimal). La valeur aussi change, ici, elle prend la valeur du prochain *int* dans la mémoire et vu que ce *int* n'est pas réservé par une variable, nous récupérons une données aléatoire stockée en mémoire. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYzNDM2Mjk0NiwtMTU3NTY4NDYzNCwtMT
-M2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUyODldfQ==
+eyJoaXN0b3J5IjpbLTE1MDgxODk3MzQsLTE1NzU2ODQ2MzQsLT
+EzNjE3Njg3NzcsNTQ1NzYxMjY5LDUyMTU1Mjg5XX0=
 -->

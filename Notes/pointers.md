@@ -261,9 +261,26 @@ Cela est complètement équivalent à la notation du premier exemple.
 ## Tableaux de caractères et pointers
 En *C*, les chaines de caractères sont forcément des tableaux de caractères. Pour pouvoir faire une string, il faut que le tableau qui la reçoit soit assez grand. La meilleure taille est le nombre de *char* dans la chaine + 1. Nous devons ajouter 1 car par convention, nous devons terminer toutes nos strings par le caractère '\0'. Le tableau peut être plus grand que le nombre de *char* + 1 car les fonctions qui traitent les chaines de caractère vont parcourir le tableau jusqu’à trouver le caractère '\0'. L'espace supplémentaire après la fin de la string sera donc simplement ignoré.
 
-Si nous déclarons notre string avec la notation string literal (en utilisant "), le compilateur va ajouter automatiquement ajouter le caractère de terminaison. Nous ouvons 
+Si nous déclarons notre string avec la notation string literal (en utilisant "), le compilateur va ajouter automatiquement ajouter le caractère de terminaison. Nous pouvons aussi omettre la taille de la chaine de caractère avec cette solution.
+
+```c
+#include <stdio.h>
+
+int  main(void)  
+{  
+	char str[] = "Salut";  
+
+	printf("size of str : %ld.\n", sizeof(str));  
+	return  (0);  
+}
+```
+```bash
+size of str : 6.
+```
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTI4MzE4OTIzLDE0Njc2ODk3MTgsLTE1Nz
+eyJoaXN0b3J5IjpbMzIyNzY0NDYzLDE0Njc2ODk3MTgsLTE1Nz
 U2ODQ2MzQsLTEzNjE3Njg3NzcsNTQ1NzYxMjY5LDUyMTU1Mjg5
 XX0=
 -->

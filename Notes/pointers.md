@@ -61,7 +61,7 @@ int main(void)
 	int a = 20;
 	int *p = &a;
 
-	//Nous changeons la valeur de la variable via le pointer
+	// Nous changeons la valeur de la variable via le pointer
 	printf("a = %d\n", a);
 	return (0);
 }
@@ -96,6 +96,6 @@ size of double : 8 bytes.
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNjE3Njg3NzcsNTQ1NzYxMjY5LDUyMT
-U1Mjg5XX0=
+eyJoaXN0b3J5IjpbLTMyMzQwNzEwMSwtMTM2MTc2ODc3Nyw1ND
+U3NjEyNjksNTIxNTUyODldfQ==
 -->

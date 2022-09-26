@@ -259,9 +259,11 @@ printf("[FUNC] size of arr : %ld.\n", sizeof(*arr));
 Cela est complètement équivalent à la notation du premier exemple.
 
 ## Tableaux de caractères et pointers
-En *C*, les chaines de caractères sont forcément des tableaux de caractères. Pour pouvoir faire une string, il faut que le tableau qui la reçoit soit assez grand. La meilleure taille est le nombre de *char* dans la chaine + 1. Nous devons ajouter 1 car par convention, nous devons terminer toutes nos strings par le caractère '\0'. Le tableau peut être plus grand que le nombre de *char* + 1 car les fonctions qui traitent les chaines de caractère vont parcourir le tableau jusqu'a trouver le caractère '\0'. L'espace supplémentaire après la fin de la string sera donc simplement ignoré.
+En *C*, les chaines de caractères sont forcément des tableaux de caractères. Pour pouvoir faire une string, il faut que le tableau qui la reçoit soit assez grand. La meilleure taille est le nombre de *char* dans la chaine + 1. Nous devons ajouter 1 car par convention, nous devons terminer toutes nos strings par le caractère '\0'. Le tableau peut être plus grand que le nombre de *char* + 1 car les fonctions qui traitent les chaines de caractère vont parcourir le tableau jusqu’à trouver le caractère '\0'. L'espace supplémentaire après la fin de la string sera donc simplement ignoré.
+
+Si nous déclarons notre string avec la notation string literal (en utilisant "), le compilateur va ajouter automatiquement ajouter le caractère de terminaison. Nous ouvons 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM4NDkzMzM3NSwxNDY3Njg5NzE4LC0xNT
-c1Njg0NjM0LC0xMzYxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4
-OV19
+eyJoaXN0b3J5IjpbOTI4MzE4OTIzLDE0Njc2ODk3MTgsLTE1Nz
+U2ODQ2MzQsLTEzNjE3Njg3NzcsNTQ1NzYxMjY5LDUyMTU1Mjg5
+XX0=
 -->

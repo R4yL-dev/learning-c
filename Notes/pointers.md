@@ -141,6 +141,11 @@ Un pointer est comme une variable classique, ce qui veut dire qu'il possède une
 int main(void)
 {
 	int a = 42;
+	int *p1 = &a;
+	// Déclaration d'un pointer de pointer sur int
+	int **p2 = &p1;
+
+	printf("Value of pointer to pointer on int : %d\n", *(*(p2)));
 	
 }
 ```
@@ -148,6 +153,6 @@ int main(void)
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5MTA3OTI2MiwtMTU3NTY4NDYzNCwtMT
+eyJoaXN0b3J5IjpbMTczMDk3MDA5MiwtMTU3NTY4NDYzNCwtMT
 M2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUyODldfQ==
 -->

@@ -321,9 +321,35 @@ int  main(void)
 
 Ici, je crée un tableau de deux dimensions et un pointeur de type *int (\*p) [3]* qui pointe sur la première valeur du premier tableau.
 
-Ce programme applique l'arithmétique des pointers sur un tableau. Il affiche la totalité d'un tableau 
+Ce programme applique l'arithmétique des pointers sur un tableau. Il affiche la totalité d'un tableau à deux dimensions composé de deux tableaux de 3 *int* :
+
+```c
+#include <stdio.h>
+
+int  main(void)  
+{  
+	int arr[2][3] = {{1, 2, 3}, {4, 5, 6}};  
+	int i = 0;  
+int j = 0;  
+  
+while (i < 2)  
+{  
+while (j < 3)  
+{  
+printf("arr[%d][%d] = %d\n", i, j, *(*(arr + i) + j));  
+j++;  
+}  
+j = 0;  
+i++;  
+}  
+return  0;  
+}
+```
+```bash
+
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzIzNjk4MjcsMTQ2NzY4OTcxOCwtMT
-U3NTY4NDYzNCwtMTM2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUy
-ODldfQ==
+eyJoaXN0b3J5IjpbMTMyNjQ1MzU0OCwxNDY3Njg5NzE4LC0xNT
+c1Njg0NjM0LC0xMzYxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4
+OV19
 -->

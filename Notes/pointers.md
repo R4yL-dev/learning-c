@@ -74,10 +74,28 @@ Nous venons de changer la valeur de *a* via son pointer. Cette opération s'appe
 ## Types de pointer, void pointer et arithmétique des pointers
 Comme nous l'avons vu, un pointer a un type. Si nous voulons pointer un *int* nous devons créer un pointer qui a le type *\* int*. *C* demande que nous déclarions un type pour un pointer car ils ne permette pas seulement de stocké l'adresse d'une variable mais aussi d'accéder à sa valeur (déréférencer). Lorsque nous allons chercher la valeur qui correspond à une adresse, le compilateur doit savoir comment interpréter la donnée. En effet, un *int* ne prend pas la même place qu'un *char* et n'est pas stocké pareil qu'un *float*.
 
-Nous avons vu que les pointer avaient des types. Et comme nous le savons, les types ne prennent pas le même nombre de bytes pour stocker l'information. Un *int* prend 4 bytes (sur une architecture 64 bites) alors qu'un *char* ne prend que 1 bytes. Pour connaitre la taille d'un t
+Nous avons vu que les pointer avaient des types. Et comme nous le savons, les types ne prennent pas le même nombre de bytes pour stocker l'information. Un *int* prend 4 bytes (sur une architecture 64 bites) alors qu'un *char* ne prend que 1 bytes. Pour connaitre la taille d'un type, nous pouvons utiliser l'opérateur *sizeof()*.
+```c
+#include <stdio.h>
+
+int main(void)
+{
+	printf("size of int : %ld bytes.\n", sizeof(int));  
+	printf("size of char : %ld bytes.\n", sizeof(char));  
+	printf("size of float : %ld bytes.\n", sizeof(float));  
+	printf("size of double : %ld bytes.\n", sizeof(double));  
+	return  0;
+}
+```
+```bash
+size of int : 4 bytes.  
+size of char : 1 bytes.  
+size of float : 4 bytes.  
+size of double : 8 bytes.
+```
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDQ0MDI2NzIsNTQ1NzYxMjY5LDUyMT
+eyJoaXN0b3J5IjpbLTEzNjE3Njg3NzcsNTQ1NzYxMjY5LDUyMT
 U1Mjg5XX0=
 -->

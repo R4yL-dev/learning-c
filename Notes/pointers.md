@@ -23,8 +23,18 @@ Nous pouvons afficher l'adresse d'une variable avec cet opérateur :
 #include <stdio.h>
 
 int main(void)
+{
+	int a;
+	
+	printf("%p\n", &a);
+	return (0);
+}
 ```
+```bash
+0x7ffee0c47ab4
+```
+Quand nous exécutons ce programme, le terminal nous affiche l'adresse mémoire o
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU1Nzg1MzY0MCw1NDU3NjEyNjksNTIxNT
-UyODldfQ==
+eyJoaXN0b3J5IjpbMTM2NDc5ODM3LDU0NTc2MTI2OSw1MjE1NT
+I4OV19
 -->

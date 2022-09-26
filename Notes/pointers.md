@@ -256,9 +256,9 @@ printf("[FUNC] size of arr : %ld.\n", sizeof(*arr));
 }
 ```
 
-Cela est complètement équivalent à la notation du pr
+Cela est complètement équivalent à la notation du premier exemple.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzU3NTE3MDI5LDE0Njc2ODk3MTgsLTE1Nz
-U2ODQ2MzQsLTEzNjE3Njg3NzcsNTQ1NzYxMjY5LDUyMTU1Mjg5
-XX0=
+eyJoaXN0b3J5IjpbLTE2Mzg2MDMzNDEsMTQ2NzY4OTcxOCwtMT
+U3NTY4NDYzNCwtMTM2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUy
+ODldfQ==
 -->

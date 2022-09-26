@@ -133,8 +133,21 @@ Ici, nous pouvons constater que nous affichons l'adresse et la valeur de la vari
 Nous avons la possibilité de créer des pointers de type *void* (aucun type). Vu que nous ne donnons pas de type au pointer, nous ne pouvons le déréférencer. Nous ne pouvons pas non plus faire d’arithmétique dessus car cela demande de pouvoir déréférencer le pointer. Nous en verrons plus sur les *void pointer* plus loin dans ce document.
 
 ## Pointer to pointer
-Un pointer est comme une variable classique, ce qui veut dire qu'il possède une adresse mémoire. Nous pouvons stocker son adresse dans un autre pointer, un pointer de pointer. Nous avons vu qu'un pointer devait avoir un 
+Un pointer est comme une variable classique, ce qui veut dire qu'il possède une adresse mémoire. Nous pouvons stocker son adresse dans un autre pointer, un pointer de pointer. Nous avons vu qu'un pointer devait avoir un type cohérent avec le type de la variable pour la quel nous voulons stocké l'adresse mémoire. Pour un pointer de pointer c'est le même chose. 
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+	int a = 42;
+	
+}
+```
+```bash
+
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwNDY2NDE5NCwtMTU3NTY4NDYzNCwtMT
+eyJoaXN0b3J5IjpbMTI5MTA3OTI2MiwtMTU3NTY4NDYzNCwtMT
 M2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUyODldfQ==
 -->

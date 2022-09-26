@@ -9,8 +9,9 @@ int a;
 // Déclaration d'un pointer
 int *p;
 ```
-*C* nous impose de donner un type cohérent à nos pointer. Si le pointer doit pointer une variable de type *int*, il doit être de type *\* int*. asd
+*C* nous impose de donner un type cohérent à nos pointer. Si le pointer doit pointer une variable de type *int*, il doit être de type *\* int*.
+Comme nous l'avons vu, un pointer stock l'adresse d'une variable. Pour avoir accès à l'adresse, nous devons utiliser l'opérateur *&*. Voici comment ajouter 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzA0ODM5NjMsNTQ1NzYxMjY5LDUyMTU1Mj
-g5XX0=
+eyJoaXN0b3J5IjpbLTMwMjk5MDU2LDU0NTc2MTI2OSw1MjE1NT
+I4OV19
 -->

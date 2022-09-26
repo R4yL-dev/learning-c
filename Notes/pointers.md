@@ -33,8 +33,11 @@ int main(void)
 ```bash
 0x7ffee0c47ab4
 ```
+
 Quand nous exécutons ce programme, le terminal nous affiche l'adresse mémoire où esst stocké la variable *a*.
+
 Si nous affichons la valeur du pointer, le résultat est aussi l'adresse de la variable *a*.
+
 ```c
 #include <stdio.h>
 
@@ -51,8 +54,10 @@ int main(void)
 ```bash
 0x7ffcdf0c6d0c
 ```
+
 Nous pouvons constater que l'adresse à changer entre les deux exemples. C'est parce que nous avons exécuté le programme deux fois. C'est le système d'exploitation qui gère l'adressage et peut donc fournir des adresses différentes entre chaque exécution.
 Nous savons maintenant comment faire pointer un pointer sur une variable. Maintenant, nous allons voir comment changer la valeur de la variable en passant par le pointer. Pour se faire, nous allons utiliser l'opérateur *\** :
+
 ```c
 #include <stdio.h>
 
@@ -69,12 +74,14 @@ int main(void)
 ```bash
 a = 42
 ```
+
 Nous venons de changer la valeur de *a* via son pointer. Cette opération s'appel le **déréférencement**.
 
 ## Types de pointer, void pointer et arithmétique des pointers
 Comme nous l'avons vu, un pointer a un type. Si nous voulons pointer un *int* nous devons créer un pointer qui a le type *\* int*. *C* demande que nous déclarions un type pour un pointer car ils ne permette pas seulement de stocké l'adresse d'une variable mais aussi d'accéder à sa valeur (déréférencer). Lorsque nous allons chercher la valeur qui correspond à une adresse, le compilateur doit savoir comment interpréter la donnée. En effet, un *int* ne prend pas la même place qu'un *char* et n'est pas stocké pareil qu'un *float*.
 
 Nous avons vu que les pointer avaient des types. Et comme nous le savons, les types ne prennent pas le même nombre de bytes pour stocker l'information. Un *int* prend 4 bytes (sur une architecture 64 bites) alors qu'un *char* ne prend que 1 bytes. Pour connaitre la taille d'un type, nous pouvons utiliser l'opérateur *sizeof()*.
+
 ```c
 #include <stdio.h>
 
@@ -93,9 +100,12 @@ size of char : 1 bytes.
 size of float : 4 bytes.  
 size of double : 8 bytes.
 ```
+
 # L'arithmétique
-Nous pouvons faire des opérations sur les pointer, nous pouvons les additionner ou lui soustraire un entier. Comme nous venons de le voir que les types prennen
+Nous pouvons faire des opérations sur les pointer, nous pouvons les additionner ou lui soustraire un entier. Comme nous venons de le voir que les types prennent différents espaces dans la mémoire, nous avons les outils pour comprendre l'arithmétique des pointers.
+
+Si nous 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIyNjkwMjU4NCwtMTM2MTc2ODc3Nyw1ND
-U3NjEyNjksNTIxNTUyODldfQ==
+eyJoaXN0b3J5IjpbNDIyODcyNTMyLC0xMzYxNzY4Nzc3LDU0NT
+c2MTI2OSw1MjE1NTI4OV19
 -->

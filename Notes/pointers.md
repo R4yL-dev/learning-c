@@ -117,14 +117,18 @@ int main(void)
 	int a = 42;
 	int *p = &a;
 
-	printf("Adre")
+	printf("Address = %p, value = %d\n", (p), *(p));
+	printf("Address = %p, value = %d\n", (p + 1), *(p + 1));
 	return (0);
 }
 ```
 ```bash
-
+Address = 0x7ffe85ee457c, value = 42  
+Address = 0x7ffe85ee4580, value = -2047982212
 ```
+
+Ici,
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjczNDI0NTc4LC0xNTc1Njg0NjM0LC0xMz
-YxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4OV19
+eyJoaXN0b3J5IjpbLTIwNjUzNjQyNjUsLTE1NzU2ODQ2MzQsLT
+EzNjE3Njg3NzcsNTQ1NzYxMjY5LDUyMTU1Mjg5XX0=
 -->

@@ -107,8 +107,8 @@ size of double : 8 bytes.
 # L'arithmétique
 Nous pouvons faire des opérations sur les pointer, nous pouvons les additionner ou lui soustraire un entier. Comme nous venons de le voir que les types prennent différents espaces dans la mémoire, nous avons les outils pour comprendre l'arithmétique des pointers.
 
-Si nous 
+Si nous avons un pointer sur *int* et que nous lui ajoutons 1, le résultat va être le prochain *int* disponible dans la mémoire. Nous savons qu'un *int* prend 4 bytes de mémoire, si nous lui ajoutons 1 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzU2ODQ2MzQsLTEzNjE3Njg3NzcsNT
-Q1NzYxMjY5LDUyMTU1Mjg5XX0=
+eyJoaXN0b3J5IjpbMTQwNzA2OTk2NCwtMTU3NTY4NDYzNCwtMT
+M2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUyODldfQ==
 -->

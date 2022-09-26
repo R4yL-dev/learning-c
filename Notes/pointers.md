@@ -130,8 +130,8 @@ Address = 0x7ffe85ee4580, value = -2047982212
 Ici, nous pouvons constater que nous affichons l'adresse et la valeur de la variable *a* au travers d'un pointer. Et lorsque nous ajoutons 1 au pointer, l'adresse change et elle change de exactement 4 bytes (en hexadécimal). La valeur aussi change, ici, elle prend la valeur du prochain *int* dans la mémoire et vu que ce *int* n'est pas réservé par une variable, nous récupérons une données aléatoire stockée en mémoire.
 
 ### Void pointer
-Nous avons la possibilité de créer des pointers de type *void* (aucun type). Vu que nous ne donnons pas de type au pointer, nous ne pouvons le déréférencer. Nous ne pouvons pas non plus faire d’arithmétique dessus car cela demande de pouvoir déréférencer
+Nous avons la possibilité de créer des pointers de type *void* (aucun type). Vu que nous ne donnons pas de type au pointer, nous ne pouvons le déréférencer. Nous ne pouvons pas non plus faire d’arithmétique dessus car cela demande de pouvoir déréférencer le pointer. Nous en verrons plus sur les *void pointer* plus loin dans ce document.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NDUwODEyMCwtMTU3NTY4NDYzNCwtMT
-M2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUyODldfQ==
+eyJoaXN0b3J5IjpbNzg1OTA0MzI1LC0xNTc1Njg0NjM0LC0xMz
+YxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4OV19
 -->

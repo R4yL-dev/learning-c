@@ -319,9 +319,11 @@ int  main(void)
 }
 ```
 
-Ici, je crée un tableau de deux dimensions et un pointeur de type *int (\*p) [3]* qui pointe sur la première valeur du premie
+Ici, je crée un tableau de deux dimensions et un pointeur de type *int (\*p) [3]* qui pointe sur la première valeur du premier tableau.
+
+Ce programme applique l'arithmétique des pointers sur un tableau. Il affiche la totalité d'un tableau 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODI4MzAyNCwxNDY3Njg5NzE4LC0xNT
-c1Njg0NjM0LC0xMzYxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4
-OV19
+eyJoaXN0b3J5IjpbLTE1NzIzNjk4MjcsMTQ2NzY4OTcxOCwtMT
+U3NTY4NDYzNCwtMTM2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUy
+ODldfQ==
 -->

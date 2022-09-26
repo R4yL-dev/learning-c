@@ -191,7 +191,9 @@ En *C*, le concept de pointer et le concept de tableau sont très liés. Nous al
 Quand nous créons un table de 5 *int*, nous réservons 5 fois 4 bytes consécutif dans la mémoire. Ces 5 *int* sont vraiment stockés à la suite dans la mémoire, ce qui veut dires qu'ils sont exactement espacé de 4 bytes les uns des autres et que nous pouvons facilement passer de l'un à l'autre.
 
 ```c
-int  main()  
+#include <stdio.h>
+
+int  main(void)  
 {  
 	int arr[5];  
   
@@ -204,15 +206,21 @@ int  main()
 	printf("address : %p, value : %d.\n", (arr + 1), *(arr + 1));  
 	printf("address : %p, value : %d.\n", (arr + 2), *(arr + 2));  
 	printf("address : %p, value : %d.\n", (arr + 3), *(arr + 3));  
-printf("address : %p, value : %d.\n", (arr + 4), *(arr + 4));  
-return  0;  
+	printf("address : %p, value : %d.\n", (arr + 4), *(arr + 4));  
+	return  (0);  
 }
 ```
-````bash
-
+```bash
+address : 0x7ffd2bbb2f60, value : 1.  
+address : 0x7ffd2bbb2f64, value : 2.  
+address : 0x7ffd2bbb2f68, value : 3.  
+address : 0x7ffd2bbb2f6c, value : 4.  
+address : 0x7ffd2bbb2f70, value : 5.
 ```
+
+Ici, nous voyons que nous pouvons accéder aux cellules d'un tableau comme s'il était un pointeur. Cela vient du faut que *arr* est en fait un pointeur sur le premier élément du t
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjExOTQ1OTQsMTQ2NzY4OTcxOCwtMT
-U3NTY4NDYzNCwtMTM2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUy
-ODldfQ==
+eyJoaXN0b3J5IjpbMzM3Nzg5NDE2LDE0Njc2ODk3MTgsLTE1Nz
+U2ODQ2MzQsLTEzNjE3Njg3NzcsNTQ1NzYxMjY5LDUyMTU1Mjg5
+XX0=
 -->

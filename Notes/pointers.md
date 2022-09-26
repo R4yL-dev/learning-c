@@ -146,13 +146,15 @@ int main(void)
 	int **p2 = &p1;
 
 	printf("Value of pointer to pointer on int : %d\n", *(*(p2)));
-	
+	return (0);
 }
 ```
 ```bash
-
+Value of pointer to pointer on int : 42
 ```
+
+Ici, nous voyons bien que nous déclarons *p2* avec le pointer sur pointer sur int (*int \*\**)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczMDk3MDA5MiwtMTU3NTY4NDYzNCwtMT
-M2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUyODldfQ==
+eyJoaXN0b3J5IjpbMjgxMTkxMzcsLTE1NzU2ODQ2MzQsLTEzNj
+E3Njg3NzcsNTQ1NzYxMjY5LDUyMTU1Mjg5XX0=
 -->

@@ -278,9 +278,11 @@ int  main(void)
 size of str : 6.
 ```
 
+Ici, nous pouvons voir que la taille de la chaine fait 5 (salut) + 1 ('\0').
 
+Maintenant, nous devons comprendre que les tableaux et les pointer sont de type différnet mais s'utilise de la même manière. Cela veut dire que cette notation est totalement valide 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzIyNzY0NDYzLDE0Njc2ODk3MTgsLTE1Nz
-U2ODQ2MzQsLTEzNjE3Njg3NzcsNTQ1NzYxMjY5LDUyMTU1Mjg5
-XX0=
+eyJoaXN0b3J5IjpbLTE0NjE4OTQzNCwxNDY3Njg5NzE4LC0xNT
+c1Njg0NjM0LC0xMzYxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4
+OV19
 -->

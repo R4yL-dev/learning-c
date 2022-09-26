@@ -280,9 +280,27 @@ size of str : 6.
 
 Ici, nous pouvons voir que la taille de la chaine fait 5 (salut) + 1 ('\0').
 
-Maintenant, nous devons comprendre que les tableaux et les pointer sont de type différnet mais s'utilise de la même manière. Cela veut dire que cette notation est totalement valide 
+Maintenant, nous devons comprendre que les tableaux et les pointer sont de type différent mais s'utilise de la même manière. Cela veut dire que cette notation est totalement valide :
+
+```c
+#include <stdio.h>
+
+int  main(void)  
+{  
+	char *str = "Salut";  
+
+	printf("size of str : %ld.\n", sizeof(str));  
+	return  (0);  
+}
+```
+```bash
+size of str : 6.
+```
+
+## Pointer et 2D-Array
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjE4OTQzNCwxNDY3Njg5NzE4LC0xNT
+eyJoaXN0b3J5IjpbLTY1OTU0MTUzNCwxNDY3Njg5NzE4LC0xNT
 c1Njg0NjM0LC0xMzYxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4
 OV19
 -->

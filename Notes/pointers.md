@@ -163,13 +163,25 @@ Nous pouvons passer des pointer comme argument de fonction, nous appelons cela *
 
 void add_one(int *nb)
 {
-	(*nb) = (*nb) 
+	(*nb) = (*nb) + 1;
+}
+
+int main(void)
+{
+	int a = 42;
+	int *p_a;
+	
+	p_a = &a;
+	printf("a : %d\n", a);
+	add_one(p_a);
+	printf("a : %d\n", a);
+	return (0);
 }
 ```
 ```bash
 
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTAzNTMxODUsLTE1NzU2ODQ2MzQsLT
-EzNjE3Njg3NzcsNTQ1NzYxMjY5LDUyMTU1Mjg5XX0=
+eyJoaXN0b3J5IjpbOTMxMTg2MTMyLC0xNTc1Njg0NjM0LC0xMz
+YxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4OV19
 -->

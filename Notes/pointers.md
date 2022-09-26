@@ -131,7 +131,10 @@ Ici, nous pouvons constater que nous affichons l'adresse et la valeur de la vari
 
 ### Void pointer
 Nous avons la possibilité de créer des pointers de type *void* (aucun type). Vu que nous ne donnons pas de type au pointer, nous ne pouvons le déréférencer. Nous ne pouvons pas non plus faire d’arithmétique dessus car cela demande de pouvoir déréférencer le pointer. Nous en verrons plus sur les *void pointer* plus loin dans ce document.
+
+## Pointer to pointer
+Un pointer est comme une variable classique, ce qui veut dire qu'il possède une adresse mémoire. Nous pouvons stocker son adresse dans un autre pointer, un pointer de pointer. Nous avons vu qu'un pointer devait avoir un 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzg1OTA0MzI1LC0xNTc1Njg0NjM0LC0xMz
-YxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4OV19
+eyJoaXN0b3J5IjpbMTkwNDY2NDE5NCwtMTU3NTY4NDYzNCwtMT
+M2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUyODldfQ==
 -->

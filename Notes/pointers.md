@@ -9,8 +9,10 @@ int a;
 // Déclaration d'un pointer
 int *p;
 ```
+
 *C* nous impose de donner un type cohérent à nos pointer. Si le pointer doit pointer une variable de type *int*, il doit être de type *\* int*.
 Comme nous l'avons vu, un pointer stock l'adresse d'une variable. Pour avoir accès à l'adresse, nous devons utiliser l'opérateur *&*. Voici comment ajouter l'adresse d'une variable à un pointer :
+
 ```c
 int a;
 int *p;
@@ -19,6 +21,7 @@ p = &a;
 ```
 
 Nous pouvons afficher l'adresse d'une variable avec cet opérateur :
+
 ```c
 #include <stdio.h>
 
@@ -106,6 +109,6 @@ Nous pouvons faire des opérations sur les pointer, nous pouvons les additionner
 
 Si nous 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDIyODcyNTMyLC0xMzYxNzY4Nzc3LDU0NT
-c2MTI2OSw1MjE1NTI4OV19
+eyJoaXN0b3J5IjpbLTE1NzU2ODQ2MzQsLTEzNjE3Njg3NzcsNT
+Q1NzYxMjY5LDUyMTU1Mjg5XX0=
 -->

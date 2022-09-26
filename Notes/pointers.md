@@ -93,9 +93,9 @@ size of char : 1 bytes.
 size of float : 4 bytes.  
 size of double : 8 bytes.
 ```
-
-
+# L'arithmétique
+Nous pouvons faire des opérations sur les pointer, nous pouvons les additionner ou lui soustraire un entier 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyMzQwNzEwMSwtMTM2MTc2ODc3Nyw1ND
+eyJoaXN0b3J5IjpbMTA3Mjg3MzgwNywtMTM2MTc2ODc3Nyw1ND
 U3NjEyNjksNTIxNTUyODldfQ==
 -->

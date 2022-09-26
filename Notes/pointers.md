@@ -257,8 +257,11 @@ printf("[FUNC] size of arr : %ld.\n", sizeof(*arr));
 ```
 
 Cela est complètement équivalent à la notation du premier exemple.
+
+## Tableaux de caractères et pointers
+En *C*, les chaines de caractères sont forcément des tableaux de caractères. Pour pouvoir faire une string, il faut que le tableau qui la reçoit soit assez grand. La meilleure 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2Mzg2MDMzNDEsMTQ2NzY4OTcxOCwtMT
+eyJoaXN0b3J5IjpbLTIxMzM4MDE0MjAsMTQ2NzY4OTcxOCwtMT
 U3NTY4NDYzNCwtMTM2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUy
 ODldfQ==
 -->

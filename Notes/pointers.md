@@ -308,9 +308,9 @@ int  main(void)
 }
 ```
 
-Ici, nous avons créé un tableau qui c
+Ici, nous avons créé un tableau qui comporte deux tableaux de trois *int*. Comme nous l'avons vu, les tableaux à une dimension retourne un pointer du type de la donnée. Pour un tableau à deux dimension, son nom retourne également un pointer, ici un pointer sur un tableau d'une dimens
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM0ODgwMTUyOSwxNDY3Njg5NzE4LC0xNT
-c1Njg0NjM0LC0xMzYxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4
-OV19
+eyJoaXN0b3J5IjpbLTE4NDIwMzI0MjUsMTQ2NzY4OTcxOCwtMT
+U3NTY4NDYzNCwtMTM2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUy
+ODldfQ==
 -->

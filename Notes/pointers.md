@@ -225,9 +225,31 @@ Nous pouvons mettre un tableau dans un pointer (p = arr) alors qu'il est impossi
 
 ## Tableau comme argument de fonction
 Nous pouvons passer des tableaux en argument d'une fonction. Et nous avons plusieurs manières de le faire. Cela est dû au fait que les tableaux et les pointers sont très liés. La première chose à bien comprendre est quand nous envoyons un tableau à une fonction, il est automatiquement passé par référence. Ce qui veut dire que dans la fonction qui reçois le tableau, c'est en fait, l’adresse du premier élément qui est reçu.
-Cela fait que dans la fonction, il est impossible de savoir la taille du tableau car la fonction n'a pas cette information, juste l'adresse de la première valeur du tableau. Il faut parcourir le tableau et arriver au dernier  élément pour connaitre sa taille réelle Ce mécanisme permet d'optimiser l'utilisation de la mémoire. Un tableau peut être gigantesque, ce qui demanderais énormément de ressources pour le transférer d'une fonction à une autre. Alors qu'avec ce mechanisme, le compilateur force le passage par référence, ce qui fait qu'il n'y a qu'une adresse qui 
+Cela fait que dans la fonction, il est impossible de savoir la taille du tableau car la fonction n'a pas cette information, juste l'adresse de la première valeur du tableau. Il faut parcourir le tableau et arriver au dernier  élément pour connaitre sa taille réelle Ce mécanisme permet d'optimiser l'utilisation de la mémoire. Un tableau peut être gigantesque, ce qui demanderais énormément de ressources pour le transférer d'une fonction à une autre. Alors qu'avec ce mécanisme le compilateur force le passage par référence, ce qui fait qu'il n'y a qu'une adresse qui se balade de fonction en fonction.
+
+```c
+void  ft_size_arr(int arr[])  
+{  
+	printf("[FUNC] size of arr : %ld.\n", sizeof(arr));  
+}  
+  
+int  main(void)  
+{  
+	int arr[5];  
+  
+	ft_size_arr(arr);  
+	printf("[MAIN] size of arr : %ld.\n", sizeof(arr));  
+	return  (0);  
+}
+```
+```bash
+[FUNC] size of arr : 4.  
+[MAIN] size of arr : 20.
+```
+
+Vu que la fonction 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NzAzNjM1NjIsMTQ2NzY4OTcxOCwtMT
-U3NTY4NDYzNCwtMTM2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUy
-ODldfQ==
+eyJoaXN0b3J5IjpbNTkwNzIzMTg4LDE0Njc2ODk3MTgsLTE1Nz
+U2ODQ2MzQsLTEzNjE3Njg3NzcsNTQ1NzYxMjY5LDUyMTU1Mjg5
+XX0=
 -->

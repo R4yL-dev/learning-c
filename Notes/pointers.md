@@ -179,9 +179,13 @@ int main(void)
 }
 ```
 ```bash
-
+a : 42  
+a : 43
 ```
+
+Ici, j'ai créé ne fonction *add_one()* qui prend comme argument un pointer sur int. Elle ajoute 1 à la valeur associée à l'adresse passée en argument.
+Nous pouvons constater à l'affichage que la valeur de *a* a bien changé une fois la fonction appelée a
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTMxMTg2MTMyLC0xNTc1Njg0NjM0LC0xMz
-YxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4OV19
+eyJoaXN0b3J5IjpbLTE4MjI2Nzg3NDEsLTE1NzU2ODQ2MzQsLT
+EzNjE3Njg3NzcsNTQ1NzYxMjY5LDUyMTU1Mjg5XX0=
 -->

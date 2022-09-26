@@ -153,8 +153,11 @@ int main(void)
 Value of pointer to pointer on int : 42
 ```
 
-Ici, nous voyons bien que nous déclarons *p2* avec le pointer sur pointer sur int (*int \*\**)
+Ici, nous voyons bien que nous déclarons *p2* avec le pointer sur pointer sur int (*int \*\**). Nous affichons aussi la valeur de *a* au travers de celui-ci.
+
+## Pointer comme arguments de fonction
+Nous pouvons passer des pointer comme argument de fonction, nous appelons cela *call by reference*. Si nous faisons cela, nous ne créons pas dans la fonc
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjgxMTkxMzcsLTE1NzU2ODQ2MzQsLTEzNj
-E3Njg3NzcsNTQ1NzYxMjY5LDUyMTU1Mjg5XX0=
+eyJoaXN0b3J5IjpbNjM5MDYwMDQxLC0xNTc1Njg0NjM0LC0xMz
+YxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4OV19
 -->

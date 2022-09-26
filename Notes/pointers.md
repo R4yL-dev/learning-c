@@ -224,9 +224,9 @@ Il y a quand même quelques différences entre un tableau et un pointer. Par exe
 Nous pouvons mettre un tableau dans un pointer (p = arr) alors qu'il est impossible de faire l'inverse (arr = p).
 
 ## Tableau comme argument de fonction
-
+Nous pouvons passer des tableaux en argument d'une fonction. Et nous avons plusieurs manières de le faire. Cela est dû au fait que les tableaux et les pointers sont très liés. La première chose à bien comprendre est quand nous envoyons 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3ODg0OTI5NywxNDY3Njg5NzE4LC0xNT
+eyJoaXN0b3J5IjpbLTQxMTcxMTEwMywxNDY3Njg5NzE4LC0xNT
 c1Njg0NjM0LC0xMzYxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4
 OV19
 -->

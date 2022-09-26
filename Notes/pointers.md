@@ -188,9 +188,31 @@ Nous pouvons constater à l'affichage que la valeur de *a* a bien changé une fo
 
 ## Pointer et array
 En *C*, le concept de pointer et le concept de tableau sont très liés. Nous allons, dans ce chapitre, en voir plus sur ce lien.
-Quand nous créons un table de 5 *int*, nous réservons 5 fois 4 bytes consécuti
+Quand nous créons un table de 5 *int*, nous réservons 5 fois 4 bytes consécutif dans la mémoire. Ces 5 *int* sont vraiment stockés à la suite dans la mémoire, ce qui veut dires qu'ils sont exactement espacé de 4 bytes les uns des autres et que nous pouvons facilement passer de l'un à l'autre.
+
+```c
+int  main()  
+{  
+	int arr[5];  
+  
+	arr[0] = 1;  
+	arr[1] = 2;  
+	arr[2] = 3;  
+	arr[3] = 4;  
+	arr[4] = 5;  
+	printf("address : %p, value : %d.\n", (arr), *(arr));  
+	printf("address : %p, value : %d.\n", (arr + 1), *(arr + 1));  
+	printf("address : %p, value : %d.\n", (arr + 2), *(arr + 2));  
+	printf("address : %p, value : %d.\n", (arr + 3), *(arr + 3));  
+printf("address : %p, value : %d.\n", (arr + 4), *(arr + 4));  
+return  0;  
+}
+```
+````bash
+
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQxODIxMjM2NywxNDY3Njg5NzE4LC0xNT
-c1Njg0NjM0LC0xMzYxNzY4Nzc3LDU0NTc2MTI2OSw1MjE1NTI4
-OV19
+eyJoaXN0b3J5IjpbLTExMjExOTQ1OTQsMTQ2NzY4OTcxOCwtMT
+U3NTY4NDYzNCwtMTM2MTc2ODc3Nyw1NDU3NjEyNjksNTIxNTUy
+ODldfQ==
 -->

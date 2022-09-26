@@ -69,9 +69,11 @@ int main(void)
 ```bash
 a = 42
 ```
+Nous venons de changer la valeur de *a* via son pointer. Cette opération s'appel le **déréférencement**.
 
+## Types de pointer, void pointer et ari
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MzI3ODIzOTMsNTQ1NzYxMjY5LDUyMT
+eyJoaXN0b3J5IjpbLTEyMTcxOTcyOTEsNTQ1NzYxMjY5LDUyMT
 U1Mjg5XX0=
 -->

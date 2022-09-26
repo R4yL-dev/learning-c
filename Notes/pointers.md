@@ -94,8 +94,8 @@ size of float : 4 bytes.
 size of double : 8 bytes.
 ```
 # L'arithmétique
-Nous pouvons faire des opérations sur les pointer, nous pouvons les additionner ou lui soustraire un entier 
+Nous pouvons faire des opérations sur les pointer, nous pouvons les additionner ou lui soustraire un entier. Comme nous venons de le voir que les types prennen
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3Mjg3MzgwNywtMTM2MTc2ODc3Nyw1ND
+eyJoaXN0b3J5IjpbMTIyNjkwMjU4NCwtMTM2MTc2ODc3Nyw1ND
 U3NjEyNjksNTIxNTUyODldfQ==
 -->

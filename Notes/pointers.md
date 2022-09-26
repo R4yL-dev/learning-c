@@ -247,9 +247,18 @@ int  main(void)
 [MAIN] size of arr : 20.
 ```
 
-Vu que la fonction 
+Vu que la fonction ne reçois dans tous les cas qu'une adresse, nous pouvons très bien recevoir le tableau comme ceci :
+
+```c
+void  ft_size_arr(int *arr)  
+{  
+printf("[FUNC] size of arr : %ld.\n", sizeof(*arr));  
+}
+```
+
+Cela est complètement équivalent à la notation du pr
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTkwNzIzMTg4LDE0Njc2ODk3MTgsLTE1Nz
+eyJoaXN0b3J5IjpbMzU3NTE3MDI5LDE0Njc2ODk3MTgsLTE1Nz
 U2ODQ2MzQsLTEzNjE3Njg3NzcsNTQ1NzYxMjY5LDUyMTU1Mjg5
 XX0=
 -->

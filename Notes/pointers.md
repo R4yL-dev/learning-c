@@ -72,10 +72,10 @@ a = 42
 Nous venons de changer la valeur de *a* via son pointer. Cette opération s'appel le **déréférencement**.
 
 ## Types de pointer, void pointer et arithmétique des pointers
-Comme nous l'avons vu, un pointer a un type. Si nous voulons pointer un *int* nous devons créer un pointer qui a le type *\* int*. *C* demande 
+Comme nous l'avons vu, un pointer a un type. Si nous voulons pointer un *int* nous devons créer un pointer qui a le type *\* int*. *C* demande que nous déclarions un type pour un pointer car ils ne permette pas seulement de stocké l'adresse d'une variable mais aussi d'accéder à sa valeur (déréférencer)
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MTYxMzMzNTIsNTQ1NzYxMjY5LDUyMT
-U1Mjg5XX0=
+eyJoaXN0b3J5IjpbLTg2MDAwMjc3NCw1NDU3NjEyNjksNTIxNT
+UyODldfQ==
 -->

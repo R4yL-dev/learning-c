@@ -329,7 +329,7 @@ int  main(void)
 }
 ```
 
-Ici, nous avons créé un tableau qui comporte deux tableaux de trois *int*. Comme nous l'avons vu, les tableaux à une dimension retourne un pointer du type de la donnée. Pour un tableau à deux dimension, son nom retourne également un pointer, ici un pointer sur un tableau d'une dimension qui comporte 3 *int* (`int (*p)[3]`).
+Ici, nous avons créé un tableau qui comporte deux tableaux de trois *int*. Comme nous l'avons vu, les tableaux à une dimension retourne un pointer du type de la donnée. Pour un tableau à deux dimension, son nom retourne également un pointer, ici un pointer sur un tableau d'une dimension qui comporte 3 *int* (`int (*p) [3]`).
 
 ```c
 int  main(void)

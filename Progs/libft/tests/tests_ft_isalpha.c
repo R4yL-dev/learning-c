@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 16:43:33 by lray              #+#    #+#             */
-/*   Updated: 2022/09/27 17:34:32 by lray             ###   ########.fr       */
+/*   Updated: 2022/09/27 19:25:13 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	(void)argv;
 	err = 0;
 	i = 0;
-	while (i <= 127)
+	while (i <= 10000)
 	{
 		if (argc >= 2)
 			printf("Test #%d \t|\tft_isalpha(%c) = %d [STD] = %d.\n"\

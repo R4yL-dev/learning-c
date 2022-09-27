@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 16:33:16 by lray              #+#    #+#             */
-/*   Updated: 2022/09/27 17:35:45 by lray             ###   ########.fr       */
+/*   Updated: 2022/09/27 19:32:59 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	(void)argv;
 	err = 0;
 	i = 0;
-	while (i <= 127)
+	while (i <= 10000)
 	{
 		if (argc >= 2)
 			printf("Test #%d \t|\tft_isdigit(%c) = %d [STD] = %d.\n"\

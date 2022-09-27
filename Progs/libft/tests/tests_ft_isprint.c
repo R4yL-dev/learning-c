@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_ft_isascii.c                                 :+:      :+:    :+:   */
+/*   tests_ft_isprint.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 18:10:21 by lray              #+#    #+#             */
-/*   Updated: 2022/09/28 01:37:33 by luca             ###   ########.fr       */
+/*   Created: 2022/09/28 01:30:43 by luca              #+#    #+#             */
+/*   Updated: 2022/09/28 01:37:50 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <ctype.h>
 
-int	ft_isascii(int c);
+int	ft_isprint(int c);
 
 int	main(int argc, char **argv)
 {
@@ -23,15 +23,15 @@ int	main(int argc, char **argv)
 	(void)argv;
 	err = 0;
 	i = -10;
-	while (i <= 100000)
+	while (i <= 10000)
 	{
 		if (argc >= 2)
-			printf("Test #%d \t|\tft_isascii(%c) = %d [STD] = %d.\n"\
-					, i, i, ft_isascii(i), isascii(i));
-		if (ft_isascii(i) != isascii(i))
+			printf("Test #%d \t|\tft_isprint(%c) = %d [STD] = %d.\n"\
+					, i, i, ft_isprint(i), isprint(i));
+		if (ft_isprint(i) != isprint(i))
 		{
-			printf("[ERR] char = %c / %d | ft_isascii = %d - isascii = %d.\n"\
-					, i, i, ft_isascii(i), isascii(i));
+			printf("[ERR] char = %c / %d | ft_isprint = %d - isprint = %d.\n"\
+					, i, i, ft_isprint(i), isprint(i));
 			err++;
 		}
 		i++;

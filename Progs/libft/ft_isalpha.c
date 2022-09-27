@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 15:45:56 by lray              #+#    #+#             */
-/*   Updated: 2022/09/27 17:48:33 by lray             ###   ########.fr       */
+/*   Updated: 2022/09/28 01:23:16 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	unsigned	ft_isalpha(unsigned int c)
+int	ft_isalpha(unsigned int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 		return (1024);

@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   tests_ft_memset2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 02:27:49 by luca              #+#    #+#             */
-/*   Updated: 2022/09/28 16:06:57 by luca             ###   ########.fr       */
+/*   Created: 2022/09/28 15:23:21 by luca              #+#    #+#             */
+/*   Updated: 2022/09/28 16:06:47 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n);
+
+int	main(void)
 {
-	size_t			i;
-	unsigned char	*ptr;
+	char arr[10];
+	size_t i;
 
+	ft_memset(arr, 'a', 10 * (sizeof(arr[0])));
 	i = 0;
-	ptr = (unsigned char *)s;
-	while (i < n)
+	while (i <= 9)
 	{
-		*ptr = c;
+		printf("arr[%ld] = %c\n", i, (char)arr[i]);
 		i++;
-		ptr++;
 	}
-	return (s);
+
+	return (0);
 }

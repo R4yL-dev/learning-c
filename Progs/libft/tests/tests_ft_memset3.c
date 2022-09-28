@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   tests_ft_memset3.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 02:27:49 by luca              #+#    #+#             */
-/*   Updated: 2022/09/28 16:06:57 by luca             ###   ########.fr       */
+/*   Created: 2022/09/28 15:41:48 by luca              #+#    #+#             */
+/*   Updated: 2022/09/28 16:06:51 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n);
+int	ft_strlen(char *str);
+
+int	main(void)
 {
-	size_t			i;
-	unsigned char	*ptr;
+	char arr[] = "Salut les amis comment allez-vous ?";
 
-	i = 0;
-	ptr = (unsigned char *)s;
-	while (i < n)
-	{
-		*ptr = c;
-		i++;
-		ptr++;
-	}
-	return (s);
+	printf("%s\n", arr);
+	ft_memset(arr + 9, 'x', 14 * sizeof(char));
+	printf("%s\n", arr);
+	return (0);
 }

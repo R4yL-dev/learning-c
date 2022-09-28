@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_ft_isprint.c                                 :+:      :+:    :+:   */
+/*   tests_ft_isctrl.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
-int	ft_isprint(int c);
+int	ft_isctrl(int c);
 
 int	main(int argc, char **argv)
 {
@@ -26,12 +26,12 @@ int	main(int argc, char **argv)
 	while (i <= 10000)
 	{
 		if (argc >= 2)
-			printf("Test #%d \t|\tft_isprint(%c) = %d [STD] = %d.\n"\
-					, i, i, ft_isprint(i), isprint(i));
-		if (ft_isprint(i) != isprint(i))
+			printf("Test #%d \t|\tft_isctrl(%c) = %d [STD] = %d.\n"\
+					, i, i, ft_isctrl(i), isctrl(i));
+		if (ft_isctrl(i) != isctrl(i))
 		{
-			printf("[ERR] char = %c / %d | ft_isprint = %d - isprint = %d.\n"\
-					, i, i, ft_isprint(i), isprint(i));
+			printf("[ERR] char = %c / %d | ft_isctrl = %d - isctrl = %d.\n"\
+					, i, i, ft_isctrl(i), isctrl(i));
 			err++;
 		}
 		i++;

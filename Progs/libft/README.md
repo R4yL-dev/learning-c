@@ -1,6 +1,6 @@
 # Libft
 
-# Part 1
+## Part 1
 
 - [x] ft_isalpha
 - [x] ft_isdigit
@@ -26,7 +26,7 @@
 - [ ] ft_calloc
 - [ ] ft_strdup
 
-# Part 2
+## Part 2
 
 - [ ] ft_substr
 - [ ] ft_strjoin

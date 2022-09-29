@@ -1,6 +1,18 @@
-# Pointers
+# 1. Pointers
 
-## Introduction
+- [1. Pointers](#1-pointers)
+	- [1.1. Introduction](#11-introduction)
+	- [1.2. Types de pointer, void pointer et arithmétique des pointers](#12-types-de-pointer-void-pointer-et-arithmétique-des-pointers)
+		- [1.2.1. L'arithmétique](#121-larithmétique)
+		- [1.2.2. Void pointer](#122-void-pointer)
+	- [1.3. Pointer to pointer](#13-pointer-to-pointer)
+	- [1.4. Pointer comme arguments de fonction](#14-pointer-comme-arguments-de-fonction)
+	- [1.5. Pointer et array](#15-pointer-et-array)
+	- [1.6. Tableau comme argument de fonction](#16-tableau-comme-argument-de-fonction)
+	- [1.7. Tableaux de caractères et pointers](#17-tableaux-de-caractères-et-pointers)
+	- [1.8. Pointer et 2D-Array](#18-pointer-et-2d-array)
+
+## 1.1. Introduction
 
 Les pointers sont des variables qui ont la particularité de stocker l'adresse mémoire d'une autre variable. Pour déclarer un pointer, il faut utiliser l'opérateur **\***.
 
@@ -84,7 +96,7 @@ a = 42
 
 Nous venons de changer la valeur de *a* via son pointer. Cette opération s'appel le **déréférencement**.
 
-## Types de pointer, void pointer et arithmétique des pointers
+## 1.2. Types de pointer, void pointer et arithmétique des pointers
 
 Comme nous l'avons vu, un pointer a un type. Si nous voulons pointer un *int* nous devons créer un pointer qui a le type *\* int*. *C* demande que nous déclarions un type pour un pointer car ils ne permette pas seulement de stocké l'adresse d'une variable mais aussi d'accéder à sa valeur (déréférencer). Lorsque nous allons chercher la valeur qui correspond à une adresse, le compilateur doit savoir comment interpréter la donnée. En effet, un *int* ne prend pas la même place qu'un *char* et n'est pas stocké pareil qu'un *float*.
 
@@ -110,7 +122,7 @@ size of float : 4 bytes.
 size of double : 8 bytes.
 ```
 
-### L'arithmétique
+### 1.2.1. L'arithmétique
 
 Nous pouvons faire des opérations sur les pointer, nous pouvons les additionner ou lui soustraire un entier. Comme nous venons de le voir que les types prennent différents espaces dans la mémoire, nous avons les outils pour comprendre l'arithmétique des pointers.
 
@@ -137,11 +149,11 @@ Address = 0x7ffe85ee4580, value = -2047982212
 
 Ici, nous pouvons constater que nous affichons l'adresse et la valeur de la variable *a* au travers d'un pointer. Et lorsque nous ajoutons 1 au pointer, l'adresse change et elle change de exactement 4 bytes (en hexadécimal). La valeur aussi change, ici, elle prend la valeur du prochain *int* dans la mémoire et vu que ce *int* n'est pas réservé par une variable, nous récupérons une données aléatoire stockée en mémoire.
 
-### Void pointer
+### 1.2.2. Void pointer
 
 Nous avons la possibilité de créer des pointers de type *void* (aucun type). Vu que nous ne donnons pas de type au pointer, nous ne pouvons le déréférencer. Nous ne pouvons pas non plus faire d’arithmétique dessus car cela demande de pouvoir déréférencer le pointer. Nous en verrons plus sur les *void pointer* plus loin dans ce document.
 
-## Pointer to pointer
+## 1.3. Pointer to pointer
 
 Un pointer est comme une variable classique, ce qui veut dire qu'il possède une adresse mémoire. Nous pouvons stocker son adresse dans un autre pointer, un pointer de pointer. Nous avons vu qu'un pointer devait avoir un type cohérent avec le type de la variable pour la quel nous voulons stocké l'adresse mémoire. Pour un pointer de pointer c'est le même chose.
 
@@ -166,7 +178,7 @@ Value of pointer to pointer on int : 42
 
 Ici, nous voyons bien que nous déclarons *p2* avec le pointer sur pointer sur int (*int \*\**). Nous affichons aussi la valeur de *a* au travers de celui-ci.
 
-## Pointer comme arguments de fonction
+## 1.4. Pointer comme arguments de fonction
 
 Nous pouvons passer des pointer comme argument de fonction, nous appelons cela *call by reference*. Si nous faisons cela, nous ne créons pas dans la fonction une copie de la variable que nous devrons retourner par la suite. A la place, nous passons l'adresse de la variable que nous allons pouvoir modifier directement.
 
@@ -199,7 +211,7 @@ a : 43
 Ici, j'ai créé ne fonction *add_one()* qui prend comme argument un pointer sur int. Elle ajoute 1 à la valeur associée à l'adresse passée en argument.
 Nous pouvons constater à l'affichage que la valeur de *a* a bien changé une fois la fonction appelée alors que celle-ci ne retourne rien.
 
-## Pointer et array
+## 1.5. Pointer et array
 
 En *C*, le concept de pointer et le concept de tableau sont très liés. Nous allons, dans ce chapitre, en voir plus sur ce lien.
 Quand nous créons un table de 5 *int*, nous réservons 5 fois 4 bytes consécutif dans la mémoire. Ces 5 *int* sont vraiment stockés à la suite dans la mémoire, ce qui veut dires qu'ils sont exactement espacé de 4 bytes les uns des autres et que nous pouvons facilement passer de l'un à l'autre.
@@ -238,7 +250,7 @@ Ici, nous voyons que nous pouvons accéder aux cellules d'un tableau comme s'il 
 Il y a quand même quelques différences entre un tableau et un pointer. Par exemple, il est impossible d'incrémenter un tableau (arr++) alors que nous pouvons le faire avec un pointer(p++).
 Nous pouvons mettre un tableau dans un pointer (p = arr) alors qu'il est impossible de faire l'inverse (arr = p).
 
-## Tableau comme argument de fonction
+## 1.6. Tableau comme argument de fonction
 
 Nous pouvons passer des tableaux en argument d'une fonction. Et nous avons plusieurs manières de le faire. Cela est dû au fait que les tableaux et les pointers sont très liés. La première chose à bien comprendre est quand nous envoyons un tableau à une fonction, il est automatiquement passé par référence. Ce qui veut dire que dans la fonction qui reçois le tableau, c'est en fait, l’adresse du premier élément qui est reçu.
 Cela fait que dans la fonction, il est impossible de savoir la taille du tableau car la fonction n'a pas cette information, juste l'adresse de la première valeur du tableau. Il faut parcourir le tableau et arriver au dernier  élément pour connaitre sa taille réelle Ce mécanisme permet d'optimiser l'utilisation de la mémoire. Un tableau peut être gigantesque, ce qui demanderais énormément de ressources pour le transférer d'une fonction à une autre. Alors qu'avec ce mécanisme le compilateur force le passage par référence, ce qui fait qu'il n'y a qu'une adresse qui se balade de fonction en fonction.
@@ -275,7 +287,7 @@ void  ft_size_arr(int *arr)
 
 Cela est complètement équivalent à la notation du premier exemple.
 
-## Tableaux de caractères et pointers
+## 1.7. Tableaux de caractères et pointers
 
 En *C*, les chaines de caractères sont forcément des tableaux de caractères. Pour pouvoir faire une string, il faut que le tableau qui la reçoit soit assez grand. La meilleure taille est le nombre de *char* dans la chaine + 1. Nous devons ajouter 1 car par convention, nous devons terminer toutes nos strings par le caractère '\0'. Le tableau peut être plus grand que le nombre de *char* + 1 car les fonctions qui traitent les chaines de caractère vont parcourir le tableau jusqu’à trouver le caractère '\0'. L'espace supplémentaire après la fin de la string sera donc simplement ignoré.
 
@@ -317,7 +329,7 @@ int  main(void)
 size of str : 6.
 ```
 
-## Pointer et 2D-Array
+## 1.8. Pointer et 2D-Array
 
 Pour créer un tableau à deux dimensions, cela fonctionne de la même manière que pour un tableau à une dimension.
 

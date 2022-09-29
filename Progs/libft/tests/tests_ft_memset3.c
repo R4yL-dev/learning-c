@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 15:41:48 by luca              #+#    #+#             */
-/*   Updated: 2022/09/29 15:54:47 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 20:04:34 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	main(void)
 {
-	char arr[] = "Salut les amis comment allez-vous ?";
+	char	arr[50] = "Salut les amis comment allez-vous ?";
 
 	printf("%s\n", arr);
 	ft_memset(arr + 9, 'x', 14 * sizeof(char));

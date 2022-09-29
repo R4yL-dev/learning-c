@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 15:23:21 by luca              #+#    #+#             */
-/*   Updated: 2022/09/29 15:57:42 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 20:02:46 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 int	main(void)
 {
-	char arr[10];
-	size_t i;
+	char	arr[10];
+	size_t	i;
 
 	ft_memset(arr, 'a', 10 * (sizeof(arr[0])));
 	i = 0;
@@ -26,6 +26,5 @@ int	main(void)
 		printf("arr[%ld] = %c\n", i, (char)arr[i]);
 		i++;
 	}
-
 	return (0);
 }

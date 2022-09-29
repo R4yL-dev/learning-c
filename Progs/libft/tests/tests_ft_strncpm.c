@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 18:46:44 by luca              #+#    #+#             */
-/*   Updated: 2022/09/29 19:03:37 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 20:10:23 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 int	main(void)
 {
-	char *s1;
-	char *s2;
-	int r1;
-	int r2;
-	int n;
+	char	*s1;
+	char	*s2;
+	int		r1;
+	int		r2;
+	int		n;
 
 	n = 7;
 	s1 = "Salut les amis";

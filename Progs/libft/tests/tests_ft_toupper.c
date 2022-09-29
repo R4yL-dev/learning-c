@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:12:39 by luca              #+#    #+#             */
-/*   Updated: 2022/09/29 15:55:51 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 20:06:33 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 int	main(void)
 {
-	size_t i;
-	size_t err;
+	size_t	i;
+	size_t	err;
 
 	err = 0;
 	i = 0;
-	while(i <= 10000)
+	while (i <= 10000)
 	{
 		if (ft_toupper(i) != toupper(i))
 		{

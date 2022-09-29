@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 02:51:25 by luca              #+#    #+#             */
-/*   Updated: 2022/09/29 15:55:04 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 20:02:25 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	main(void)
 		printf("ptr1[%ld] = %d | ptr2[%ld] = %d\n", i, ptr1[i], i, ptr2[i]);
 		if (ptr1[i] != ptr2[i])
 		{
-			printf("[ERR] ptr1[%ld] != ptr2[%ld] | %c - %c\n", i, i, ptr1[i], ptr2[i]);
+			printf("[ERR] ptr1[%ld] != ptr2[%ld] | %c - %c\n"\
+			, i, i, ptr1[i], ptr2[i]);
 			err++;
 		}
 		i++;

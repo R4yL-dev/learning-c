@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:28:24 by luca              #+#    #+#             */
-/*   Updated: 2022/09/29 17:31:09 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 20:09:49 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ int	main(void)
 	{
 		resp1 = ft_strrchr(s1, i);
 		resp2 = strrchr(s1, i);
-		printf("addr with ft_strchr() = %p | addr with strchr() = %p | char = %c\n"\
-		, resp1, resp2, i);
+		printf("addr with ft_strchr() = %p | addr with strchr(\
+		) = %p | char = %c\n", resp1, resp2, i);
 		if (resp1 != resp2)
 		{
-			printf("[Err] result of ft_strchr don't match with result of strchr\n");
+			printf("[Err] result of ft_strchr don't match with\
+			 result of strchr\n");
 			printf("[Inf] #%d %p != %p\n | char %c\n", i, resp1, resp2, i);
 			err++;
 		}

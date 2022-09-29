@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 16:48:38 by luca              #+#    #+#             */
-/*   Updated: 2022/09/29 17:20:33 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 19:59:31 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char *str;
-	char *resp;
-	int size;
-	int i;
+	char	*str;
+	char	*resp;
+	int		size;
+	int		i;
 
 	str = (char *)s;
 	resp = NULL;
@@ -28,7 +28,7 @@ char	*ft_strchr(const char *s, int c)
 		if (s[i] == c)
 		{
 			resp = &str[i];
-			break;
+			break ;
 		}
 		i++;
 	}

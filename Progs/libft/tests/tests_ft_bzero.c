@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 15:55:47 by luca              #+#    #+#             */
-/*   Updated: 2022/09/29 15:57:11 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 20:05:03 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(void)
+int	main(void)
 {
-	char str[] = "Salut les amis, comment aller vous ?";
+	char	str[] = "Salut les amis, comment aller vous ?";
 
 	printf("%s\n", str);
 	ft_bzero(str + 7, 30);

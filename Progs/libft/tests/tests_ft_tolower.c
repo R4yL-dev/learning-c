@@ -6,7 +6,7 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:48:41 by luca              #+#    #+#             */
-/*   Updated: 2022/09/29 15:50:33 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 20:07:00 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 int	main(void)
 {
-	size_t i;
-	size_t err;
+	size_t	i;
+	size_t	err;
 
 	err = 0;
 	i = 0;
-	while(i <= 10000)
+	while (i <= 10000)
 	{
 		if (ft_tolower(i) != tolower(i))
 		{

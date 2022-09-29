@@ -18,7 +18,7 @@
 - [x] ft_tolower
 - [x] ft_strchr
 - [x] ft_strrchr
-- [ ] ft_strncmp
+- [x] ft_strncmp
 - [ ] ft_memchr
 - [ ] ft_memcmp
 - [ ] ft_strnstr

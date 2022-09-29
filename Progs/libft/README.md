@@ -19,7 +19,7 @@
 - [x] ft_strchr
 - [x] ft_strrchr
 - [x] ft_strncmp
-- [ ] ft_memchr
+- [x] ft_memchr
 - [ ] ft_memcmp
 - [ ] ft_strnstr
 - [ ] ft_atoi

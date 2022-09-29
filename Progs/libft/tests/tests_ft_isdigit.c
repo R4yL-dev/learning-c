@@ -6,12 +6,13 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 16:33:16 by lray              #+#    #+#             */
-/*   Updated: 2022/09/29 15:45:17 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 16:47:13 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include <stdio.h>
+#include <ctype.h>
 
 int	main(int argc, char **argv)
 {

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_ft_toupper.c                                 :+:      :+:    :+:   */
+/*   tests_ft_tolower.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 17:12:39 by luca              #+#    #+#             */
-/*   Updated: 2022/09/29 14:57:11 by luca             ###   ########.fr       */
+/*   Created: 2022/09/29 14:48:41 by luca              #+#    #+#             */
+/*   Updated: 2022/09/29 14:58:00 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <ctype.h>
 
-int ft_toupper(int c);
+int ft_tolower(int c);
 
 int	main(void)
 {
@@ -24,9 +24,9 @@ int	main(void)
 	i = 0;
 	while(i <= 10000)
 	{
-		if (ft_toupper(i) != toupper(i))
+		if (ft_tolower(i) != tolower(i))
 		{
-			printf("[Err] #%ld %d != %d\n", i, ft_toupper(i), toupper(i));
+			printf("[Err] #%ld %d != %d\n", i, ft_tolower(i), tolower(i));
 			err++;
 		}
 		i++;

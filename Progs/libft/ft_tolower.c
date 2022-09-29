@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_ft_toupper.c                                 :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 17:12:39 by luca              #+#    #+#             */
-/*   Updated: 2022/09/29 14:57:11 by luca             ###   ########.fr       */
+/*   Created: 2022/09/29 14:41:49 by luca              #+#    #+#             */
+/*   Updated: 2022/09/29 14:49:14 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
-
-int ft_toupper(int c);
-
-int	main(void)
+int ft_tolower(int c)
 {
-	size_t i;
-	size_t err;
-
-	err = 0;
-	i = 0;
-	while(i <= 10000)
-	{
-		if (ft_toupper(i) != toupper(i))
-		{
-			printf("[Err] #%ld %d != %d\n", i, ft_toupper(i), toupper(i));
-			err++;
-		}
-		i++;
-	}
-	printf("Tests finished with %ld error(s).\n", err);
-	return (0);
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
 }

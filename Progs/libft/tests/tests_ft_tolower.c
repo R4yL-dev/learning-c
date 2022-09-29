@@ -6,14 +6,13 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 14:48:41 by luca              #+#    #+#             */
-/*   Updated: 2022/09/29 14:58:00 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 15:50:33 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft.h"
 #include <stdio.h>
 #include <ctype.h>
-
-int ft_tolower(int c);
 
 int	main(void)
 {

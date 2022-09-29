@@ -6,15 +6,13 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 15:55:47 by luca              #+#    #+#             */
-/*   Updated: 2022/09/28 16:07:15 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 15:57:11 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "../libft.h"
 #include <stdio.h>
 #include <string.h>
-
-void	ft_bzero(void *s, size_t n);
 
 int main(void)
 {

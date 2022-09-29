@@ -6,13 +6,11 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 15:51:28 by luca              #+#    #+#             */
-/*   Updated: 2022/09/28 16:02:58 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 15:39:36 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void	*ft_memset(void *s, int c, size_t n);
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

@@ -6,15 +6,13 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 15:41:48 by luca              #+#    #+#             */
-/*   Updated: 2022/09/28 16:06:51 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 15:54:47 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft.h"
 #include <stdio.h>
 #include <string.h>
-
-void	*ft_memset(void *s, int c, size_t n);
-int	ft_strlen(char *str);
 
 int	main(void)
 {

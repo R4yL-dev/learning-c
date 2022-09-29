@@ -6,11 +6,11 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 02:27:49 by luca              #+#    #+#             */
-/*   Updated: 2022/09/28 16:06:57 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 15:41:54 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {

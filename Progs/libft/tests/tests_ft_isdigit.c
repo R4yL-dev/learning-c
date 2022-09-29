@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   tests_ft_isdigit.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 16:33:16 by lray              #+#    #+#             */
-/*   Updated: 2022/09/27 19:32:59 by lray             ###   ########.fr       */
+/*   Updated: 2022/09/29 15:45:17 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft.h"
 #include <stdio.h>
-#include <ctype.h>
-
-int	ft_isdigit(int c);
 
 int	main(int argc, char **argv)
 {

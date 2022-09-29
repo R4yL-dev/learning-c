@@ -6,14 +6,13 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 02:07:57 by luca              #+#    #+#             */
-/*   Updated: 2022/09/28 02:22:31 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 15:55:31 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft.h"
 #include <stdio.h>
 #include <string.h>
-
-size_t	ft_strlen(const char *s);
 
 int	main(int argc, char **argv)
 {

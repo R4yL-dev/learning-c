@@ -6,11 +6,13 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 15:45:56 by lray              #+#    #+#             */
-/*   Updated: 2022/09/28 01:23:16 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 15:40:26 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(unsigned int c)
+#include "libft.h"
+
+int	ft_isalpha(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 		return (1024);

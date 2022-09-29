@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   tests_ft_isalpha.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 16:43:33 by lray              #+#    #+#             */
-/*   Updated: 2022/09/27 19:25:13 by lray             ###   ########.fr       */
+/*   Updated: 2022/09/29 15:44:54 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft.h"
 #include <stdio.h>
-#include <ctype.h>
-
-int	ft_isalpha(int c);
 
 int	main(int argc, char **argv)
 {

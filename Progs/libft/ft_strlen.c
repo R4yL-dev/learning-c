@@ -6,11 +6,11 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 02:03:28 by luca              #+#    #+#             */
-/*   Updated: 2022/09/28 02:16:38 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 15:42:06 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

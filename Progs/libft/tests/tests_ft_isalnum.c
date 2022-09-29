@@ -6,14 +6,12 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 17:27:25 by lray              #+#    #+#             */
-/*   Updated: 2022/09/27 23:09:05 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 15:57:12 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft.h"
 #include <stdio.h>
-#include <ctype.h>
-
-int	ft_isalnum(int c);
 
 int	main(int argc, char **argv)
 {

@@ -6,14 +6,12 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 18:10:21 by lray              #+#    #+#             */
-/*   Updated: 2022/09/28 01:37:33 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 15:45:06 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft.h"
 #include <stdio.h>
-#include <ctype.h>
-
-int	ft_isascii(int c);
 
 int	main(int argc, char **argv)
 {

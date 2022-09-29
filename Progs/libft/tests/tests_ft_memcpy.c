@@ -6,15 +6,13 @@
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:27:32 by luca              #+#    #+#             */
-/*   Updated: 2022/09/28 16:55:07 by luca             ###   ########.fr       */
+/*   Updated: 2022/09/29 15:46:06 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "../libft.h"
 #include <stdio.h>
 #include <string.h>
-
-void	*ft_memcpy(void *dest, const void *src, size_t n);
 
 int	main(void)
 {

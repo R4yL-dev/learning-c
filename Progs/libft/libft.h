@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_ft_toupper.c                                 :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luca <luca@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 17:12:39 by luca              #+#    #+#             */
-/*   Updated: 2022/09/29 15:55:51 by luca             ###   ########.fr       */
+/*   Created: 2022/09/29 15:19:17 by luca              #+#    #+#             */
+/*   Updated: 2022/09/29 15:48:22 by luca             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
-#include <stdio.h>
-#include <ctype.h>
+#ifndef LIBFT_H
+#define LIBFT_H
 
-int	main(void)
-{
-	size_t i;
-	size_t err;
+#include <stddef.h>
 
-	err = 0;
-	i = 0;
-	while(i <= 10000)
-	{
-		if (ft_toupper(i) != toupper(i))
-		{
-			printf("[Err] #%ld %d != %d\n", i, ft_toupper(i), toupper(i));
-			err++;
-		}
-		i++;
-	}
-	printf("Tests finished with %ld error(s).\n", err);
-	return (0);
-}
+void	ft_bzero(void *s, size_t n);
+int		ft_isalnum(int c);
+int		ft_isalpha(int c);
+int		ft_isascii(int c);
+int		ft_isdigit(int c);
+int		ft_isprint(int c);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memset(void *s, int c, size_t n);
+size_t	ft_strlen(const char *s);
+int		ft_tolower(int c);
+int		ft_toupper(int c);
+
+#endif

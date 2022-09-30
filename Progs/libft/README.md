@@ -11,7 +11,7 @@
 - [x] ft_memset
 - [x] ft_bzero
 - [x] ft_memcpy
-- [ ] ft_memmove
+- [x] ft_memmove
 - [ ] ft_strlcpy
 - [ ] ft_strlcat
 - [x] ft_toupper

@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   tests_ft_memmove.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 14:41:49 by luca              #+#    #+#             */
-/*   Updated: 2022/09/30 19:12:36 by lray             ###   ########.fr       */
+/*   Created: 2022/09/30 18:44:10 by lray              #+#    #+#             */
+/*   Updated: 2022/09/30 18:48:42 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-* Cette fonction met en minusculeles caractères majuscule.
-* Si le caractère n'est pas une majuscule, la fonction le retour.
-*/
+#include "../libft.h"
+#include <stdio.h>
+#include <string.h>
 
-#include "libft.h"
-
-int	ft_tolower(int c)
+int	main(void)
 {
-	if (c >= 'A' && c <= 'Z')
-		c += 32;
-	return (c);
+	char	s1[] = "salut les amis";
+	char	s2[] = {'\0', '\0', '\0', '\0', '\0', '\0'};
+	char	s3[] = {'\0', '\0', '\0', '\0', '\0', '\0'};
+
+	ft_memmove(s2, s1, 5);
+	printf("[ft_memmove]\ts1 = %s - s2 = %s\n", s1, s2);
+	memmove(s3, s1, 5);
+	printf("[memmove]\ts1 = %s - s3 = %s\n", s1, s3);
+	return (0);
 }

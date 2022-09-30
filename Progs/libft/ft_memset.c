@@ -6,9 +6,16 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 02:27:49 by luca              #+#    #+#             */
-/*   Updated: 2022/09/30 15:43:40 by lray             ###   ########.fr       */
+/*   Updated: 2022/09/30 19:27:19 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+* La fonction ft_memset() remplit les n premiers octets de la zone mémoire
+*	pointée par s avec l'octet c.
+*
+* Elle renvoie un pointeur sur la zone mémoire pointée par s.
+*/
 
 #include "libft.h"
 

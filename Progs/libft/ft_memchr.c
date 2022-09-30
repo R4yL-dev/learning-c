@@ -6,9 +6,16 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 19:08:15 by luca              #+#    #+#             */
-/*   Updated: 2022/09/30 15:43:46 by lray             ###   ########.fr       */
+/*   Updated: 2022/09/30 19:39:07 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+* La fonction memchr() examine les n premiers octets de la zone mémoire
+*	pointée par s à la recherche de la première occurrence de c.
+* À la fois s et les octets de la zone mémoire pointée par s sont
+*	interprétés comme des unsigned char.
+*/
 
 #include "libft.h"
 

@@ -6,9 +6,14 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 15:51:28 by luca              #+#    #+#             */
-/*   Updated: 2022/09/30 15:44:33 by lray             ###   ########.fr       */
+/*   Updated: 2022/09/30 19:45:03 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+* La foction ft_bzero supprime les données des n octets de mémoireen
+*	partant de la location pointée par s, en écrivant le caractère '\0'.
+*/
 
 #include "libft.h"
 

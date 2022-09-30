@@ -6,9 +6,15 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:27:02 by luca              #+#    #+#             */
-/*   Updated: 2022/09/30 15:46:04 by lray             ###   ########.fr       */
+/*   Updated: 2022/09/30 19:15:10 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+* La fonction ft_strrchr retourne un pointer sur la dernière occurance
+*	du caractère c dans la string s.
+* Si la fonction ne trouve pas c dans s, elle retourn NULL.
+*/
 
 #include "libft.h"
 

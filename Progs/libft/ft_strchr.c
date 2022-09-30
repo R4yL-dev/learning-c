@@ -6,9 +6,15 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 15:43:28 by lray              #+#    #+#             */
-/*   Updated: 2022/09/30 15:43:34 by lray             ###   ########.fr       */
+/*   Updated: 2022/09/30 19:25:37 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+* La fonction ft_strchr retourne un pointer sur la première occurance
+*	du caractère c dans la string s.
+* Si la fonction ne trouve pas c dans s, elle retourn NULL.
+*/
 
 #include "libft.h"
 

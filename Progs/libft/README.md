@@ -12,7 +12,7 @@
 - [x] ft_bzero
 - [x] ft_memcpy
 - [x] ft_memmove
-- [ ] ft_strlcpy
+- [x] ft_strlcpy
 - [ ] ft_strlcat
 - [x] ft_toupper
 - [x] ft_tolower

@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 16:16:36 by luca              #+#    #+#             */
-/*   Updated: 2022/09/30 21:30:31 by lray             ###   ########.fr       */
+/*   Created: 2022/10/01 18:34:04 by lray              #+#    #+#             */
+/*   Updated: 2022/10/01 22:26:50 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-* La fonction ft_memcpy() copie n octets depuis la zone mémoire src vers
-*	la zone mémoire dest.
-* Les deux zones ne doivent pas se chevaucher.
-* Si c'est le cas, utilisez plutôt ft_memmove().
+* La fonction ft_strlcpy copie size - 1 octets de src vers dest.
+* Le dernier octet de la dest est forcement le caractère '\0'.
 *
-* Elle retourne un pointeur sur dest.
+* ft_strlcpy retourne la longueur de src.
 */
 
 #include "libft.h"
+#include <stdio.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+size_t ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
-	char	*p_src;
 
-	p_src = (char *)src;
+	if (!dest || !src)
+		return (0);
 	i = 0;
-	while (i < n)
+	while (i < (size - 1) && src[i] != '\0')
 	{
-		ft_memset((char *)(dest + i), *(p_src + i), 1);
+		dest[i] = src[i];
 		i++;
 	}
-	return (dest);
+	dest[i] = '\0';
+
+	return (ft_strlen(src));
 }

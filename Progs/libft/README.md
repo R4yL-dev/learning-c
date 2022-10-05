@@ -13,7 +13,7 @@
 - [x] ft_memcpy
 - [x] ft_memmove
 - [x] ft_strlcpy
-- [ ] ft_strlcat
+- [x] ft_strlcat
 - [x] ft_toupper
 - [x] ft_tolower
 - [x] ft_strchr
@@ -21,7 +21,7 @@
 - [x] ft_strncmp
 - [x] ft_memchr
 - [x] ft_memcmp
-- [ ] ft_strnstr
+- [x] ft_strnstr
 - [ ] ft_atoi
 - [ ] ft_calloc
 - [ ] ft_strdup

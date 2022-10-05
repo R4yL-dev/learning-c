@@ -23,8 +23,8 @@
 - [x] ft_memcmp
 - [x] ft_strnstr
 - [x] ft_atoi
-- [ ] ft_calloc
-- [ ] ft_strdup
+- [x] ft_calloc
+- [x] ft_strdup
 
 ## Part 2
 

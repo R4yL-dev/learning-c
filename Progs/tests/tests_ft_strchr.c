@@ -6,11 +6,11 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 16:57:47 by luca              #+#    #+#             */
-/*   Updated: 2022/09/30 15:44:56 by lray             ###   ########.fr       */
+/*   Updated: 2022/10/05 20:59:01 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../libft/libft.h"
 #include <string.h>
 #include <stdio.h>
 

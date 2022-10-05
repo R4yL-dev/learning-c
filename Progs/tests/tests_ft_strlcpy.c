@@ -6,11 +6,11 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 19:00:58 by lray              #+#    #+#             */
-/*   Updated: 2022/10/01 22:27:37 by lray             ###   ########.fr       */
+/*   Updated: 2022/10/05 20:59:20 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../libft/libft.h"
 #include <stdio.h>
 
 int	main(void)

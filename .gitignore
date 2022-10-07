@@ -3,3 +3,9 @@
 .vscode/
 .editorconfig
 *.h.gch
+*.o
+*.zip
+*.tar
+*.tar.gz
+*.a
+*.txt

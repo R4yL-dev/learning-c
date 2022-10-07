@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2022/10/07 18:09:40 by lray             ###   ########.fr        #
+#    Updated: 2022/10/07 23:41:14 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC = \
 	./ft_toupper.c
 OBJ = $(SRC:.c=.o)
 NAME = libft.a
+HEADER = libft.h
 CFLAGS += -Wall -Wextra -Werror
 CC = gcc
 
@@ -47,7 +48,7 @@ $(NAME) : $(OBJ)
 
 main.o : libft.h
 
-%.o : %.c
+%.o : %.c $(HEADER)
 	@echo Creating objets files
 	@$(CC) -o $@ -c $< $(CFLAGS)
 

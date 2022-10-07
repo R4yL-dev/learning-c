@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lray <lray@student.42.fr>                  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
+#    Updated: 2022/10/07 18:09:40 by lray             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 SRC = \
 	./ft_atoi.c \
 	./ft_bzero.c \
@@ -27,26 +39,34 @@ NAME = libft.a
 CFLAGS += -Wall -Wextra -Werror
 CC = gcc
 
-%.o : %.c
-	$(CC) -o $@ -c $< $(CFLAGS)
-
-$(NAME) : $(OBJ)
-	ar rcs $(NAME) $(OBJ)
-
 all : $(NAME)
 
+$(NAME) : $(OBJ)
+	@echo Creating static library
+	@ar rcs $(NAME) $(OBJ)
+
+main.o : libft.h
+
+%.o : %.c
+	@echo Creating objets files
+	@$(CC) -o $@ -c $< $(CFLAGS)
+
+.PHONY : clean fclean re tar zip
+
 clean :
-	rm -f $(OBJ)
+	@echo Deleting objets files
+	@rm -f $(OBJ)
 
 fclean : clean
-	rm -f $(NAME) $(NAME).tar.gz $(NAME).zip
+	@echo Deleting others files
+	@rm -f $(NAME) $(NAME).tar.gz $(NAME).zip
 
 re : fclean all
 
 tar :
-	tar -czvf $(NAME).tar.gz $(SRC) libft.h Makefile
+	@echo Creating TAR.GZ archive
+	@tar -czvf $(NAME).tar.gz $(SRC) libft.h Makefile
 
 zip :
-	zip -r $(NAME).zip $(SRC) libft.h Makefile
-
-.PHONY : all clean fclean re tar zip
+	@echo Creating ZIP archive
+	@zip -r $(NAME).zip $(SRC) libft.h Makefile

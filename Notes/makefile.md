@@ -13,7 +13,7 @@
 	- [1.6. Règles d'inférence](#16-règles-dinférence)
 	- [1.7. .PHONY](#17-phony)
 	- [1.8. Générer automatiquement la liste des fichiers objet](#18-générer-automatiquement-la-liste-des-fichiers-objet)
-	- [Générer automatiquement la liste des fichiers sources](#générer-automatiquement-la-liste-des-fichiers-sources)
+	- [1.9. Générer automatiquement la liste des fichiers sources](#19-générer-automatiquement-la-liste-des-fichiers-sources)
 
 ## 1.2. Introduction
 
@@ -315,7 +315,7 @@ fclean : clean
 re : fclean all
 ```
 
-## Générer automatiquement la liste des fichiers sources
+## 1.9. Générer automatiquement la liste des fichiers sources
 
 Comme pour les fichiers objets, nous avons la possibilité de lister automatiquement les fichiers sources dans la variable *SRC*.
 

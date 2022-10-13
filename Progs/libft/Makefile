@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2022/10/07 23:41:14 by lray             ###   ########.fr        #
+#    Updated: 2022/10/13 23:34:38 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,18 +37,16 @@ SRC = \
 OBJ = $(SRC:.c=.o)
 NAME = libft.a
 HEADER = libft.h
-CFLAGS += -Wall -Wextra -Werror
+CFLAGS += -Wall -Wextra -Werror -pedantic -pedantic-errors
 CC = gcc
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJ) $(HEADER)
 	@echo Creating static library
 	@ar rcs $(NAME) $(OBJ)
 
-main.o : libft.h
-
-%.o : %.c $(HEADER)
+%.o : %.c
 	@echo Creating objets files
 	@$(CC) -o $@ -c $< $(CFLAGS)
 

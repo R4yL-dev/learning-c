@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:08:27 by lray              #+#    #+#             */
-/*   Updated: 2022/09/30 19:37:06 by lray             ###   ########.fr       */
+/*   Updated: 2022/10/13 22:53:12 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	res1 = 0;
 	res2 = 0;
 	i = 0;
-	while ((i < n) && (*(unsigned char *)(s1 + i) != 0 || \
-		*(unsigned char *)(s2 + i) != 0))
+	while ((i < n) && (*(unsigned char *)((unsigned char *)s1 + i) != 0 || \
+		*(unsigned char *)((unsigned char *)s2 + i) != 0))
 	{
-		res1 += *(unsigned char *)(s1 + i);
-		res2 += *(unsigned char *)(s2 + i);
+		res1 += *(unsigned char *)((unsigned char *)s1 + i);
+		res2 += *(unsigned char *)((unsigned char *)s2 + i);
 		i++;
 	}
 	if (res1 != res2)

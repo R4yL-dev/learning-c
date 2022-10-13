@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 19:08:50 by lray              #+#    #+#             */
-/*   Updated: 2022/10/05 19:51:25 by lray             ###   ########.fr       */
+/*   Updated: 2022/10/13 22:50:31 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	i = 0;
 	while (i < (nmemb * size))
 	{
-		*(char *)(resp + i) = 0;
+		*(char *)((char *)resp + i) = 0;
 		i++;
 	}
 	return (resp);

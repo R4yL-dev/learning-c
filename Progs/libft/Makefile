@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2022/10/13 23:34:38 by lray             ###   ########.fr        #
+#    Updated: 2022/10/27 14:45:20 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ $(NAME) : $(OBJ) $(HEADER)
 	@ar rcs $(NAME) $(OBJ)
 
 %.o : %.c
-	@echo Creating objets files
+	@echo Creating objets files $<
 	@$(CC) -o $@ -c $< $(CFLAGS)
 
 .PHONY : clean fclean re tar zip

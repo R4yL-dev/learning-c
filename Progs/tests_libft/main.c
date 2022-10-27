@@ -248,6 +248,15 @@ TEST tests_ft_strlen(void)
 	PASS();
 }
 
+TEST tests_ft_strrchr(void)
+{
+	char *resp;
+
+	resp = ft_strrchr("teste", 1024 + 'e');
+	printf("\n%s\n", resp);
+	PASS();
+}
+
 GREATEST_MAIN_DEFS();
 int main(int argc, char **argv)
 {
@@ -258,5 +267,6 @@ int main(int argc, char **argv)
 	RUN_TEST(tests_ft_isascii);
 	RUN_TEST(tests_ft_isprint);
 	RUN_TEST(tests_ft_strlen);
+	RUN_TEST(tests_ft_strrchr);
 	GREATEST_MAIN_END();
 }

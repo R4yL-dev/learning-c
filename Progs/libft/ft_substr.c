@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnlen.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 16:03:05 by lray              #+#    #+#             */
-/*   Updated: 2022/10/29 14:23:13 by lray             ###   ########.fr       */
+/*   Created: 2022/10/29 14:26:14 by lray              #+#    #+#             */
+/*   Updated: 2022/10/29 14:27:03 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strnlen(const char *s, size_t maxlen)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	len;
 
-	len = 0;
-	while (len < maxlen)
-	{
-		if (!*s)
-			break ;
-		len++;
-		s++;
-	}
-	return (len);
 }

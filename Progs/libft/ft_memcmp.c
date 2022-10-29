@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:08:27 by lray              #+#    #+#             */
-/*   Updated: 2022/10/27 15:53:02 by lray             ###   ########.fr       */
+/*   Updated: 2022/10/29 14:18:46 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	ptr_s1 = s1;
 	ptr_s2 = s2;
-	while(n--)
+	while (n--)
 	{
-		if(*ptr_s1 != *ptr_s2)
+		if (*ptr_s1 != *ptr_s2)
 			return (*ptr_s1 - *ptr_s2);
 		else
 		{

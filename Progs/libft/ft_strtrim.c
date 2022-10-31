@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:28:02 by lray              #+#    #+#             */
-/*   Updated: 2022/10/31 17:12:17 by lray             ###   ########.fr       */
+/*   Updated: 2022/10/31 17:23:22 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ static int	def_end(char const *s1, char const *set)
 	return (0);
 }
 
-static char	*make_cpy(char const *s1, char *buf, int s, int e)
+static void	make_cpy(char const *s1, char *buf, int s, int e)
 {
 	size_t	i;
 	size_t	j;
@@ -107,7 +107,6 @@ static char	*make_cpy(char const *s1, char *buf, int s, int e)
 		j++;
 	}
 	buf[j] = '\0';
-	return (buf);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)

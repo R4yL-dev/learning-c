@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:28:02 by lray              #+#    #+#             */
-/*   Updated: 2022/10/31 17:23:22 by lray             ###   ########.fr       */
+/*   Updated: 2022/10/31 17:24:34 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,6 @@
 	Ret :
 		- La chaine de caractères trimmée
 		- NULL si l'allocation échoue
-*/
-
-/*
-	Définir la taille de l'allocation à strlen(s1) + 1.
-	Regarder si s1 commence par set.
-	Si oui, copier s1 dans resp sans set
-	Si non, copier s1 dans resp.
-	Regarder si resp fini par set.
-	Si oui, remplacer set de fin de resp par \0 et retourner resp.
-	Si non, retourner resp.
 */
 
 #include "libft.h"

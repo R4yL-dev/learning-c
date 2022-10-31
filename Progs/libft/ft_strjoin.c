@@ -6,21 +6,33 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:08:48 by lray              #+#    #+#             */
-/*   Updated: 2022/10/31 13:21:42 by lray             ###   ########.fr       */
+/*   Updated: 2022/10/31 13:27:42 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+	Desc :
+		Alloue et retourne une nouvelle chaine, résultat de la concaténation
+		de s1 et s2
+
+	Params :
+		- s1 : La chaine de caractères préfixe
+		- s2 : La chaine de caractères suffixe.
+
+	Ret :
+		- La nouvelle chaine de caractères.
+		- NULL si l'allocation échoue
+*/
 
 #include "libft.h"
 #include <stdlib.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	tsize;
 	char	*resp;
 	size_t	i;
 
-	tsize = ft_strlen(s1) + ft_strlen(s2);
-	resp = malloc(sizeof(char) * (tsize + 1));
+	resp = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!resp)
 		return (NULL);
 	i = 0;

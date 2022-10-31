@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:26:14 by lray              #+#    #+#             */
-/*   Updated: 2022/10/30 12:48:05 by lray             ###   ########.fr       */
+/*   Updated: 2022/10/31 13:26:32 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 		Cette nouvelle chaine commence à l'index 'start' et a pour
 		taille maximale 'len'.
 
-	Param :
+	Params :
 		- s : La chaine de laquelle extraire la nouvelle chaine.
 		- start : L'index de début de la nouvelle chaine dans la chaine 's'.
 		- len : La taille maximale de la nouvelle chaine.

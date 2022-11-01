@@ -33,7 +33,7 @@
 - [x] ft_strtrim
 - [x] ft_split
 - [x] ft_itoa
-- [ ] ft_strmapi
+- [x] ft_strmapi
 - [ ] ft_striteri
 - [ ] ft_putchar_fd
 - [ ] ft_putstr_fd

@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2022/11/01 23:08:29 by lray             ###   ########.fr        #
+#    Updated: 2022/11/01 23:26:23 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC = \
 	./ft_split.c \
 	./ft_strchr.c \
 	./ft_strdup.c \
+	./ft_striteri.c \
 	./ft_strjoin.c \
 	./ft_strlcat.c \
 	./ft_strlcpy.c \

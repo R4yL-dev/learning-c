@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:28:02 by lray              #+#    #+#             */
-/*   Updated: 2022/10/31 17:24:34 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/01 19:08:11 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,33 @@
 
 #include "libft.h"
 #include <stdlib.h>
+
+static int	def_start(char const *s1, char const *set);
+static int	def_end(char const *s1, char const *set);
+static void	make_cpy(char const *s1, char *buf, int s, int e);
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char	*resp;
+	int		start_cpy;
+	int		end_cpy;
+
+	resp = malloc((ft_strlen(s1) + 1) * sizeof(char));
+	if (!resp)
+		return (NULL);
+	if (!s1[0] || !set[0])
+	{
+		start_cpy = 0;
+		end_cpy = ft_strlen(s1);
+	}
+	else
+	{
+		start_cpy = def_start(s1, set);
+		end_cpy = def_end(s1, set);
+	}
+	make_cpy(s1, resp, start_cpy, end_cpy);
+	return (resp);
+}
 
 static int	def_start(char const *s1, char const *set)
 {
@@ -97,27 +124,4 @@ static void	make_cpy(char const *s1, char *buf, int s, int e)
 		j++;
 	}
 	buf[j] = '\0';
-}
-
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	char	*resp;
-	int		start_cpy;
-	int		end_cpy;
-
-	resp = malloc((ft_strlen(s1) + 1) * sizeof(char));
-	if (!resp)
-		return (NULL);
-	if (!s1[0] || !set[0])
-	{
-		start_cpy = 0;
-		end_cpy = ft_strlen(s1);
-	}
-	else
-	{
-		start_cpy = def_start(s1, set);
-		end_cpy = def_end(s1, set);
-	}
-	make_cpy(s1, resp, start_cpy, end_cpy);
-	return (resp);
 }

@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:26:14 by lray              #+#    #+#             */
-/*   Updated: 2022/10/31 17:25:20 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/01 19:09:11 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static void	make_cpy(char const *s, char *buf, unsigned int st, size_t l)
-{
-	size_t	i;
-
-	i = 0;
-	while (l-- && s[st])
-	{
-		buf[i] = s[st];
-		st++;
-		i++;
-	}
-	buf[i] = '\0';
-}
+static void	make_cpy(char const *s, char *buf, unsigned int st, size_t l);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -66,4 +54,18 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	make_cpy(s, resp, start, len);
 	return (resp);
+}
+
+static void	make_cpy(char const *s, char *buf, unsigned int st, size_t l)
+{
+	size_t	i;
+
+	i = 0;
+	while (l-- && s[st])
+	{
+		buf[i] = s[st];
+		st++;
+		i++;
+	}
+	buf[i] = '\0';
 }

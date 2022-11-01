@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:25:45 by lray              #+#    #+#             */
-/*   Updated: 2022/11/01 16:33:05 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/01 19:03:32 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,29 @@
 
 #include "libft.h"
 #include <stdlib.h>
+
+static int	count_words(char const *s, char c);
+static char	**init_string(char **arr, char const *s, char c);
+static char	**make_strings(char **arr, char const *s, char c);
+
+char	**ft_split(char const *s, char c)
+{
+	char	**arr;
+	int		nbr_words;
+
+	nbr_words = count_words(s, c);
+	arr = (char **)malloc(sizeof(char *) * (nbr_words + 1));
+	if (!arr)
+		return (NULL);
+	if (nbr_words == 0)
+	{
+		arr[0] = NULL;
+		return (arr);
+	}
+	init_string(arr, (char *)s, c);
+	make_strings(arr, (char *)s, c);
+	return (arr);
+}
 
 static int	count_words(char const *s, char c)
 {
@@ -102,24 +125,5 @@ static char	**make_strings(char **arr, char const *s, char c)
 		while (s[i] == c)
 			i++;
 	}
-	return (arr);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**arr;
-	int		nbr_words;
-
-	nbr_words = count_words(s, c);
-	arr = (char **)malloc(sizeof(char *) * (nbr_words + 1));
-	if (!arr)
-		return (NULL);
-	if (nbr_words == 0)
-	{
-		arr[0] = NULL;
-		return (arr);
-	}
-	init_string(arr, (char *)s, c);
-	make_strings(arr, (char *)s, c);
 	return (arr);
 }

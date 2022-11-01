@@ -3,7 +3,8 @@
 ## Libft
 
 - Faire les bonus
-- Corriger pour passer `francinette --strict`
+  - Metre à jour le Makefile avec la commande `make bonus`.
+- Corriger pour passer `francinette --strict`.
 
 ## Notes
 

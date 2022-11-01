@@ -10,3 +10,5 @@
 
 - Ajouter les notes sur les pointeurs sur fonction.
 - Ajouter les notes sur les files descriptors.
+- Ajouter les notes sur les structures et les types.
+- Ajouter les notes sur les listes.

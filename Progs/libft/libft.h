@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:19:17 by luca              #+#    #+#             */
-/*   Updated: 2022/10/31 14:28:28 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/01 14:58:02 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
+char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strnstr(const char *s, const char *find, size_t slen);
 char	*ft_strdup(const char *s);

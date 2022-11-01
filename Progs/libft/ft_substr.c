@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:26:14 by lray              #+#    #+#             */
-/*   Updated: 2022/10/31 17:24:43 by lray             ###   ########.fr       */
+/*   Updated: 2022/10/31 17:25:20 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	make_cpy(char const *s, char *buf, unsigned int st, size_t l)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*resp;
+	char	*resp;
 
 	if (s == NULL)
 		return (NULL);

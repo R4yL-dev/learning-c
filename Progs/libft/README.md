@@ -32,7 +32,7 @@
 - [x] ft_strjoin
 - [x] ft_strtrim
 - [x] ft_split
-- [ ] ft_itoa
+- [x] ft_itoa
 - [ ] ft_strmapi
 - [ ] ft_striteri
 - [ ] ft_putchar_fd

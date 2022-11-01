@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2022/11/01 14:57:58 by lray             ###   ########.fr        #
+#    Updated: 2022/11/01 18:33:49 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC = \
 	./ft_isascii.c \
 	./ft_isdigit.c \
 	./ft_isprint.c \
+	./ft_itoa.c \
 	./ft_memchr.c \
 	./ft_memcmp.c \
 	./ft_memcpy.c \

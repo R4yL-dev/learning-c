@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2022/11/02 00:10:56 by lray             ###   ########.fr        #
+#    Updated: 2022/11/02 00:44:16 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC = \
 	./ft_memset.c \
 	./ft_putchar_fd.c \
 	./ft_putendl_fd.c \
+	./ft_putnbr_fd.c \
 	./ft_putstr_fd.c \
 	./ft_split.c \
 	./ft_strchr.c \

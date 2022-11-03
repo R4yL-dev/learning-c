@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2022/11/02 00:44:16 by lray             ###   ########.fr        #
+#    Updated: 2022/11/03 19:48:23 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,27 +45,39 @@ SRC = \
 	./ft_substr.c \
 	./ft_tolower.c \
 	./ft_toupper.c
+SRC_BONUS =\
+	./ft_lstadd_back_bonus.c \
+	./ft_lstadd_front_bonus.c \
+	./ft_lstdelone_bonus.c \
+	./ft_lstlast_bonus.c \
+	./ft_lstnew_bonus.c \
+	./ft_lstsize_bonus.c
 OBJ = $(SRC:.c=.o)
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
 NAME = libft.a
-HEADER = libft.h
 CFLAGS += -Wall -Wextra -Werror -pedantic -pedantic-errors
 CC = gcc
-
-all : $(NAME)
-
-$(NAME) : $(OBJ) $(HEADER)
-	@echo Creating static library
-	@ar rcs $(NAME) $(OBJ)
+AR = ar rcs $(NAME)
 
 %.o : %.c
 	@echo Creating objets files $<
-	@$(CC) -o $@ -c $< $(CFLAGS)
+	@$(CC) -I. $(CFLAGS) -o $@ -c $?
+
+all : $(NAME)
+
+$(NAME) : $(OBJ)
+	@echo Creating $(NAME)
+	@$(AR) $(OBJ)
+
+bonus: $(OBJ) $(OBJ_BONUS)
+	@echo Creating $(NAME)
+	@$(AR) $(OBJ) $(OBJ_BONUS)
 
 .PHONY : clean fclean re tar zip
 
 clean :
 	@echo Deleting objets files
-	@rm -f $(OBJ)
+	@rm -f $(OBJ) $(OBJ_BONUS)
 
 fclean : clean
 	@echo Deleting others files

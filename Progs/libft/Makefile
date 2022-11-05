@@ -6,11 +6,13 @@
 #    By: lray <lray@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2022/11/03 19:48:23 by lray             ###   ########.fr        #
+#    Updated: 2022/11/05 15:50:19 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = \
+NAME		:= libft.a
+
+SRCS 		:= \
 	./ft_atoi.c \
 	./ft_bzero.c \
 	./ft_calloc.c \
@@ -45,50 +47,58 @@ SRC = \
 	./ft_substr.c \
 	./ft_tolower.c \
 	./ft_toupper.c
-SRC_BONUS =\
+OBJS		:= $(SRCS:.c=.o)
+
+SRCS_BONUS	:=\
 	./ft_lstadd_back_bonus.c \
 	./ft_lstadd_front_bonus.c \
 	./ft_lstdelone_bonus.c \
 	./ft_lstlast_bonus.c \
 	./ft_lstnew_bonus.c \
 	./ft_lstsize_bonus.c
-OBJ = $(SRC:.c=.o)
-OBJ_BONUS = $(SRC_BONUS:.c=.o)
-NAME = libft.a
-CFLAGS += -Wall -Wextra -Werror -pedantic -pedantic-errors
-CC = gcc
-AR = ar rcs $(NAME)
+OBJS_BONUS	:= $(SRCS_BONUS:.c=.o)
 
-%.o : %.c
-	@echo Creating objets files $<
-	@$(CC) -I. $(CFLAGS) -o $@ -c $?
+CC 			:= gcc
+CFLAGS		:= -Wall -Wextra -Werror
+CPPFLAGS	:= -I .
+
+AR			:= ar
+ARFLAGS		:= -r -c -s
+
+RM			:= rm -f
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
-	@echo Creating $(NAME)
-	@$(AR) $(OBJ)
+$(NAME) : $(OBJS)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	$(info CREATED $(NAME))
 
-bonus: $(OBJ) $(OBJ_BONUS)
-	@echo Creating $(NAME)
-	@$(AR) $(OBJ) $(OBJ_BONUS)
+%.o : %.c
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
+	$(info CREATED $@)
 
-.PHONY : clean fclean re tar zip
+bonus: $(OBJS) $(OBJS_BONUS)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS) $(OBJS_BONUS)
+	$(info CREATED $@)
 
 clean :
-	@echo Deleting objets files
-	@rm -f $(OBJ) $(OBJ_BONUS)
+	$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean : clean
-	@echo Deleting others files
-	@rm -f $(NAME) $(NAME).tar.gz $(NAME).zip
+	$(RM) $(NAME) $(NAME).tar.gz $(NAME).zip
 
-re : fclean all
+re :
+	$(MAKE) fclean
+	$(MAKE) all
 
 tar :
-	@echo Creating TAR.GZ archive
-	@tar -czvf $(NAME).tar.gz $(SRC) libft.h Makefile
+	tar -czvf $(NAME).tar.gz $(SRCS) libft.h Makefile
 
 zip :
-	@echo Creating ZIP archive
-	@zip -r $(NAME).zip $(SRC) libft.h Makefile
+	zip -r $(NAME).zip $(SRCS) libft.h Makefile
+
+info-%:
+	$(MAKE) --dry-run --always-make $* | grep -v "info"
+
+.PHONY : bonus clean fclean re tar zip
+.SILENT :

@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2022/11/05 15:50:19 by lray             ###   ########.fr        #
+#    Updated: 2022/11/05 15:56:52 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,9 +83,11 @@ bonus: $(OBJS) $(OBJS_BONUS)
 
 clean :
 	$(RM) $(OBJS) $(OBJS_BONUS)
+	$(info DELETED objects files)
 
 fclean : clean
 	$(RM) $(NAME) $(NAME).tar.gz $(NAME).zip
+	$(info DELETED $(NAME) and archives files)
 
 re :
 	$(MAKE) fclean
@@ -100,5 +102,5 @@ zip :
 info-%:
 	$(MAKE) --dry-run --always-make $* | grep -v "info"
 
-.PHONY : bonus clean fclean re tar zip
+.PHONY : bonus clean fclean re tar zip info-
 .SILENT :

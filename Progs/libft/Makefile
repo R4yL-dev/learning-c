@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2022/11/05 15:56:52 by lray             ###   ########.fr        #
+#    Updated: 2022/11/05 18:22:43 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ OBJS		:= $(SRCS:.c=.o)
 SRCS_BONUS	:=\
 	./ft_lstadd_back_bonus.c \
 	./ft_lstadd_front_bonus.c \
+	./ft_lstclear_bonus.c \
 	./ft_lstdelone_bonus.c \
 	./ft_lstlast_bonus.c \
 	./ft_lstnew_bonus.c \

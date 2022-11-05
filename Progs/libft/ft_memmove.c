@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 18:19:50 by lray              #+#    #+#             */
-/*   Updated: 2022/10/25 15:24:56 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/05 16:05:59 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 
 	pt_dst = (char *)dst;
 	pt_src = (char *)src;
-	if ((pt_src == NULL) || (pt_dst == NULL))
+	if ((pt_src == NULL) && (pt_dst == NULL))
 		return (NULL);
 	if ((pt_src < pt_dst) && (pt_dst < pt_src + n))
 	{

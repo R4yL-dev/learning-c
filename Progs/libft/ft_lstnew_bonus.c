@@ -6,10 +6,9 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:43:57 by lray              #+#    #+#             */
-/*   Updated: 2022/11/03 17:20:11 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/05 15:53:18 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 /*
 	Desc :
@@ -33,7 +32,7 @@ t_list	*ft_lstnew(void *content)
 
 	el = (t_list *)malloc(sizeof(t_list));
 	if (!el)
-		return NULL;
+		return (NULL);
 	el->content = content;
 	el->next = NULL;
 	return (el);

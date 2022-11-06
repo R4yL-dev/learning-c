@@ -50,4 +50,4 @@
 - [x] ft_lstdelone
 - [x] ft_lstclear
 - [x] ft_lstiter
-- [ ] ft_lstmap
+- [x] ft_lstmap

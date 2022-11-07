@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:25:45 by lray              #+#    #+#             */
-/*   Updated: 2022/11/07 16:48:41 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/07 22:59:22 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,12 @@ static unsigned int	count_strs(char const *s, char c)
 	unsigned int	i;
 	unsigned int	resp;
 
-	resp = 0;
 	if (!s[0])
 		return (0);
 	i = 0;
 	while (s[i] && s[i] == c)
 		i++;
+	resp = 0;
 	while (s[i])
 	{
 		if (s[i] == c)

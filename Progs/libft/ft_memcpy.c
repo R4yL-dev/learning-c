@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 16:16:36 by luca              #+#    #+#             */
-/*   Updated: 2022/11/07 18:02:02 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/07 18:29:19 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char *p;
-	const unsigned char *q;
+	unsigned char		*p;
+	const unsigned char	*q;
 
 	if (src != dest)
 	{
@@ -33,5 +33,5 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		while (n--)
 			*p++ = *q++;
 	}
-return (dest);
+	return (dest);
 }

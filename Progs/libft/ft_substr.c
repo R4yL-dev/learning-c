@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 14:26:14 by lray              #+#    #+#             */
-/*   Updated: 2022/11/01 19:09:11 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/07 17:02:17 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,42 +30,25 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static void	make_cpy(char const *s, char *buf, unsigned int st, size_t l);
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*resp;
-
-	if (s == NULL)
-		return (NULL);
-	if (len == 0 || start > ft_strlen(s))
-	{
-		resp = malloc(1);
-		if (!resp)
-			return (NULL);
-		resp[0] = '\0';
-		return (resp);
-	}
-	if (len > ft_strlen(s))
-		resp = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	else
-		resp = malloc(sizeof(char) * (len + 1));
-	if (!resp)
-		return (NULL);
-	make_cpy(s, resp, start, len);
-	return (resp);
-}
-
-static void	make_cpy(char const *s, char *buf, unsigned int st, size_t l)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	size_t	i;
+	char	*str;
 
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen(s))
+		return (ft_calloc(1, 1));
+	if (len > ft_strlen(s + start))
+		len = ft_strlen(s + start);
+	str = ft_calloc(len + 1, sizeof(char));
+	if (!str)
+		return (NULL);
 	i = 0;
-	while (l-- && s[st])
+	while (i < len)
 	{
-		buf[i] = s[st];
-		st++;
+		str[i] = s[start + i];
 		i++;
 	}
-	buf[i] = '\0';
+	return (str);
 }

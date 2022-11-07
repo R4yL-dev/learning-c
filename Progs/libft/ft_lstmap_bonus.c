@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 14:10:58 by lray              #+#    #+#             */
-/*   Updated: 2022/11/06 14:32:10 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/07 17:05:38 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*resp;
 	t_list	*el;
 
-	if (!lst || !f || !del)
+	if (!f || !del || !del)
 		return (NULL);
-	el = NULL;
+	resp = NULL;
 	while (lst)
 	{
 		el = ft_lstnew(f(lst->content));
-		if (!el)
+		if (el == NULL)
 		{
 			ft_lstclear(&resp, del);
 			return (NULL);

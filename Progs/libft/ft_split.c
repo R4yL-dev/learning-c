@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:25:45 by lray              #+#    #+#             */
-/*   Updated: 2022/11/01 19:03:32 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/07 16:48:41 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,102 +28,93 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static int	count_words(char const *s, char c);
-static char	**init_string(char **arr, char const *s, char c);
-static char	**make_strings(char **arr, char const *s, char c);
+static char			**free_all(char **arr);
+static unsigned int	count_strs(char const *s, char c);
+static void			get_row(char **str, unsigned int *str_len, char c);
 
 char	**ft_split(char const *s, char c)
 {
-	char	**arr;
-	int		nbr_words;
+	char			**resp;
+	char			*str;
+	unsigned int	i;
+	unsigned int	nbr_strs;
+	unsigned int	str_len;
 
-	nbr_words = count_words(s, c);
-	arr = (char **)malloc(sizeof(char *) * (nbr_words + 1));
-	if (!arr)
+	nbr_strs = count_strs(s, c);
+	resp = malloc(sizeof(char *) * (nbr_strs + 1));
+	if (!resp)
 		return (NULL);
-	if (nbr_words == 0)
-	{
-		arr[0] = NULL;
-		return (arr);
-	}
-	init_string(arr, (char *)s, c);
-	make_strings(arr, (char *)s, c);
-	return (arr);
-}
-
-static int	count_words(char const *s, char c)
-{
-	int	words;
-	int	i;
-
-	words = 0;
+	str = (char *)s;
+	str_len = 0;
 	i = 0;
-	while (s[i])
+	while (i < nbr_strs)
 	{
-		while (s[i] == c && s[i] != '\0')
-			i++;
-		if (s[i] == '\0')
-			break ;
-		words++;
-		while (s[i] != c && s[i] != '\0')
-			i++;
+		get_row(&str, &str_len, c);
+		resp[i] = malloc(sizeof(char) * (str_len + 1));
+		if (resp[i] == NULL)
+			return (free_all(resp));
+		ft_strlcpy(resp[i], str, str_len + 1);
 		i++;
 	}
-	return (words);
+	resp[i] = NULL;
+	return (resp);
 }
 
-static char	**init_string(char **arr, char const *s, char c)
+static char	**free_all(char **arr)
 {
-	int	size;
-	int	i;
-	int	j;
+	unsigned int	i;
 
 	i = 0;
-	j = 0;
-	size = 0;
-	while (s[i])
+	while (arr[i])
 	{
-		while (s[i] == c && s[i] != '\0')
-			i++;
-		while (s[i] != c && s[i] != '\0')
-		{
-			size++;
-			i++;
-		}
-		while (s[i] == c && s[i] != '\0')
-			i++;
-		arr[j] = (char *)malloc(sizeof(char) * (size + 1));
-		size = 0;
-		j++;
+		free(arr[i]);
+		i++;
 	}
-	arr[j] = NULL;
-	return (arr);
+	free(arr);
+	return (NULL);
 }
 
-static char	**make_strings(char **arr, char const *s, char c)
+static unsigned int	count_strs(char const *s, char c)
 {
-	int	i;
-	int	j;
-	int	k;
+	unsigned int	i;
+	unsigned int	resp;
 
+	resp = 0;
+	if (!s[0])
+		return (0);
 	i = 0;
-	j = 0;
-	k = 0;
+	while (s[i] && s[i] == c)
+		i++;
 	while (s[i])
 	{
-		while (s[i] == c && s[i] != '\0')
-			i++;
-		while (s[i] != c && s[i] != '\0')
+		if (s[i] == c)
 		{
-			arr[j][k] = s[i];
-			k++;
-			i++;
+			resp++;
+			while (s[i] && s[i] == c)
+				i++;
+			continue ;
 		}
-		arr[j][k] = '\0';
-		k = 0;
-		j++;
-		while (s[i] == c)
-			i++;
+		i++;
 	}
-	return (arr);
+	if (s[i - 1] != c)
+		resp++;
+	return (resp);
+}
+
+static void	get_row(char **str, unsigned int *str_len, char c)
+{
+	unsigned int	i;
+
+	*str += *str_len;
+	*str_len = 0;
+	i = 0;
+	while (**str && **str == c)
+		(*str)++;
+	while ((*str)[i])
+	{
+		if ((*str)[i] == c)
+			return ;
+		(*str_len)++;
+		i++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 16:36:28 by lray              #+#    #+#             */
-/*   Updated: 2022/11/06 17:36:50 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/07 16:36:34 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_strnstr(const char *s, const char *find, size_t slen)
 		while (s[i + j] == find[j] && s[i + j] && (i + j) < slen)
 		{
 			j++;
-			if(find[j] == '\0')
+			if (find[j] == '\0')
 				return ((char *)s + i);
 		}
 		i++;

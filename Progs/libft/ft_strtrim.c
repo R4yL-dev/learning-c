@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:28:02 by lray              #+#    #+#             */
-/*   Updated: 2022/11/01 19:08:11 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/06 21:14:35 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,101 +27,55 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static int	def_start(char const *s1, char const *set);
-static int	def_end(char const *s1, char const *set);
-static void	make_cpy(char const *s1, char *buf, int s, int e);
+static int	in_set(const char *set, char c);
+static char	*make_str(const char *s1, size_t start, size_t end);
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(const char *s1, const char *set)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = ft_strlen(s1) - 1;
+	if (ft_strlen(s1) == 0)
+		return (ft_calloc(1, 1));
+	while (in_set(set, s1[i]))
+		i++;
+	while (in_set(set, s1[j]))
+		j--;
+	return (make_str(s1, i, j - (i - 1)));
+}
+
+static char	*make_str(const char *s1, size_t start, size_t len)
 {
 	char	*resp;
-	int		start_cpy;
-	int		end_cpy;
+	size_t	i;
 
-	resp = malloc((ft_strlen(s1) + 1) * sizeof(char));
+	if (len <= 0 || start >= ft_strlen(s1))
+		return (ft_strdup(""));
+	resp = ft_calloc(len + 1, sizeof(char));
 	if (!resp)
 		return (NULL);
-	if (!s1[0] || !set[0])
+	i = 0;
+	while (i < len)
 	{
-		start_cpy = 0;
-		end_cpy = ft_strlen(s1);
+		resp[i] = s1[start + i];
+		i++;
 	}
-	else
-	{
-		start_cpy = def_start(s1, set);
-		end_cpy = def_end(s1, set);
-	}
-	make_cpy(s1, resp, start_cpy, end_cpy);
+	resp[i] = 0;
 	return (resp);
 }
 
-static int	def_start(char const *s1, char const *set)
+static int	in_set(const char *set, char c)
 {
-	size_t	i;
-	size_t	j;
-	size_t	state;
+	int	i;
 
-	state = 0;
 	i = 0;
-	while (s1[i])
+	while (set[i])
 	{
-		j = 0;
-		while (set[j])
-		{
-			if (s1[i] == set[j])
-			{
-				state = 0;
-				break ;
-			}
-			state = 1;
-			j++;
-		}
-		if (state)
-			return (i);
+		if (c == set[i])
+			return (1);
 		i++;
 	}
 	return (0);
-}
-
-static int	def_end(char const *s1, char const *set)
-{
-	size_t	i;
-	size_t	j;
-	size_t	state;
-
-	state = 0;
-	i = ft_strlen(s1) - 1;
-	while (i > 0)
-	{
-		j = 0;
-		while (set[j])
-		{
-			if (s1[i] == set[j])
-			{
-				state = 0;
-				break ;
-			}
-			state = 1;
-			j++;
-		}
-		if (state)
-			return (i);
-		i--;
-	}
-	return (0);
-}
-
-static void	make_cpy(char const *s1, char *buf, int s, int e)
-{
-	size_t	i;
-	size_t	j;
-
-	i = s;
-	j = 0;
-	while ((int)i <= e)
-	{
-		buf[j] = s1[i];
-		i++;
-		j++;
-	}
-	buf[j] = '\0';
 }

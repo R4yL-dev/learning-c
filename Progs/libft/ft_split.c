@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:25:45 by lray              #+#    #+#             */
-/*   Updated: 2022/11/07 22:59:22 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/08 11:15:46 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 
 static char			**free_all(char **arr);
 static unsigned int	count_strs(char const *s, char c);
-static void			get_row(char **str, unsigned int *str_len, char c);
+static void			init_el(char **str, unsigned int *str_len, char c);
 
 char	**ft_split(char const *s, char c)
 {
@@ -49,7 +49,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (i < nbr_strs)
 	{
-		get_row(&str, &str_len, c);
+		init_el(&str, &str_len, c);
 		resp[i] = malloc(sizeof(char) * (str_len + 1));
 		if (resp[i] == NULL)
 			return (free_all(resp));
@@ -101,7 +101,7 @@ static unsigned int	count_strs(char const *s, char c)
 	return (resp);
 }
 
-static void	get_row(char **str, unsigned int *str_len, char c)
+static void	init_el(char **str, unsigned int *str_len, char c)
 {
 	unsigned int	i;
 

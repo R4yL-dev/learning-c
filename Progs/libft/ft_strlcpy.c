@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 18:34:04 by lray              #+#    #+#             */
-/*   Updated: 2022/11/01 19:05:29 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/08 11:21:54 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		i++;
 	}
 	if (i < size)
-	{
 		dst[i] = '\0';
-	}
 	while (src[i] != '\0')
 		i++;
 	return (i);

@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:40:19 by lray              #+#    #+#             */
-/*   Updated: 2022/11/01 19:04:29 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/08 11:08:10 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,6 @@
 	Ret :
 		- La chaine de caractères représentant l'entier
 		- NULL si l'allocation échoue
-*/
-
-/*
-	1) Détérminer le nombre de digits de n
-	2) Créer la string
-	3) Convertire et mettre le résultat dans la string
 */
 
 #include "libft.h"

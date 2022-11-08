@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 16:44:41 by lray              #+#    #+#             */
-/*   Updated: 2022/10/25 15:50:46 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/08 11:18:17 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	if (dstlen == size)
 		return (size + srclen);
 	if (srclen < size - dstlen)
-	{
 		ft_memcpy(dst + dstlen, src, srclen + 1);
-	}
 	else
 	{
 		ft_memcpy(dst + dstlen, src, size - dstlen - 1);

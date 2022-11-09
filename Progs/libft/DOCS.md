@@ -612,7 +612,8 @@ int cint;
 
 el = NULL;
 cint = 42;
-ft_lstadd_front(&el, ft_lstnew((void *)&cint));	ft_lstdelone(el, del);
+ft_lstadd_front(&el, ft_lstnew((void *)&cint));
+ft_lstdelone(el, del);
 ```
 
 ## 1.14. ft_lstiter()

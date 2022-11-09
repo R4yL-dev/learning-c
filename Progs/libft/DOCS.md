@@ -54,6 +54,7 @@
 		- [1.11.1. Synopsis](#1111-synopsis)
 		- [1.11.2. Description](#1112-description)
 		- [1.11.3. Return value](#1113-return-value)
+		- [1.11.4. Exemples](#1114-exemples)
 	- [1.12. ft_lstclear()](#112-ft_lstclear)
 		- [1.12.1. Synopsis](#1121-synopsis)
 		- [1.12.2. Description](#1122-description)
@@ -70,6 +71,7 @@
 		- [1.15.1. Synopsis](#1151-synopsis)
 		- [1.15.2. Description](#1152-description)
 		- [1.15.3. Return value](#1153-return-value)
+		- [1.15.4. Exemples](#1154-exemples)
 	- [1.16. ft_lstmap()](#116-ft_lstmap)
 		- [1.16.1. Synopsis](#1161-synopsis)
 		- [1.16.2. Description](#1162-description)
@@ -78,10 +80,12 @@
 		- [1.17.1. Synopsis](#1171-synopsis)
 		- [1.17.2. Description](#1172-description)
 		- [1.17.3. Return value](#1173-return-value)
+		- [1.17.4. Exemple](#1174-exemple)
 	- [1.18. ft_lstsize()](#118-ft_lstsize)
 		- [1.18.1. Synopsis](#1181-synopsis)
 		- [1.18.2. Description](#1182-description)
 		- [1.18.3. Return value](#1183-return-value)
+		- [1.18.4. Exemples](#1184-exemples)
 	- [1.19. ft_memchr()](#119-ft_memchr)
 		- [1.19.1. Synopsis](#1191-synopsis)
 		- [1.19.2. Description](#1192-description)
@@ -200,43 +204,23 @@ The result of the conversion or 0 in case of error.
 ### 1.1.4. Exemples
 
 ```c
-char *str = "12345";
+char *str1 = "12345";
+char *str2 = "-42";
+char *str3 = "+2222";
 int resp;
 
-resp = ft_atoi(str);
-printf("resp = %d\n", resp);
+resp = ft_atoi(str1);
+printf("str \"%s\" = int %d\n", str1, resp);
+resp = ft_atoi(str2);
+printf("str \"%s\" = int %d\n", str2, resp);
+resp = ft_atoi(str3);
+printf("str \"%s\" = int %d\n", str3, resp);
 ```
 
 ```bash
-resp = 12345
-```
-
----
-
-```c
-char *str = "-42";
-int resp;
-
-resp = ft_atoi(str);
-printf("resp = %d\n", resp);
-```
-
-```bash
-resp = -42
-```
-
----
-
-```c
-char *str = "+2222";
-int resp;
-
-resp = ft_atoi(str);
-printf("resp = %d\n", resp);
-```
-
-```bash
-resp = 2222
+str "12345" = int 12345
+str "-42" = int -42
+str "+2222" = int 2222
 ```
 
 ## 1.2. ft_bzero()
@@ -499,7 +483,21 @@ The string representing the integer. NULL if the allaction fails.
 
 ### 1.9.4. Exemples
 
+```c
+char *resp;
+int positive = 12345;
+int negative = -12345;
 
+resp = ft_itoa(positive);
+printf("int %d = str \"%s\"\n", positive, resp);
+resp = ft_itoa(negative);
+printf("int %d = str \"%s\"\n", negative, resp);
+```
+
+```bash
+int 12345 = str "12345"
+int -12345 = str "-12345"
+```
 
 ## 1.10. ft_lstadd_back()
 
@@ -513,9 +511,37 @@ The string representing the integer. NULL if the allaction fails.
 
 ### 1.11.1. Synopsis
 
+`void ft_lstadd_front(t_list **lst, t_list *new);`.
+
 ### 1.11.2. Description
 
+Add the `new` element at the beginning of the list.
+
 ### 1.11.3. Return value
+
+None.
+
+### 1.11.4. Exemples
+
+```c
+t_list *el;
+int cint;
+char cchar;
+
+el = NULL;
+cint = 42;
+cchar = 'a';
+ft_lstadd_front(&el, ft_lstnew((void *)&cint));
+ft_lstadd_front(&el, ft_lstnew((void *)&cchar));
+printf("el->content = %c | el->next = %p\n", *(char *)el->content, el->next);
+el = el->next;
+printf("el->content = %d | el->next = %p\n", *(char *)el->content, el->next);
+```
+
+```bash
+el->content = a | el->next = 0x172f2a0
+el->content = 42 | el->next = (nil)
+```
 
 ## 1.12. ft_lstclear()
 
@@ -545,9 +571,40 @@ The string representing the integer. NULL if the allaction fails.
 
 ### 1.15.1. Synopsis
 
+`t_list *ft_lstlast(t_list *lst);`.
+
 ### 1.15.2. Description
 
+Returns the last element of the list.
+
 ### 1.15.3. Return value
+
+Last item in the list
+
+### 1.15.4. Exemples
+
+```c
+t_list *el;
+int cint;
+int cint2;
+char cchar;
+
+el = NULL;
+cint = 42;
+cint2 = 21;
+cchar = 'a';
+ft_lstadd_front(&el, ft_lstnew((void *)&cint));
+ft_lstadd_front(&el, ft_lstnew((void *)&cchar));
+ft_lstadd_front(&el, ft_lstnew((void *)&cint2));
+printf("el->content = %d | el->next = %p\n", *(int *)el->content, el->next);
+el = ft_lstlast(el);
+printf("el->content = %d | el->next = %p\n", *(int *)el->content, el->next);
+```
+
+```bash
+el->content = 21 | el->next = 0x10b22c0
+el->content = 42 | el->next = (nil)
+```
 
 ## 1.16. ft_lstmap()
 
@@ -561,17 +618,71 @@ The string representing the integer. NULL if the allaction fails.
 
 ### 1.17.1. Synopsis
 
+`t_list *ft_lstnew(void *content);`.
+
 ### 1.17.2. Description
 
+Allocate with malloc() and returns a new element. The member variable `content` is initialized with the value of the `content` parameter. The variable `next` is initialized to NULL.
+
 ### 1.17.3. Return value
+
+The new element.
+
+### 1.17.4. Exemple
+
+```c
+int cint;
+int cchar;
+t_list *el1;
+t_list *el2;
+
+cint = 42;
+cchar = 'a';
+el1 = ft_lstnew((void *)&cint);
+el2 = ft_lstnew((void *)&cchar);
+printf("el1->content = %d | el1->next = %p\n", *(int *)el1->content, el1->next);
+printf("el2->content = %d | el2->next = %p\n", *(int *)el2->content, el2->next);
+free(el1);
+free(el2);
+```
+
+```bash
+el1->content = 42 | el1->next = (nil)
+el2->content = 97 | el2->next = (nil)
+```
 
 ## 1.18. ft_lstsize()
 
 ### 1.18.1. Synopsis
 
+`int ft_lstsize(t_list *lst);`.
+
 ### 1.18.2. Description
 
+Count the number of items in the list.
+
 ### 1.18.3. Return value
+
+Size of the list.
+
+### 1.18.4. Exemples
+
+```c
+t_list *el;
+int cint;
+char cchar;
+
+el = NULL;
+cint = 42;
+cchar = 'a';
+ft_lstadd_front(&el, ft_lstnew((void *)&cint));
+ft_lstadd_front(&el, ft_lstnew((void *)&cchar));
+printf("List size : %d\n", ft_lstsize(el));
+```
+
+```bash
+List size : 2
+```
 
 ## 1.19. ft_memchr()
 

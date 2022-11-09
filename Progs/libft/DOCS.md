@@ -15,30 +15,37 @@
 		- [1.3.1. Synopsis](#131-synopsis)
 		- [1.3.2. Description](#132-description)
 		- [1.3.3. Return value](#133-return-value)
+		- [1.3.4. Exemples](#134-exemples)
 	- [1.4. ft_isalnum()](#14-ft_isalnum)
 		- [1.4.1. Synopsis](#141-synopsis)
 		- [1.4.2. Description](#142-description)
 		- [1.4.3. Return value](#143-return-value)
+		- [1.4.4. Exemples](#144-exemples)
 	- [1.5. ft_isalpha()](#15-ft_isalpha)
 		- [1.5.1. Synopsis](#151-synopsis)
 		- [1.5.2. Description](#152-description)
 		- [1.5.3. Return value](#153-return-value)
+		- [1.5.4. Exemples](#154-exemples)
 	- [1.6. ft_isascii()](#16-ft_isascii)
 		- [1.6.1. Synopsis](#161-synopsis)
 		- [1.6.2. Description](#162-description)
 		- [1.6.3. Return value](#163-return-value)
+		- [1.6.4. Exemples](#164-exemples)
 	- [1.7. ft_isdigit()](#17-ft_isdigit)
 		- [1.7.1. Synopsis](#171-synopsis)
 		- [1.7.2. Description](#172-description)
 		- [1.7.3. Return value](#173-return-value)
+		- [1.7.4. Exemples](#174-exemples)
 	- [1.8. ft_isprint()](#18-ft_isprint)
 		- [1.8.1. Synopsis](#181-synopsis)
 		- [1.8.2. Description](#182-description)
 		- [1.8.3. Return value](#183-return-value)
+		- [1.8.4. Exemples](#184-exemples)
 	- [1.9. ft_itoa()](#19-ft_itoa)
 		- [1.9.1. Synopsis](#191-synopsis)
 		- [1.9.2. Description](#192-description)
 		- [1.9.3. Return value](#193-return-value)
+		- [1.9.4. Exemples](#194-exemples)
 	- [1.10. ft_lstadd_back()](#110-ft_lstadd_back)
 		- [1.10.1. Synopsis](#1101-synopsis)
 		- [1.10.2. Description](#1102-description)
@@ -180,7 +187,7 @@
 
 ### 1.1.1. Synopsis
 
-`int ft_atoi(const char *nptr);`
+`int ft_atoi(const char *nptr);`.
 
 ### 1.1.2. Description
 
@@ -236,7 +243,7 @@ resp = 2222
 
 ### 1.2.1. Synopsis
 
-`void ft_bzero(void *s, size_t n);`
+`void ft_bzero(void *s, size_t n);`.
 
 ### 1.2.2. Description
 
@@ -256,8 +263,7 @@ ft_bzero(buf, sizeof(buf));
 i = 0;
 while (i != sizeof(buf))
 {
-	printf("buf[%d] (char) : %c | (int) : %d\n",\
-	 i, buf[i], buf[i]);
+	printf("buf[%d] (char) : %c | (int) : %d\n", i, buf[i], buf[i]);
 	i++;
 }
 ```
@@ -279,57 +285,221 @@ buf[9] (char) :  | (int) : 0
 
 ### 1.3.1. Synopsis
 
+`void *ft_calloc(size_t nmemb, size_t size);`.
+
 ### 1.3.2. Description
 
+The `ft_calloc()` function allocates memory for an array of `nmemb` elements. The memory is set to zero. If `nmemb` or `size` is 0, then `ft_calloc()` returns either NULL, or a unique pointer value that can later be sucessfully passed to free(). If the multiplication of `nmemb`and `size` would result in integer overflow, then `ft_calloc()` return an error. By contrast, an integer overflow would not be detected in the following call to malloc(), with the result that an incorrectly sized block of memory would be allocated : `malloc(nmemb * size);`.
+
 ### 1.3.3. Return value
+
+The `ft_calloc()` function return a pointer to the allocated memory, which is suitably aligned for any build-in type. On error, these function return NULL. NULL may also be returned by a successful call to `ft_calloc()` with `nmemb` or `size` equal to zero.
+
+### 1.3.4. Exemples
+
+```c
+int *ptri;
+int i;
+
+ptri = (int *)ft_calloc(10, sizeof(int));
+i = 0;
+while (i < 10)
+{
+	printf("ptri[%d] = (char) : %c | (int) : %d\n", i, ptri[i], ptri[i]);
+	i++;
+}
+free(ptri);
+```
+
+```bash
+ptri[0] = (char) :  | (int) : 0
+ptri[1] = (char) :  | (int) : 0
+ptri[2] = (char) :  | (int) : 0
+ptri[3] = (char) :  | (int) : 0
+ptri[4] = (char) :  | (int) : 0
+ptri[5] = (char) :  | (int) : 0
+ptri[6] = (char) :  | (int) : 0
+ptri[7] = (char) :  | (int) : 0
+ptri[8] = (char) :  | (int) : 0
+ptri[9] = (char) :  | (int) : 0
+```
 
 ## 1.4. ft_isalnum()
 
 ### 1.4.1. Synopsis
 
+`int ft_isalnum(int c);`.
+
 ### 1.4.2. Description
 
+The `ft_isalnum()` function checks for an alphanumeric character. It's equivalent to `(ft_isalpha(c) || isdigit(c))`.
+
 ### 1.4.3. Return value
+
+The values returned are nonzero if the character `c` falls into the tested class, and zero if not.
+
+### 1.4.4. Exemples
+
+```c
+int resp;
+
+resp = ft_isalnum('a');
+printf("ft_isalnum('a') = %d\n", resp);
+resp = ft_isalnum('9');
+printf("ft_isalnum('9') = %d\n", resp);
+resp = ft_isalnum('+');
+printf("ft_isalnum('+') = %d\n", resp);
+```
+
+```bash
+ft_isalnum('a') = 8
+ft_isalnum('9') = 8
+ft_isalnum('+') = 0
+```
 
 ## 1.5. ft_isalpha()
 
 ### 1.5.1. Synopsis
 
+`int ft_isalpha(int c);`.
+
 ### 1.5.2. Description
 
+The `ft_isalpha()` function checks for an alphabetic character, It's equivalent to `(ft_isupper(c) || ft_islower(c))`.
+
 ### 1.5.3. Return value
+
+The values returned are nonzero if the character `c` falls into the tested class, and zero if not.
+
+### 1.5.4. Exemples
+
+```c
+int resp;
+
+resp = ft_isalpha('a');
+printf("ft_isalpha('a') = %d\n", resp);
+resp = ft_isalpha('9');
+printf("ft_isalpha('9') = %d\n", resp);
+```
+
+```bash
+ft_isalpha('a') = 1024
+ft_isalpha('9') = 0
+```
 
 ## 1.6. ft_isascii()
 
 ### 1.6.1. Synopsis
 
+`int ft_isascii(int c);`.
+
 ### 1.6.2. Description
 
+The `ft_isascii()` function checks whether `c` is a 7-bit `unsigned char` value that fits into the ASCII character set.
+
 ### 1.6.3. Return value
+
+The values returned are nonzero if the character `c` falls into the tested class, and zero if not.
+
+### 1.6.4. Exemples
+
+```c
+int resp;
+
+resp = ft_isascii('a');
+printf("ft_isascii('a') = %d\n", resp);
+resp = ft_isascii('+');
+printf("ft_isascii('+') = %d\n", resp);
+resp = ft_isascii(128);
+printf("ft_isascii(128) = %d\n", resp);
+```
+
+```bash
+ft_isascii('a') = 1
+ft_isascii('+') = 1
+ft_isascii(128) = 0
+```
 
 ## 1.7. ft_isdigit()
 
 ### 1.7.1. Synopsis
 
+`int ft_isdigit(int c);`.
+
 ### 1.7.2. Description
 
+The `ft_isdigit()` function checks for a digit (0 through 9).
+
 ### 1.7.3. Return value
+
+The values returned are nonzero if the character `c` falls into the tested class, and zero if not.
+
+### 1.7.4. Exemples
+
+```c
+int resp;
+
+resp = ft_isdigit('2');
+printf("ft_isdigit('2') = %d\n", resp);
+resp = ft_isdigit('a');
+printf("ft_isdigit('a') = %d\n", resp);
+```
+
+```bash
+ft_isdigit('2') = 2048
+ft_isdigit('a') = 0
+```
 
 ## 1.8. ft_isprint()
 
 ### 1.8.1. Synopsis
 
+`int ft_isprint(int c);`.
+
 ### 1.8.2. Description
 
+The `ft_isprint()` function checks for any printable character including space.
+
 ### 1.8.3. Return value
+
+The values returned are nonzero if the character `c` falls into the tested class, and zero if not.
+
+### 1.8.4. Exemples
+
+```c
+int resp;
+
+resp = ft_isprint('a');
+printf("ft_isprint('a') = %d\n", resp);
+resp = ft_isprint(' ');
+printf("ft_isprint('a') = %d\n", resp);
+resp = ft_isprint(22);
+printf("ft_isprint(22) = %d\n", resp);
+```
+
+```bash
+ft_isprint('a') = 16384
+ft_isprint('a') = 16384
+ft_isprint(22) = 0
+```
 
 ## 1.9. ft_itoa()
 
 ### 1.9.1. Synopsis
 
+`char *ft_itoa(int n);`.
+
 ### 1.9.2. Description
 
+Allocate with malloc and return a string representing the integer `n` received as an argument. Negative numbers are handled.
+
 ### 1.9.3. Return value
+
+The string representing the integer. NULL if the allaction fails.
+
+### 1.9.4. Exemples
+
+
 
 ## 1.10. ft_lstadd_back()
 

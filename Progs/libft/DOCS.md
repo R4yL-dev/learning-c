@@ -8,6 +8,7 @@
 		- [1.2.1. Synopsis](#121-synopsis)
 		- [1.2.2. Description](#122-description)
 		- [1.2.3. Return value](#123-return-value)
+		- [1.2.4. Exemples](#124-exemples)
 	- [1.3. ft_bzero()](#13-ft_bzero)
 		- [1.3.1. Synopsis](#131-synopsis)
 		- [1.3.2. Description](#132-description)
@@ -185,7 +186,53 @@
 
 ### 1.2.2. Description
 
+The function `ft_atoi()` converts the beginning of the string pointed by nptr into an integer of type int.
+
 ### 1.2.3. Return value
+
+The result of the conversion or 0 in case of error.
+
+### 1.2.4. Exemples
+
+```c
+char *str = "12345";
+int resp;
+
+resp = ft_atoi(str);
+printf("resp = %d\n", resp);
+```
+
+```bash
+resp = 12345
+```
+
+---
+
+```c
+char *str = "-42";
+int resp;
+
+resp = ft_atoi(str);
+printf("resp = %d\n", resp);
+```
+
+```bash
+resp = -42
+```
+
+---
+
+```c
+char *str = "+2222";
+int resp;
+
+resp = ft_atoi(str);
+printf("resp = %d\n", resp);
+```
+
+```bash
+resp = 2222
+```
 
 ## 1.3. ft_bzero()
 

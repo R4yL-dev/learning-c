@@ -50,6 +50,7 @@
 		- [1.10.1. Synopsis](#1101-synopsis)
 		- [1.10.2. Description](#1102-description)
 		- [1.10.3. Return value](#1103-return-value)
+		- [1.10.4. Exemple](#1104-exemple)
 	- [1.11. ft_lstadd_front()](#111-ft_lstadd_front)
 		- [1.11.1. Synopsis](#1111-synopsis)
 		- [1.11.2. Description](#1112-description)
@@ -63,6 +64,7 @@
 		- [1.13.1. Synopsis](#1131-synopsis)
 		- [1.13.2. Description](#1132-description)
 		- [1.13.3. Return value](#1133-return-value)
+		- [1.13.4. Exemples](#1134-exemples)
 	- [1.14. ft_lstiter()](#114-ft_lstiter)
 		- [1.14.1. Synopsis](#1141-synopsis)
 		- [1.14.2. Description](#1142-description)
@@ -503,9 +505,43 @@ int -12345 = str "-12345"
 
 ### 1.10.1. Synopsis
 
+`void ft_lstadd_back(t_list **lst, t_list *new);`.
+
 ### 1.10.2. Description
 
+Adds the element `new` at the end of the list.
+
 ### 1.10.3. Return value
+
+None.
+
+### 1.10.4. Exemple
+
+```c
+t_list *el;
+t_list *first_el;
+int cint;
+int cint2;
+char cchar;
+
+el = NULL;
+cint = 42;
+cint2 = 21;
+cchar = 'a';
+ft_lstadd_front(&el, ft_lstnew((void *)&cint));
+ft_lstadd_front(&el, ft_lstnew((void *)&cchar));
+ft_lstadd_back(&el, ft_lstnew((void *)&cint2));
+printf("el->content = %c | el->next = %p\n", *(char *)el->content, el->next);
+first_el = el;
+el = ft_lstlast(el);
+printf("el->content = %d | el->next = %p\n", *(int *)el->content, el->next);
+ft_lstclear(&first_el, del);
+```
+
+```bash
+el->content = a | el->next = 0xf412a0
+el->content = 21 | el->next = (nil)
+```
 
 ## 1.11. ft_lstadd_front()
 
@@ -525,6 +561,7 @@ None.
 
 ```c
 t_list *el;
+t_list *first_el;
 int cint;
 char cchar;
 
@@ -534,8 +571,10 @@ cchar = 'a';
 ft_lstadd_front(&el, ft_lstnew((void *)&cint));
 ft_lstadd_front(&el, ft_lstnew((void *)&cchar));
 printf("el->content = %c | el->next = %p\n", *(char *)el->content, el->next);
+first_el = el;
 el = el->next;
 printf("el->content = %d | el->next = %p\n", *(char *)el->content, el->next);
+ft_lstclear(&first_el, del);
 ```
 
 ```bash
@@ -555,9 +594,26 @@ el->content = 42 | el->next = (nil)
 
 ### 1.13.1. Synopsis
 
+`void ft_lstdelone(t_list *lst, void (*del)(void *));`.
+
 ### 1.13.2. Description
 
+Free the memory of the element passed as argument by using the `del` function then with free. The memory of `next` must not be free.
+
 ### 1.13.3. Return value
+
+None.
+
+### 1.13.4. Exemples
+
+```c
+t_list *el;
+int cint;
+
+el = NULL;
+cint = 42;
+ft_lstadd_front(&el, ft_lstnew((void *)&cint));	ft_lstdelone(el, del);
+```
 
 ## 1.14. ft_lstiter()
 
@@ -585,6 +641,7 @@ Last item in the list
 
 ```c
 t_list *el;
+t_list *first_el;
 int cint;
 int cint2;
 char cchar;
@@ -597,8 +654,10 @@ ft_lstadd_front(&el, ft_lstnew((void *)&cint));
 ft_lstadd_front(&el, ft_lstnew((void *)&cchar));
 ft_lstadd_front(&el, ft_lstnew((void *)&cint2));
 printf("el->content = %d | el->next = %p\n", *(int *)el->content, el->next);
+first_el = el;
 el = ft_lstlast(el);
 printf("el->content = %d | el->next = %p\n", *(int *)el->content, el->next);
+ft_lstclear(&first_el, del);
 ```
 
 ```bash
@@ -642,8 +701,8 @@ el1 = ft_lstnew((void *)&cint);
 el2 = ft_lstnew((void *)&cchar);
 printf("el1->content = %d | el1->next = %p\n", *(int *)el1->content, el1->next);
 printf("el2->content = %d | el2->next = %p\n", *(int *)el2->content, el2->next);
-free(el1);
-free(el2);
+ft_lstclear(&el1, del);
+ft_lstclear(&el2, del);
 ```
 
 ```bash

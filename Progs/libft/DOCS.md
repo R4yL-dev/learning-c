@@ -60,6 +60,7 @@
 		- [1.12.1. Synopsis](#1121-synopsis)
 		- [1.12.2. Description](#1122-description)
 		- [1.12.3. Return value](#1123-return-value)
+		- [1.12.4. Exemples](#1124-exemples)
 	- [1.13. ft_lstdelone()](#113-ft_lstdelone)
 		- [1.13.1. Synopsis](#1131-synopsis)
 		- [1.13.2. Description](#1132-description)
@@ -69,6 +70,7 @@
 		- [1.14.1. Synopsis](#1141-synopsis)
 		- [1.14.2. Description](#1142-description)
 		- [1.14.3. Return value](#1143-return-value)
+		- [1.14.4. Exemples](#1144-exemples)
 	- [1.15. ft_lstlast()](#115-ft_lstlast)
 		- [1.15.1. Synopsis](#1151-synopsis)
 		- [1.15.2. Description](#1152-description)
@@ -78,6 +80,7 @@
 		- [1.16.1. Synopsis](#1161-synopsis)
 		- [1.16.2. Description](#1162-description)
 		- [1.16.3. Return value](#1163-return-value)
+		- [1.16.4. Exemples](#1164-exemples)
 	- [1.17. ft_lstnew()](#117-ft_lstnew)
 		- [1.17.1. Synopsis](#1171-synopsis)
 		- [1.17.2. Description](#1172-description)
@@ -586,9 +589,31 @@ el->content = 42 | el->next = (nil)
 
 ### 1.12.1. Synopsis
 
+`void ft_lstclear(t_list **lst, void (*del)(void *));`.
+
 ### 1.12.2. Description
 
+Delete and free the memory of the element passed in parameter, and all the elements that follow, using `del` and `free()`. Finally, the initial pointer must be set to NULL.
+
 ### 1.12.3. Return value
+
+None.
+
+### 1.12.4. Exemples
+
+```c
+t_list *el;
+t_list *first_el;
+int cint;
+char cchar;
+
+el = NULL;
+cint = 42;
+cchar = 'a';
+ft_lstadd_front(&el, ft_lstnew((void *)&cint));
+ft_lstadd_front(&el, ft_lstnew((void *)&cchar));
+ft_lstclear(&first_el, del);
+```
 
 ## 1.13. ft_lstdelone()
 
@@ -620,9 +645,50 @@ ft_lstdelone(el, del);
 
 ### 1.14.1. Synopsis
 
+`void ft_lstiter(t_list *lst, void (*f)(void *));`.
+
 ### 1.14.2. Description
 
+Iterates over the list `lst` and applies the function `f`
+to the content of each element.
+
 ### 1.14.3. Return value
+
+None.
+
+### 1.14.4. Exemples
+
+```c
+static void iter(void *el)
+{
+	printf("el->content : %d\n", *(int *)el);
+}
+
+int	main(void)
+{
+	t_list *el;
+	int cint1;
+	int cint2;
+	int cint3;
+
+	el = NULL;
+	cint1 = 42;
+	cint2 = 21;
+	cint3 = 22;
+	ft_lstadd_front(&el, ft_lstnew((void *)&cint1));
+	ft_lstadd_front(&el, ft_lstnew((void *)&cint2));
+	ft_lstadd_front(&el, ft_lstnew((void *)&cint3));
+	ft_lstiter(el, iter);
+	ft_lstclear(&el, del);
+	return (0);
+}
+```
+
+```bash
+el->content : 22
+el->content : 21
+el->content : 42
+```
 
 ## 1.15. ft_lstlast()
 
@@ -670,9 +736,67 @@ el->content = 42 | el->next = (nil)
 
 ### 1.16.1. Synopsis
 
+`t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));`;
+
 ### 1.16.2. Description
 
+Iterates over the list `lst` and applies the function
+`f` to the content of each element. Create a new
+list resulting from the successive applications of
+`f`. The function `del` is there to destroy the content of content of an element if necessary.
+
 ### 1.16.3. Return value
+
+The new list. NULL if the allocation fails.
+
+### 1.16.4. Exemples
+
+```c
+static void iter(void *el)
+{
+	printf("el->content : %d\n", *(int *)el);
+}
+
+static void *map(void *el)
+{
+	*(int *)el = *(int *)el * 2;
+	return (el);
+}
+
+int	main(void)
+{
+	t_list *el;
+	int cint1;
+	int cint2;
+	int cint3;
+
+	el = NULL;
+	cint1 = 42;
+	cint2 = 21;
+	cint3 = 22;
+	ft_lstadd_front(&el, ft_lstnew((void *)&cint1));
+	ft_lstadd_front(&el, ft_lstnew((void *)&cint2));
+	ft_lstadd_front(&el, ft_lstnew((void *)&cint3));
+	printf("-- Before map --\n");
+	ft_lstiter(el, iter);
+	ft_lstmap(el, map, del);
+	printf("-- After map --\n");
+	ft_lstiter(el, iter);
+	ft_lstclear(&el, del);
+	return (0);
+}
+```
+
+```bash
+-- Before map --
+el->content : 22
+el->content : 21
+el->content : 42
+-- After map --
+el->content : 44
+el->content : 42
+el->content : 84
+```
 
 ## 1.17. ft_lstnew()
 

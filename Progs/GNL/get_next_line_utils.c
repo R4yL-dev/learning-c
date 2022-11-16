@@ -6,8 +6,19 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 16:25:25 by lray              #+#    #+#             */
-/*   Updated: 2022/11/15 16:25:31 by lray             ###   ########.fr       */
+/*   Updated: 2022/11/15 19:01:47 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int	has_newline(char *reserve)
+{
+	while (*reserve)
+	{
+		if (*reserve == '\n')
+			return (1);
+		reserve++;
+	}
+	return (0);
+}

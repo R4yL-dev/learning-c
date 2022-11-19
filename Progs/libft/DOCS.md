@@ -95,58 +95,72 @@
 		- [1.19.1. Synopsis](#1191-synopsis)
 		- [1.19.2. Description](#1192-description)
 		- [1.19.3. Return value](#1193-return-value)
+		- [1.19.4. Exemples](#1194-exemples)
 	- [1.20. ft_memcmp()](#120-ft_memcmp)
 		- [1.20.1. Synopsis](#1201-synopsis)
 		- [1.20.2. Description](#1202-description)
 		- [1.20.3. Return value](#1203-return-value)
+		- [1.20.4. Exemples](#1204-exemples)
 	- [1.21. ft_memcpy()](#121-ft_memcpy)
 		- [1.21.1. Synopsis](#1211-synopsis)
 		- [1.21.2. Description](#1212-description)
 		- [1.21.3. Return value](#1213-return-value)
+		- [1.21.4. Exemples](#1214-exemples)
 	- [1.22. ft_memmove()](#122-ft_memmove)
 		- [1.22.1. Synopsis](#1221-synopsis)
 		- [1.22.2. Description](#1222-description)
 		- [1.22.3. Return value](#1223-return-value)
+		- [1.22.4. Exemples](#1224-exemples)
 	- [1.23. ft_memset()](#123-ft_memset)
 		- [1.23.1. Synopsis](#1231-synopsis)
 		- [1.23.2. Description](#1232-description)
 		- [1.23.3. Return value](#1233-return-value)
+		- [1.23.4. Exemples](#1234-exemples)
 	- [1.24. ft_putchar_fd()](#124-ft_putchar_fd)
 		- [1.24.1. Synopsis](#1241-synopsis)
 		- [1.24.2. Description](#1242-description)
 		- [1.24.3. Return value](#1243-return-value)
+		- [1.24.4. Exemples](#1244-exemples)
 	- [1.25. ft_putendl_fd()](#125-ft_putendl_fd)
 		- [1.25.1. Synopsis](#1251-synopsis)
 		- [1.25.2. Description](#1252-description)
 		- [1.25.3. Return value](#1253-return-value)
+		- [1.25.4. Exemples](#1254-exemples)
 	- [1.26. ft_putnbr_fd()](#126-ft_putnbr_fd)
 		- [1.26.1. Synopsis](#1261-synopsis)
 		- [1.26.2. Description](#1262-description)
 		- [1.26.3. Return value](#1263-return-value)
+		- [1.26.4. Exemples](#1264-exemples)
 	- [1.27. ft_putstr_fd()](#127-ft_putstr_fd)
 		- [1.27.1. Synopsis](#1271-synopsis)
 		- [1.27.2. Description](#1272-description)
 		- [1.27.3. Return value](#1273-return-value)
+		- [1.27.4. Exemples](#1274-exemples)
 	- [1.28. ft_split()](#128-ft_split)
 		- [1.28.1. Synopsis](#1281-synopsis)
 		- [1.28.2. Description](#1282-description)
 		- [1.28.3. Return value](#1283-return-value)
+		- [1.28.4. Exemples](#1284-exemples)
 	- [1.29. ft_strchr()](#129-ft_strchr)
 		- [1.29.1. Synopsis](#1291-synopsis)
 		- [1.29.2. Description](#1292-description)
 		- [1.29.3. Return value](#1293-return-value)
+		- [1.29.4. Exemples](#1294-exemples)
 	- [1.30. ft_strdup()](#130-ft_strdup)
 		- [1.30.1. Synopsis](#1301-synopsis)
 		- [1.30.2. Description](#1302-description)
 		- [1.30.3. Return value](#1303-return-value)
+		- [1.30.4. Exemples](#1304-exemples)
 	- [1.31. ft_striteri()](#131-ft_striteri)
 		- [1.31.1. Synopsis](#1311-synopsis)
 		- [1.31.2. Description](#1312-description)
 		- [1.31.3. Return value](#1313-return-value)
+		- [1.31.4. Exemples](#1314-exemples)
 	- [1.32. ft_strjoin()](#132-ft_strjoin)
 		- [1.32.1. Synopsis](#1321-synopsis)
 		- [1.32.2. Description](#1322-description)
 		- [1.32.3. Return value](#1323-return-value)
+		- [1.32.4. Exemples](#1324-exemples)
 	- [1.33. ft_strlcat()](#133-ft_strlcat)
 		- [1.33.1. Synopsis](#1331-synopsis)
 		- [1.33.2. Description](#1332-description)
@@ -252,8 +266,8 @@ ft_bzero(buf, sizeof(buf));
 i = 0;
 while (i != sizeof(buf))
 {
-	printf("buf[%d] (char) : %c | (int) : %d\n", i, buf[i], buf[i]);
-	i++;
+    printf("buf[%d] (char) : %c | (int) : %d\n", i, buf[i], buf[i]);
+    i++;
 }
 ```
 
@@ -294,8 +308,8 @@ ptri = (int *)ft_calloc(10, sizeof(int));
 i = 0;
 while (i < 10)
 {
-	printf("ptri[%d] = (char) : %c | (int) : %d\n", i, ptri[i], ptri[i]);
-	i++;
+    printf("ptri[%d] = (char) : %c | (int) : %d\n", i, ptri[i], ptri[i]);
+    i++;
 }
 free(ptri);
 ```
@@ -603,7 +617,6 @@ None.
 
 ```c
 t_list *el;
-t_list *first_el;
 int cint;
 char cchar;
 
@@ -612,7 +625,7 @@ cint = 42;
 cchar = 'a';
 ft_lstadd_front(&el, ft_lstnew((void *)&cint));
 ft_lstadd_front(&el, ft_lstnew((void *)&cchar));
-ft_lstclear(&first_el, del);
+ft_lstclear(&el, del);
 ```
 
 ## 1.13. ft_lstdelone()
@@ -661,26 +674,26 @@ None.
 ```c
 static void iter(void *el)
 {
-	printf("el->content : %d\n", *(int *)el);
+    printf("el->content : %d\n", *(int *)el);
 }
 
-int	main(void)
+int main(void)
 {
-	t_list *el;
-	int cint1;
-	int cint2;
-	int cint3;
+    t_list *el;
+    int cint1;
+    int cint2;
+    int cint3;
 
-	el = NULL;
-	cint1 = 42;
-	cint2 = 21;
-	cint3 = 22;
-	ft_lstadd_front(&el, ft_lstnew((void *)&cint1));
-	ft_lstadd_front(&el, ft_lstnew((void *)&cint2));
-	ft_lstadd_front(&el, ft_lstnew((void *)&cint3));
-	ft_lstiter(el, iter);
-	ft_lstclear(&el, del);
-	return (0);
+    el = NULL;
+    cint1 = 42;
+    cint2 = 21;
+    cint3 = 22;
+    ft_lstadd_front(&el, ft_lstnew((void *)&cint1));
+    ft_lstadd_front(&el, ft_lstnew((void *)&cint2));
+    ft_lstadd_front(&el, ft_lstnew((void *)&cint3));
+    ft_lstiter(el, iter);
+    ft_lstclear(&el, del);
+    return (0);
 }
 ```
 
@@ -754,36 +767,36 @@ The new list. NULL if the allocation fails.
 ```c
 static void iter(void *el)
 {
-	printf("el->content : %d\n", *(int *)el);
+    printf("el->content : %d\n", *(int *)el);
 }
 
 static void *map(void *el)
 {
-	*(int *)el = *(int *)el * 2;
-	return (el);
+    *(int *)el = *(int *)el * 2;
+    return (el);
 }
 
-int	main(void)
+int main(void)
 {
-	t_list *el;
-	int cint1;
-	int cint2;
-	int cint3;
+    t_list *el;
+    int cint1;
+    int cint2;
+    int cint3;
 
-	el = NULL;
-	cint1 = 42;
-	cint2 = 21;
-	cint3 = 22;
-	ft_lstadd_front(&el, ft_lstnew((void *)&cint1));
-	ft_lstadd_front(&el, ft_lstnew((void *)&cint2));
-	ft_lstadd_front(&el, ft_lstnew((void *)&cint3));
-	printf("-- Before map --\n");
-	ft_lstiter(el, iter);
-	ft_lstmap(el, map, del);
-	printf("-- After map --\n");
-	ft_lstiter(el, iter);
-	ft_lstclear(&el, del);
-	return (0);
+    el = NULL;
+    cint1 = 42;
+    cint2 = 21;
+    cint3 = 22;
+    ft_lstadd_front(&el, ft_lstnew((void *)&cint1));
+    ft_lstadd_front(&el, ft_lstnew((void *)&cint2));
+    ft_lstadd_front(&el, ft_lstnew((void *)&cint3));
+    printf("-- Before map --\n");
+    ft_lstiter(el, iter);
+    ft_lstmap(el, map, del);
+    printf("-- After map --\n");
+    ft_lstiter(el, iter);
+    ft_lstclear(&el, del);
+    return (0);
 }
 ```
 
@@ -872,113 +885,410 @@ List size : 2
 
 ### 1.19.1. Synopsis
 
+`void *ft_memchr(const void *s, int c, size_t n);`
+
 ### 1.19.2. Description
 
+The `ft_memchr` function scans the inital `n` bytes of the memory area pointed by `s` for the first instance of `c`. Both `c` and the bytes of the memory area pointed to by `s` are interptreted as `unsigned char`.
+
 ### 1.19.3. Return value
+
+Return a pointer to the matching byte or NULL if the character does not occur in the given memory area.
+
+### 1.19.4. Exemples
+
+```c
+char *str = "salut";
+
+printf("- %s\n", (char *)ft_memchr((void *)str, 'l', ft_strlen(str)));
+printf("- %s\n", (char *)ft_memchr((void *)str, 'z', ft_strlen(str)));
+```
+
+```bash
+- lut
+- (null)
+```
 
 ## 1.20. ft_memcmp()
 
 ### 1.20.1. Synopsis
 
+`void *memcpy(void *dest, const void *src, size_t n);`.
+
 ### 1.20.2. Description
 
+The `ft_memcpy()` function copie `n` bytes from memroy area `src` to memory area `dest`. The memory areas must not overlap. Use `ft_memmove()` if the memory areas do overlap.
+
 ### 1.20.3. Return value
+
+The `ft_memcpy()` function returns a poiner to `dest`.
+
+### 1.20.4. Exemples
+
+```c
+char *str1 = "salut";
+char *str2 = "sblut";
+int resp;
+
+resp = ft_memcmp((void *)str1, (void *)str2, 5);
+printf("%d\n", resp);
+resp = ft_memcmp((void *)str2, (void *)str1, 5);
+printf("%d\n", resp);
+resp = ft_memcmp((void *)str1, (void *)str1, 5);
+printf("%d\n", resp);
+```
+
+```bash
+-1
+1
+0
+```
 
 ## 1.21. ft_memcpy()
 
 ### 1.21.1. Synopsis
 
+`void *ft_memcpy(void *dest, const void *src, size_t n);`.
+
 ### 1.21.2. Description
 
+The `ft_memcpy()` function copies `n` bytes from memory area `src` to memory area `dest`. The memory areas must not overlap. Use `ft_memmove()` if the memory areas do overlap.
+
 ### 1.21.3. Return value
+
+The `ft_memcpy()` function returns a pointer to `dest`.
+
+### 1.21.4. Exemples
+
+```c
+char *str = "Hello le monde";
+char dest[50];
+
+ft_memcpy(dest, str, ft_strlen(str) + 1);
+printf("%s\n", dest);
+```
+
+```bash
+Hello le monde
+```
 
 ## 1.22. ft_memmove()
 
 ### 1.22.1. Synopsis
 
+`void *ft_memmove(void *dest, const void *src, size_t n);`.
+
 ### 1.22.2. Description
 
+The `ft_memmove()` function copies `n` bytes from memory area `src` to memory area `dest`. The memory area may overlap: copying takes place as though the bytes in `src` are first copied into a temporary array that does not overlap `src` or `dest`, and the nytes are then copied from the temporary array to `dest`.
+
 ### 1.22.3. Return value
+
+The `ft_memmove()` function returns a pointer to `dest`-
+
+### 1.22.4. Exemples
+
+```c
+char *str = "Hello le monde";
+char dest[50];
+
+ft_memmove(dest, str, ft_strlen(str) + 1);
+printf("%s\n", dest);
+```
+
+```bash
+Hello le monde
+```
 
 ## 1.23. ft_memset()
 
 ### 1.23.1. Synopsis
 
+`void *ft_memset(void *s, int c, size_t n);`.
+
 ### 1.23.2. Description
 
+The `ft_memset()` function fills the first `n` bytes of the memory area pointed to by `s` with the constant bytes `c`.
+
 ### 1.23.3. Return value
+
+The `ft_memset()` function returns a pointer to the memory area `s`.
+
+### 1.23.4. Exemples
+
+```c
+char buf[10];
+int i = 0;
+
+ft_memset(buf, 'x', sizeof(buf));
+while (i < sizeof(buf))
+{
+    printf("buf[%d] = %c\n", i, buf[i]);
+    i++;
+}
+```
+
+```bash
+buf[0] = x
+buf[1] = x
+buf[2] = x
+buf[3] = x
+buf[4] = x
+buf[5] = x
+buf[6] = x
+buf[7] = x
+buf[8] = x
+buf[9] = x
+```
 
 ## 1.24. ft_putchar_fd()
 
 ### 1.24.1. Synopsis
 
+`void ft_putchar_fd(char c, int fd);`.
+
 ### 1.24.2. Description
 
+The `ft_putchar_fd()` function writes the character `c` to the given file descriptor.
+
 ### 1.24.3. Return value
+
+None.
+
+### 1.24.4. Exemples
+
+```c
+ft_putchar_fd('x', 1);
+```
+
+```bash
+x
+```
 
 ## 1.25. ft_putendl_fd()
 
 ### 1.25.1. Synopsis
 
+`void ft_putendl_fd(char *s, int fd);`.
+
 ### 1.25.2. Description
 
+The `ft_putendl_fd()` function write the string `s` on the given
+file descriptor followed by a newline.
+
 ### 1.25.3. Return value
+
+None.
+
+### 1.25.4. Exemples
+
+```c
+ft_putendl_fd("Libft is fun !!", 1);
+```
+
+```bash
+Libft is fun !!
+
+```
 
 ## 1.26. ft_putnbr_fd()
 
 ### 1.26.1. Synopsis
 
+`void ft_putnbr_fd(int n, int fd);`.
+
 ### 1.26.2. Description
 
+The `ft_putnbr_fd()` function write the integer `n` to the given file descriptorl.
+
 ### 1.26.3. Return value
+
+None.
+
+### 1.26.4. Exemples
+
+```c
+ft_putnbr_fd(424242, 1);
+```
+
+```bash
+ft_putnbr_fd(424242, 1);
+```
 
 ## 1.27. ft_putstr_fd()
 
 ### 1.27.1. Synopsis
 
+`void ft_putstr_fd(char *s, int fd);`.
+
 ### 1.27.2. Description
 
+The `ft_putstr_fd()` function writes the string `s` to the given file descriptor.
+
 ### 1.27.3. Return value
+
+None.
+
+### 1.27.4. Exemples
+
+```c
+ft_putstr_fd("Libft is fun !!", 1);
+```
+
+```bash
+Libft is fun !!
+```
 
 ## 1.28. ft_split()
 
 ### 1.28.1. Synopsis
 
+`char **ft_split(char const *s, char c);`.
+
 ### 1.28.2. Description
 
+The `ft_split()` function allocates and returns an array of strings obtained by separating `s` with the `c` character, used as a delimiter. The array must be terminated by NULL.
+
 ### 1.28.3. Return value
+
+The `ft_split()` function returns the array of new strings resulting from the splitting. NULL if the allocation fails.
+
+### 1.28.4. Exemples
+
+```c
+char *str = "Hello,42,Network,:)";
+char **result;
+int i = 0;
+
+result = ft_split(str, ',');
+while (result[i])
+{
+    printf("%s\n", result[i]);
+    i++;
+}
+```
+
+```bash
+Hello
+42
+Network
+:)
+```
 
 ## 1.29. ft_strchr()
 
 ### 1.29.1. Synopsis
 
+`char *ft_strchr(const char *s, int c);`.
+
 ### 1.29.2. Description
 
+The `ft_strchr()` function returns a pointer to the first occurrence of the character `c` in the string `s`.
+
 ### 1.29.3. Return value
+
+The `ft_strchr()` function returns a pointer to the matched character or NULL if the character is not found. The terminating null byte is considered part of the string, so that if `c` is specified as '\0', the function return a pointer to the terminator.
+
+### 1.29.4. Exemples
+
+```c
+char *resp;
+
+resp = ft_strchr("Hello 42 Network :)", '4');
+printf("%s\n", resp);
+```
+
+```bash
+42 Network :)
+```
 
 ## 1.30. ft_strdup()
 
 ### 1.30.1. Synopsis
 
+`char *ft_strdup(const char *s);`.
+
 ### 1.30.2. Description
 
+The `ft_strdup()` function returns a pointer to a new string which is a duplicate of the string `s`. Memory for the new string is obtained with `malloc()`, and can be freed with `free()`.
+
 ### 1.30.3. Return value
+
+On success, the `ft_strdup()` funcrtion returns a pointer to the duplicated string. It returns NULL if insufficient memory was available.
+
+### 1.30.4. Exemples
+
+```c
+char *str = "Hello 42 Network :)";
+char *resp;
+
+resp = ft_strdup(str);
+printf("%s\n", resp);
+```
+
+```bash
+Hello 42 Network :)
+```
 
 ## 1.31. ft_striteri()
 
 ### 1.31.1. Synopsis
 
+`void ft_striteri(char *s, void (*f)(unsigned int, char*));`.
+
 ### 1.31.2. Description
 
+The `ft_striteri()` function apply the `f` function to each character of the string passed as argument, and passing its index as first argument. Each character is transmitted by address to `f` in order to be modified if necessary.
+
 ### 1.31.3. Return value
+
+None.
+
+### 1.31.4. Exemples
+
+```c
+void iter(unsigned int index, char *c)
+{
+    int tmp;
+
+    if (index % 2 != 0)
+    {
+        tmp = ft_toupper(*c);
+        write(1, &tmp, 1);
+    }
+    else
+        write(1, c, 1);
+}
+
+int main()
+{
+    char *str = "hello 42 network :)";
+    ft_striteri(str, iter);
+    return 0;
+}
+```
+
+```bash
+hElLo 42 NeTwOrK :)
+```
 
 ## 1.32. ft_strjoin()
 
 ### 1.32.1. Synopsis
 
+`char *ft_strjoin(char const *s1, char const *s2);`.
+
 ### 1.32.2. Description
 
+The `ft_strjoin()` function allocate with `malloc()` and return a new string, result of the concatenation of `s1` and `s2`.
+
 ### 1.32.3. Return value
+
+The `ft_strjoin()` function returns the new string. NULL if the allocation fail.
+
+### 1.32.4. Exemples
+
+
 
 ## 1.33. ft_strlcat()
 

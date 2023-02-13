@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2022/11/06 15:02:39 by lray             ###   ########.fr        #
+#    Updated: 2022/11/09 14:38:52 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,15 @@ SRCS 		:= \
 	./ft_isdigit.c \
 	./ft_isprint.c \
 	./ft_itoa.c \
+	./ft_lstadd_back.c \
+	./ft_lstadd_front.c \
+	./ft_lstclear.c \
+	./ft_lstdelone.c \
+	./ft_lstiter.c \
+	./ft_lstlast.c \
+	./ft_lstmap.c \
+	./ft_lstnew.c \
+	./ft_lstsize.c \
 	./ft_memchr.c \
 	./ft_memcmp.c \
 	./ft_memcpy.c \
@@ -49,18 +58,6 @@ SRCS 		:= \
 	./ft_toupper.c
 OBJS		:= $(SRCS:.c=.o)
 
-SRCS_BONUS	:=\
-	./ft_lstadd_back_bonus.c \
-	./ft_lstadd_front_bonus.c \
-	./ft_lstclear_bonus.c \
-	./ft_lstdelone_bonus.c \
-	./ft_lstiter_bonus.c \
-	./ft_lstlast_bonus.c \
-	./ft_lstmap_bonus.c \
-	./ft_lstnew_bonus.c \
-	./ft_lstsize_bonus.c
-OBJS_BONUS	:= $(SRCS_BONUS:.c=.o)
-
 CC 			:= gcc
 CFLAGS		:= -Wall -Wextra -Werror
 CPPFLAGS	:= -I .
@@ -69,6 +66,7 @@ AR			:= ar
 ARFLAGS		:= -r -c -s
 
 RM			:= rm -f
+MAKEFLAGS   += --no-print-directory
 
 all : $(NAME)
 
@@ -80,30 +78,20 @@ $(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 	$(info CREATED $@)
 
-bonus: $(OBJS) $(OBJS_BONUS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS) $(OBJS_BONUS)
-	$(info CREATED $@)
-
 clean :
-	$(RM) $(OBJS) $(OBJS_BONUS)
+	$(RM) $(OBJS)
 	$(info DELETED objects files)
 
 fclean : clean
-	$(RM) $(NAME) $(NAME).tar.gz $(NAME).zip
-	$(info DELETED $(NAME) and archives files)
+	$(RM) $(NAME)
+	$(info DELETED $(NAME))
 
 re :
 	$(MAKE) fclean
 	$(MAKE) all
 
-tar :
-	tar -czvf $(NAME).tar.gz $(SRCS) libft.h Makefile
-
-zip :
-	zip -r $(NAME).zip $(SRCS) libft.h Makefile
-
 info-%:
 	$(MAKE) --dry-run --always-make $* | grep -v "info"
 
-.PHONY : bonus clean fclean re tar zip info-
+.PHONY : clean fclean re info-
 .SILENT :

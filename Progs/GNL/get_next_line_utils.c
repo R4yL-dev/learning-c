@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 03:21:53 by lray              #+#    #+#             */
-/*   Updated: 2023/02/11 04:01:56 by lray             ###   ########.fr       */
+/*   Updated: 2023/02/13 12:01:25 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	make_line(char **line, t_list *reserve);
 int		ft_strlen(const char *str);
 void	free_all(t_list *reserve);
 
-int		as_newline(t_list *reserve)
+int	as_newline(t_list *reserve)
 {
-	int	i;
-	t_list *current;
+	int		i;
+	t_list	*current;
 
-	if (reserve ==NULL)
+	if (reserve == NULL)
 		return (0);
 	current = ft_get_last(reserve);
 	i = 0;
@@ -44,7 +44,6 @@ t_list	*ft_get_last(t_list *reserve)
 	while (current && current->next)
 		current = current->next;
 	return (current);
-
 }
 
 void	make_line(char **line, t_list *reserve)
@@ -71,9 +70,9 @@ void	make_line(char **line, t_list *reserve)
 	*line = malloc(sizeof(char) * (j + 1));
 }
 
-int		ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])

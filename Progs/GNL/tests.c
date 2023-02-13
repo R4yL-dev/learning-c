@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 23:30:20 by lray              #+#    #+#             */
-/*   Updated: 2023/02/11 04:26:07 by lray             ###   ########.fr       */
+/*   Updated: 2023/02/13 16:14:30 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,21 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-int main(void)
+int	main(void)
 {
 	int		fd;
 	char	*resp;
 
-	fd = open("sample1.txt", O_RDONLY);
+	fd = open("samples/read_error.txt", O_RDONLY);
 	while (1)
 	{
 		resp = get_next_line(fd);
 		printf("%s", resp);
 		if (resp == NULL)
+		{
+			free(resp);
 			break ;
+		}
 		free(resp);
 	}
 	return (0);

@@ -6,12 +6,12 @@
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 03:00:29 by lray              #+#    #+#             */
-/*   Updated: 2023/02/11 04:28:01 by lray             ###   ########.fr       */
+/*   Updated: 2023/02/13 12:00:02 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE
-# define GET_NEXT_LINE
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -26,11 +26,11 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
- char	*get_next_line(int fd);
- int	as_newline(t_list *reserve);
- t_list	*ft_get_last(t_list *reserve);
- void	make_line(char **line, t_list *reserve);
- int	ft_strlen(const char *str);
- void	free_all(t_list *reserve);
+char	*get_next_line(int fd);
+int		as_newline(t_list *reserve);
+t_list	*ft_get_last(t_list *reserve);
+void	make_line(char **line, t_list *reserve);
+int		ft_strlen(const char *str);
+void	free_all(t_list *reserve);
 
 #endif

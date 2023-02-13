@@ -1112,7 +1112,7 @@ ft_putnbr_fd(424242, 1);
 ```
 
 ```bash
-ft_putnbr_fd(424242, 1);
+424242
 ```
 
 ## 1.27. ft_putstr_fd()

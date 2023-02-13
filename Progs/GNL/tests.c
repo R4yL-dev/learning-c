@@ -5,30 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 16:27:49 by lray              #+#    #+#             */
-/*   Updated: 2022/11/15 17:52:54 by lray             ###   ########.fr       */
+/*   Created: 2022/12/26 23:30:20 by lray              #+#    #+#             */
+/*   Updated: 2023/02/11 04:26:07 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 #include <fcntl.h>
-#include <stdlib.h>
+#include <stdio.h>
 
-int	main(void)
+int main(void)
 {
 	int		fd;
-	char	*line;
+	char	*resp;
 
-	printf("Buffer size = %d\n", BUFFER_SIZE);
-	fd = open("sample.txt", O_RDONLY);
+	fd = open("sample1.txt", O_RDONLY);
 	while (1)
 	{
-		line = get_next_line(fd);
-		if (!line)
+		resp = get_next_line(fd);
+		printf("%s", resp);
+		if (resp == NULL)
 			break ;
-		printf("%s\n", line);
-		free(line);
+		free(resp);
 	}
 	return (0);
 }

@@ -5,21 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 16:19:12 by lray              #+#    #+#             */
-/*   Updated: 2022/11/15 19:03:26 by lray             ###   ########.fr       */
+/*   Created: 2023/02/11 03:00:29 by lray              #+#    #+#             */
+/*   Updated: 2023/02/11 04:28:01 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE
+# define GET_NEXT_LINE
 
-# include <stddef.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 128
+#  define BUFFER_SIZE 10
 # endif
 
-char	*get_next_line(int fd);
-int		has_newline(char *reserve);
+typedef struct s_list
+{
+	char			*content;
+	struct s_list	*next;
+}					t_list;
+
+ char	*get_next_line(int fd);
+ int	as_newline(t_list *reserve);
+ t_list	*ft_get_last(t_list *reserve);
+ void	make_line(char **line, t_list *reserve);
+ int	ft_strlen(const char *str);
+ void	free_all(t_list *reserve);
 
 #endif

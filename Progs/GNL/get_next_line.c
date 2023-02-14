@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lray <lay@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 02:59:17 by lray              #+#    #+#             */
-/*   Updated: 2023/02/11 03:48:13 by lray             ###   ########.fr       */
+/*   Created: 2023/02/14 10:24:43 by lray              #+#    #+#             */
+/*   Updated: 2023/02/14 11:57:03 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char		*get_next_line(int fd);
-static void	read_and_store(int fd, t_list **reserve, int *nbr_char_read);
-static void	store(t_list **reserve, char *buf, int nbr_char);
+static void	read_from_fd(int fd, t_list **reserve);
+static void	store_to_reserve(t_list **reserve, char *buf, int nbr_char_read);
 static void	get_line(t_list *reserve, char **line);
 static void	clean_reserve(t_list **reserve);
 
@@ -22,20 +21,13 @@ char	*get_next_line(int fd)
 {
 	static t_list	*reserve = NULL;
 	char			*line;
-	int				nbr_char_read;
 
-	nbr_char_read = 1;
-	line = NULL;
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	read_and_store(fd, &reserve, &nbr_char_read);
+	line = NULL;
+	read_from_fd(fd, &reserve);
 	if (reserve == NULL)
 		return (NULL);
-	if (nbr_char_read == -1)
-	{
-		free(line);
-		return (NULL);
-	}
 	get_line(reserve, &line);
 	clean_reserve(&reserve);
 	if (line[0] == '\0')
@@ -48,54 +40,57 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-static void	read_and_store(int fd, t_list **reserve, int *nbr_char_read)
+static void	read_from_fd(int fd, t_list **reserve)
 {
 	char	*buf;
+	int		nbr_char_read;
 
-	while (!as_newline(*reserve) && *nbr_char_read != 0)
+	nbr_char_read = 1;
+	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	while (!has_newline(*reserve) && nbr_char_read != 0)
 	{
-		buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 		if (buf == NULL)
 			return ;
-		*nbr_char_read = (int)read(fd, buf, BUFFER_SIZE);
-		if (*nbr_char_read == -1 || (*reserve == NULL && *nbr_char_read == 0))
+		nbr_char_read = read(fd, buf, BUFFER_SIZE);
+		if ((*reserve == NULL && nbr_char_read == 0) || nbr_char_read == -1)
 		{
 			free(buf);
+			if (nbr_char_read == -1)
+				free_all(*reserve);
+			*reserve = NULL;
 			return ;
 		}
-		buf[*nbr_char_read] = '\0';
-		store(reserve, buf, *nbr_char_read);
-		free(buf);
+		buf[nbr_char_read] = '\0';
+		store_to_reserve(reserve, buf, nbr_char_read);
 	}
+	free(buf);
 }
 
-static void	store(t_list **reserve, char *buf, int nbr_char)
+static void	store_to_reserve(t_list **reserve, char *buf, int nbr_char_read)
 {
+	t_list	*last;
+	t_list	*new;
 	int		i;
-	t_list	*last_node;
-	t_list	*new_node;
 
-	new_node = malloc(sizeof(t_list));
-	if (new_node == NULL)
+	new = malloc(sizeof(t_list));
+	new->content = malloc(sizeof(char) * (nbr_char_read + 1));
+	if (new == NULL || new->content == NULL)
 		return ;
-	new_node->next = NULL;
-	new_node->content = malloc(sizeof(char) * (nbr_char + 1));
-	if (new_node->content == NULL)
-		return ;
+	new->next = NULL;
 	i = 0;
-	while (buf[i] && i < nbr_char)
+	while (buf[i] && i < nbr_char_read)
 	{
-		new_node->content[i] = buf[i];
+		new->content[i] = buf[i];
 		i++;
 	}
-	new_node->content[i] = '\0';
+	new->content[i] = '\0';
 	if (*reserve == NULL)
+		*reserve = new;
+	else
 	{
-		*reserve = new_node;
-		return ;
+		last = get_last_node(*reserve);
+		last->next = new;
 	}
-	last_node = ft_get_last(*reserve);
-	last_node->next = new_node;
 }
 
 static void	get_line(t_list *reserve, char **line)
@@ -128,31 +123,23 @@ static void	get_line(t_list *reserve, char **line)
 
 static void	clean_reserve(t_list **reserve)
 {
-	// TODO : free new and last if not in use
 	t_list	*last;
 	t_list	*new;
 	int		i;
-	int		j;
 
 	new = malloc(sizeof(t_list));
 	if (reserve == NULL || new == NULL)
 		return ;
 	new->next = NULL;
-	last = ft_get_last(*reserve);
+	last = get_last_node(*reserve);
 	i = 0;
 	while (last->content[i] && last->content[i] != '\n')
 		i++;
-	if (last->content && last->content[i] == '\n')
+	if (last->content[i] == '\n')
 		i++;
-	new->content = malloc(sizeof(char) * ((ft_strlen(last->content) - i) + 1));
+	new->content = get_content(last, i);
 	if (new->content == NULL)
 		return ;
-	j = 0;
-	while (last->content[i])
-		new->content[j++] = last->content[i++];
-	new->content[j] = '\0';
 	free_all(*reserve);
 	*reserve = new;
-
-
 }

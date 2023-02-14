@@ -5,45 +5,55 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 03:21:53 by lray              #+#    #+#             */
-/*   Updated: 2023/02/13 12:01:25 by lray             ###   ########.fr       */
+/*   Created: 2023/02/14 10:24:48 by lray              #+#    #+#             */
+/*   Updated: 2023/02/14 11:52:30 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		as_newline(t_list *reserve);
-t_list	*ft_get_last(t_list *reserve);
-void	make_line(char **line, t_list *reserve);
-int		ft_strlen(const char *str);
-void	free_all(t_list *reserve);
-
-int	as_newline(t_list *reserve)
+int	has_newline(t_list *reserve)
 {
 	int		i;
-	t_list	*current;
 
 	if (reserve == NULL)
 		return (0);
-	current = ft_get_last(reserve);
 	i = 0;
-	while (current->content[i])
+	if (reserve == NULL)
+		return (0);
+	while (reserve->next != NULL)
+		reserve = reserve->next;
+	while (reserve->content[i])
 	{
-		if (current->content[i] == '\n')
+		if (reserve->content[i] == '\n')
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-t_list	*ft_get_last(t_list *reserve)
+void	free_all(t_list *reserve)
 {
 	t_list	*current;
+	t_list	*next;
 
 	current = reserve;
-	while (current && current->next)
-		current = current->next;
-	return (current);
+	while (current)
+	{
+		free(current->content);
+		next = current->next;
+		free(current);
+		current = next;
+	}
+}
+
+t_list	*get_last_node(t_list *reserve)
+{
+	if (reserve == NULL)
+		return (NULL);
+	while (reserve->next != NULL)
+		reserve = reserve->next;
+	return (reserve);
 }
 
 void	make_line(char **line, t_list *reserve)
@@ -62,35 +72,29 @@ void	make_line(char **line, t_list *reserve)
 				j++;
 				break ;
 			}
-			j++;
 			i++;
+			j++;
 		}
 		reserve = reserve->next;
 	}
 	*line = malloc(sizeof(char) * (j + 1));
 }
 
-int	ft_strlen(const char *str)
+char	*get_content(t_list *last, int i)
 {
-	int	i;
+	char	*resp;
+	int		j;
+	int		len;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-void	free_all(t_list *reserve)
-{
-	t_list	*current_node;
-	t_list	*next_node;
-
-	current_node = reserve;
-	while (current_node)
-	{
-		free(current_node->content);
-		next_node = current_node->next;
-		free(current_node);
-		current_node = next_node;
-	}
+	len = 0;
+	while (last->content[len])
+		len++;
+	resp = malloc(sizeof(char) * (len - i + 1));
+	if (resp == NULL)
+		return (NULL);
+	j = 0;
+	while (last->content[i])
+		resp[j++] = last->content[i++];
+	resp[j] = '\0';
+	return (resp);
 }

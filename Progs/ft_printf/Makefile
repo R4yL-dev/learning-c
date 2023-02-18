@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lray <lray@student.42.fr>                  +#+  +:+       +#+         #
+#    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2023/02/18 17:50:44 by lray             ###   ########.fr        #
+#    Updated: 2023/02/18 22:43:43 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= libftprintf.a
 
 SRCS 		:= \
-	./libftprintf.c \
-	./libftprintf_utils.c
+	./ft_printf.c \
+	./ft_printf_utils.c
 
 OBJS		:= $(SRCS:.c=.o)
 

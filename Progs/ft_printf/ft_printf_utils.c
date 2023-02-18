@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf_utils.c                                :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:20:02 by lray              #+#    #+#             */
-/*   Updated: 2023/02/18 17:42:23 by lray             ###   ########.fr       */
+/*   Updated: 2023/02/18 22:44:00 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putstr(const char *str)
 {
@@ -76,7 +76,7 @@ int	ft_putu10(unsigned int nbr)
 	return (len);
 }
 
-int	ft_put16(unsigned int nbr, char *set)
+int	ft_put16(uintptr_t nbr, char *set)
 {
 	int	len;
 

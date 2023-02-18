@@ -1,41 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.c                                      :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:13:11 by lray              #+#    #+#             */
-/*   Updated: 2023/02/18 18:35:43 by lray             ###   ########.fr       */
+/*   Updated: 2023/02/18 22:44:07 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-static int	ft_format(va_list args, const char flag);
+static int	process_format(va_list args, const char flag);
 
 int	ft_printf(const char *str, ...)
 {
 	va_list	args;
-	int		i;
 	int		len;
 
 	len = 0;
-	i = 0;
 	va_start(args, str);
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] != '%')
-			len += ft_putchar(str[i]);
+		if (*str == '%' && *(str + 1) == '\0')
+		{
+			ft_printf("[!]Error - %% is not a valid flag.\n");
+			return (0);
+		}
+		if (*str != '%')
+			len += ft_putchar(*str);
 		else
-			len += ft_format(args, str[i++ + 1]);
-		i++;
+			len += process_format(args, *(str++ + 1));
+		str++;
 	}
 	va_end(args);
 	return (len);
 }
 
-static int	ft_format(va_list args, const char flag)
+static int	process_format(va_list args, const char flag)
 {
 	int	len;
 
@@ -56,6 +59,11 @@ static int	ft_format(va_list args, const char flag)
 		len += ft_put16(va_arg(args, unsigned int), HEX_UP);
 	else if (flag == '%')
 		len += ft_putchar('%');
+	else
+	{
+		ft_printf("[!]Error - %%%c is not a valid flag.\n", flag);
+		len = 0;
+	}
 	return (len);
 }
 

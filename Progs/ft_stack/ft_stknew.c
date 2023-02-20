@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack.h                                         :+:      :+:    :+:   */
+/*   ft_stknew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/19 18:49:48 by lray              #+#    #+#             */
-/*   Updated: 2023/02/20 23:00:56 by lray             ###   ########.fr       */
+/*   Created: 2023/02/20 22:52:37 by lray              #+#    #+#             */
+/*   Updated: 2023/02/20 22:56:51 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STACK_H
-# define FT_STACK_H
+#include "ft_stack.h"
 
-# include <stdlib.h>
-
-typedef struct s_stack
+t_stack	*ft_stknew(int data)
 {
-	int				data;
-	struct s_stack	*next;
-}	t_stack;
+	t_stack	*node;
 
-void	ft_stkpush(t_stack **stack, int data);
-int		ft_stkpop(t_stack **stack);
-t_stack	*ft_stknew(int data);
-int		ft_stkisempty(t_stack *stack);
-int		ft_stkpeek(t_stack *stack);
-void	ft_stkclear(t_stack **stack);
-int		ft_stksize(t_stack *stack);
-
-#endif
+	node = (t_stack *)malloc(sizeof(t_stack));
+	if (node == NULL)
+		return (NULL);
+	node->data = data;
+	node->next = NULL;
+	return (node);
+}

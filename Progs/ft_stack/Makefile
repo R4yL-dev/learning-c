@@ -6,15 +6,20 @@
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2023/02/20 15:42:59 by lray             ###   ########.fr        #
+#    Updated: 2023/02/20 23:00:06 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= libftstack.a
 
 SRCS 		:= \
-	./ft_stack.c \
-	./ft_stack_utils.c
+	./ft_stkclear.c \
+	./ft_stkisempty.c \
+	./ft_stknew.c \
+	./ft_stkpeek.c \
+	./ft_stkpop.c \
+	./ft_stkpush.c \
+	./ft_stksize.c
 
 OBJS		:= $(SRCS:.c=.o)
 

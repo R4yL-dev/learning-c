@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 18:49:56 by lray              #+#    #+#             */
-/*   Updated: 2023/02/20 14:23:39 by lray             ###   ########.fr       */
+/*   Updated: 2023/02/20 16:46:36 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,16 @@ int	ft_peek(t_stack *stack)
 	if (ft_is_empty(stack))
 		return (0);
 	return (stack->data);
+}
+
+void	ft_free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	while (*stack)
+	{
+		tmp = *stack;
+		*stack = (*stack)->next;
+		free(tmp);
+	}
 }

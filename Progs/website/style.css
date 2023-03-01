@@ -1,0 +1,124 @@
+html {
+	background-color: #001219;
+	color: black;
+	font-family:sans-serif
+}
+
+.informations {
+	background-image: url(img/sapins.svg);
+	background-attachment:fixed;
+	background-position: bottom -0.1rem center;
+	background-size: 100svb auto;
+	background-repeat: repeat-x;
+	background-color: #84B869;
+}
+
+.informations--header {
+	background-color: #121619;
+}
+
+.informations--content {
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 0.5rem;
+	border-radius: 10px;
+}
+
+.linklist {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-direction: column;
+}
+
+.linklist--elem {
+	display: inline-block;
+	padding: 0.5rem;
+}
+
+.linklist--link {
+	text-decoration: none;
+	color: white;
+}
+
+.linklist--link:hover {
+	text-decoration: underline;
+	text-decoration-thickness: 0.3rem;
+}
+
+.linklist--logo {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.linklist--logo:hover {
+	text-decoration: none;
+}
+
+.linklist--formations:hover {
+	text-decoration-color: #007AFF;
+}
+
+.linklist--experiences:hover {
+	text-decoration-color: #F55D71;
+}
+
+.linklist--competences:hover {
+	text-decoration-color: #5F11DE;
+}
+
+.linklist--realisations:hover {
+	text-decoration-color: #F3C44C;
+}
+
+.linklist--contact:hover {
+	text-decoration-color: #2A324B;
+}
+
+.informations, .formations, .experiences, .competences, .realisations, .contact {
+	min-height: 100svh;
+}
+
+.informations--main, .formations, .experiences, .competences, .realisations, .contact {
+	padding: 1rem;
+}
+
+.formations {
+	color: white;
+	background-image: url(img/arbre.svg);
+	background-attachment:fixed;
+	background-position: bottom center;
+	background-size: 14rem;
+	background-repeat: repeat-x;
+	background-color: #007AFF;
+}
+
+.experiences {
+	background-color: #F55D71;
+}
+
+.competences {
+	background-color: #5F11DE;
+	color: white;
+}
+
+.realisations {
+	background-color: #F3C44C;
+}
+
+.contact {
+	background-color: #2A324B;
+	color: white;
+}
+
+footer {
+	background-color: #121619;
+}
+
+
+
+@media only screen and (min-width: 666px) {
+	.linklist {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}

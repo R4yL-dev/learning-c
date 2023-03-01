@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 19:35:12 by lray              #+#    #+#             */
-/*   Updated: 2023/03/01 17:52:27 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/01 18:20:56 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ int	main(void)
 	ft_stkpush(&stack_a, 10);
 	ft_stkpush(&stack_a, 20);
 	ft_stkpush(&stack_a, 30);
+	ft_stkpush(&stack_a, 40);
+	ft_stkpush(&stack_a, 50);
+	ft_stkpush(&stack_a, 60);
+	db_show_stack(&stack_a, &stack_b);
+	db_show_size(&stack_a, &stack_b);
+
+	printf("-- RROTATE A --\n");
+	mv_rrotate(&stack_a);
 	db_show_stack(&stack_a, &stack_b);
 	db_show_size(&stack_a, &stack_b);
 
@@ -65,5 +73,6 @@ int	main(void)
 	printf("Clear stacks ...\n");
 	ft_stkclear(&stack_a);
 	ft_stkclear(&stack_b);
+	db_show_size(&stack_a, &stack_b);
 	return (0);
 }

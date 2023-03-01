@@ -6,12 +6,12 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:02:01 by lray              #+#    #+#             */
-/*   Updated: 2023/03/01 17:47:02 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/01 19:42:14 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stack.h"
-#include <stdio.h>
+
 
 /*
 *	Entervertit les deux premiers nomber de la pile passée en paramètre
@@ -55,10 +55,27 @@ void	mv_rotate(t_stack **stack)
 		new_node = ft_stknew(res);
 		tmp = (*stack);
 		while ((*stack)->next)
-		{
 			*stack = (*stack)->next;
-		}
 		(*stack)->next = new_node;
+		(*stack) = tmp;
+	}
+}
+
+void	mv_rrotate(t_stack **stack)
+{
+	int		res;
+	t_stack	*tmp;
+
+	if (ft_stksize(*stack) >= 2)
+	{
+		tmp = (*stack);
+		while ((*stack)->next && (*stack)->next->next)
+		{
+			(*stack)= (*stack)->next;
+		}
+		res = (*stack)->next->data;
+		(*stack)->next = NULL;
+		ft_stkpush(&tmp, res);
 		(*stack) = tmp;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 18:49:48 by lray              #+#    #+#             */
-/*   Updated: 2023/03/01 17:04:45 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/01 18:06:06 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		ft_stksize(t_stack *stack);
 void	mv_swap(t_stack **stack);
 void	mv_push(t_stack **stack1, t_stack **stack2);
 void	mv_rotate(t_stack **stack);
+void	mv_rrotate(t_stack **stack);
 
 void	db_show_stack(t_stack **stack_a, t_stack **stack_b);
 void	db_show_size(t_stack **stack_a, t_stack **stack_b);

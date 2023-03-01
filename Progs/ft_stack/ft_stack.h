@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 18:49:48 by lray              #+#    #+#             */
-/*   Updated: 2023/02/20 23:00:56 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/01 15:12:58 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ int		ft_stkisempty(t_stack *stack);
 int		ft_stkpeek(t_stack *stack);
 void	ft_stkclear(t_stack **stack);
 int		ft_stksize(t_stack *stack);
+
+void	swap(t_stack **stack);
 
 #endif

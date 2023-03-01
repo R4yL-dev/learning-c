@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_stkpop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 00:05:35 by lray              #+#    #+#             */
-/*   Updated: 2023/02/20 23:13:30 by lray             ###   ########.fr       */
+/*   Created: 2023/02/20 22:58:13 by lray              #+#    #+#             */
+/*   Updated: 2023/02/20 22:58:33 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	Desc :
-		Érit la chaie de caractères s sur le descripteur de fichier donné
-		suivie d'un retour à la ligne.
+#include "ft_stack.h"
 
-	Params :
-		- s : La chaine de caracères à écrire.
-		- fd Le descripteur de fichier sur lequel écrire.
-
-	Ret :
-		- Aucun
-*/
-
-#include "libft.h"
-
-void	ft_putendl_fd(char *s, int fd)
+int	ft_stkpop(t_stack **stack)
 {
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	t_stack	*tmp;
+	int		resp;
+
+	if (ft_stkisempty(*stack))
+		return (0);
+	tmp = *stack;
+	*stack = (*stack)->next;
+	resp = tmp->data;
+	free(tmp);
+	return (resp);
 }

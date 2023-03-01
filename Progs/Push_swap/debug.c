@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stkisempty.c                                    :+:      :+:    :+:   */
+/*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 22:53:23 by lray              #+#    #+#             */
-/*   Updated: 2023/02/20 23:14:23 by lray             ###   ########.fr       */
+/*   Created: 2023/03/01 15:25:34 by lray              #+#    #+#             */
+/*   Updated: 2023/03/01 15:59:10 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_stack.h"
+#include <stdio.h>
 
-int	ft_stkisempty(t_stack *stack)
+void	db_show_stack(t_stack **stack)
 {
-	return (!stack);
+	if (ft_stksize(*stack) > 0)
+	{
+		while (*stack)
+			printf("%d\n", ft_stkpop(stack));
+	}
 }

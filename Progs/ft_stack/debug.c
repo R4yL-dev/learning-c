@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 15:51:28 by luca              #+#    #+#             */
-/*   Updated: 2022/09/30 21:10:56 by lray             ###   ########.fr       */
+/*   Created: 2023/03/01 15:25:34 by lray              #+#    #+#             */
+/*   Updated: 2023/03/01 15:59:10 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-* La fonction ft_bzero supprime les données des n octets de mémoire en
-*	partant de la location pointée par s, en écrivant le caractère '\0'.
-*/
+#include "ft_stack.h"
+#include <stdio.h>
 
-#include "libft.h"
-
-void	ft_bzero(void *s, size_t n)
+void	db_show_stack(t_stack **stack)
 {
-	ft_memset(s, '\0', n * sizeof(char));
+	if (ft_stksize(*stack) > 0)
+	{
+		while (*stack)
+			printf("%d\n", ft_stkpop(stack));
+	}
 }

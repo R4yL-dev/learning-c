@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_stkpush.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 20:33:57 by lray              #+#    #+#             */
-/*   Updated: 2023/02/20 23:15:10 by lray             ###   ########.fr       */
+/*   Created: 2023/02/20 22:57:48 by lray              #+#    #+#             */
+/*   Updated: 2023/02/20 22:58:02 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_stack.h"
 
-char	*ft_strdup(const char *s)
+void	ft_stkpush(t_stack **stack, int data)
 {
-	int		size;
-	int		i;
-	char	*resp;
+	t_stack	*new_node;
 
-	size = ft_strlen(s);
-	resp = (char *)malloc(sizeof(char) * (size + 1));
-	if (resp == NULL)
-		return (NULL);
-	i = 0;
-	while (i < size)
-	{
-		*(resp + i) = *(char *)(s + i);
-		i++;
-	}
-	resp[i] = '\0';
-	return (resp);
+	new_node = ft_stknew(data);
+	new_node->next = *stack;
+	*stack = new_node;
 }

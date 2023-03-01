@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_stknew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 18:05:40 by lray              #+#    #+#             */
-/*   Updated: 2022/11/03 19:15:37 by lray             ###   ########.fr       */
+/*   Created: 2023/02/20 22:52:37 by lray              #+#    #+#             */
+/*   Updated: 2023/02/20 22:56:51 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	Desc :
-		Renvoie le dernier élément de la liste.
+#include "ft_stack.h"
 
-	Params :
-		- lst : Le début de la liste.
-
-	Ret :
-		- Dernier élément de la liste.
-*/
-
-#include "libft.h"
-
-t_list	*ft_lstlast(t_list *lst)
+t_stack	*ft_stknew(int data)
 {
-	if (!lst)
+	t_stack	*node;
+
+	node = (t_stack *)malloc(sizeof(t_stack));
+	if (node == NULL)
 		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	node->data = data;
+	node->next = NULL;
+	return (node);
 }

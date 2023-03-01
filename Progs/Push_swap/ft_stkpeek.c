@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_stkpeek.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/01 23:51:51 by lray              #+#    #+#             */
-/*   Updated: 2023/02/20 23:13:26 by lray             ###   ########.fr       */
+/*   Created: 2023/02/20 22:55:04 by lray              #+#    #+#             */
+/*   Updated: 2023/02/20 23:00:57 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	Desc :
-		Écrit le caractère c sur le descripteur de fichier donnée.
+#include "ft_stack.h"
 
-	Params :
-		- c : Le caractère à écrire.
-		- fd : Le descripteur de fichier sur lequel écrire.
-
-	Ret :
-		- Aucun
-*/
-
-#include "libft.h"
-
-void	ft_putchar_fd(char c, int fd)
+int	ft_stkpeek(t_stack *stack)
 {
-	write(fd, &c, 1);
+	if (ft_stkisempty(stack))
+		return (0);
+	return (stack->data);
 }

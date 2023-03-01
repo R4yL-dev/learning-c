@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_stkclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/29 14:41:49 by luca              #+#    #+#             */
-/*   Updated: 2022/10/06 17:57:02 by lray             ###   ########.fr       */
+/*   Created: 2023/02/20 22:55:51 by lray              #+#    #+#             */
+/*   Updated: 2023/02/20 22:56:46 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-* Cette fonction met en minusculeles caractères majuscule.
-* Si le caractère n'est pas une majuscule, la fonction le retour.
-*/
+#include "ft_stack.h"
 
-#include "libft.h"
-
-int	ft_tolower(int c)
+void	ft_stkclear(t_stack **stack)
 {
-	if (c >= 'A' && c <= 'Z')
-		c += 32;
-	return (c);
+	t_stack	*tmp;
+
+	while (*stack)
+	{
+		tmp = *stack;
+		*stack = (*stack)->next;
+		free(tmp);
+	}
 }

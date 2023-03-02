@@ -6,12 +6,11 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:02:01 by lray              #+#    #+#             */
-/*   Updated: 2023/03/01 19:42:14 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/02 12:21:34 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stack.h"
-
+#include "push_swap.h"
 
 /*
 *	Entervertit les deux premiers nomber de la pile passée en paramètre

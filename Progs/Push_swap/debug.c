@@ -6,32 +6,31 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:25:34 by lray              #+#    #+#             */
-/*   Updated: 2023/03/01 16:38:37 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/02 12:21:08 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stack.h"
-#include <stdio.h>
+#include "push_swap.h"
 
 void	db_show_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmp;
 
-	printf("--- Stack A ---\n");
+	ft_printf("--- Stack A ---\n");
 	tmp = *stack_a;
 	while (tmp)
 	{
-		printf("- %d\n", ft_stkpeek(tmp));
+		ft_printf("- %d\n", ft_stkpeek(tmp));
 		tmp = tmp->next;
 	}
-	printf("--- Stack B ---\n");
+	ft_printf("--- Stack B ---\n");
 	tmp = *stack_b;
 	while (tmp)
 	{
-		printf("- %d\n", ft_stkpeek(tmp));
+		ft_printf("- %d\n", ft_stkpeek(tmp));
 		tmp = tmp->next;
 	}
-	printf("\n");
+	ft_printf("\n");
 	free(tmp);
 
 
@@ -45,5 +44,5 @@ void	db_show_stack(t_stack **stack_a, t_stack **stack_b)
 
 void	db_show_size(t_stack **stack_a, t_stack **stack_b)
 {
-	printf("Stack A Size : %d | Stack B Size : %d\n", ft_stksize(*stack_a), ft_stksize(*stack_b));
+	ft_printf("Stack A Size : %d | Stack B Size : %d\n", ft_stksize(*stack_a), ft_stksize(*stack_b));
 }

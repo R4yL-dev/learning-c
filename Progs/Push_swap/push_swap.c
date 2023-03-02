@@ -6,12 +6,11 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 19:09:56 by lray              #+#    #+#             */
-/*   Updated: 2023/03/01 19:35:55 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/02 12:22:45 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stack.h"
-#include <stdio.h>
+#include "push_swap.h"
 
 static void	do_test(t_stack **stack_a, t_stack**stack_b);
 
@@ -22,7 +21,7 @@ int	main(void)
 
 	// Check args and initialize stack a with result
 
-	printf("Init stacks ...\n");
+	ft_printf("Init stacks ...\n");
 	stack_a = NULL;
 	stack_b = NULL;
 	do_test(&stack_a, &stack_b);
@@ -40,47 +39,47 @@ static void	do_test(t_stack **stack_a, t_stack**stack_b)
 	db_show_stack(stack_a, stack_b);
 	db_show_size(stack_a, stack_b);
 
-	printf("-- RROTATE A --\n");
+	ft_printf("-- RROTATE A --\n");
 	mv_rrotate(stack_a);
 	db_show_stack(stack_a, stack_b);
 	db_show_size(stack_a, stack_b);
 
-	printf("-- ROTATE A --\n");
+	ft_printf("-- ROTATE A --\n");
 	mv_rotate(stack_a);
 	db_show_stack(stack_a, stack_b);
 	db_show_size(stack_a, stack_b);
 
-	printf("-- PUSH B --\n");
+	ft_printf("-- PUSH B --\n");
 	mv_push(stack_b, stack_a);
 	db_show_stack(stack_a, stack_b);
 	db_show_size(stack_a, stack_b);
 
-	printf("-- PUSH B --\n");
+	ft_printf("-- PUSH B --\n");
 	mv_push(stack_b, stack_a);
 	db_show_stack(stack_a, stack_b);
 	db_show_size(stack_a, stack_b);
 
-	printf("-- SWAP B --\n");
+	ft_printf("-- SWAP B --\n");
 	mv_swap(stack_b);
 	db_show_stack(stack_a, stack_b);
 	db_show_size(stack_a, stack_b);
 
-	printf("-- ROTATE B --\n");
+	ft_printf("-- ROTATE B --\n");
 	mv_rotate(stack_b);
 	db_show_stack(stack_a, stack_b);
 	db_show_size(stack_a, stack_b);
 
-	printf("-- PUSH A --\n");
+	ft_printf("-- PUSH A --\n");
 	mv_push(stack_a, stack_b);
 	db_show_stack(stack_a, stack_b);
 	db_show_size(stack_a, stack_b);
 
-	printf("-- SWAP A --\n");
+	ft_printf("-- SWAP A --\n");
 	mv_swap(stack_a);
 	db_show_stack(stack_a, stack_b);
 	db_show_size(stack_a, stack_b);
 
-	printf("Clear stacks ...\n");
+	ft_printf("Clear stacks ...\n");
 	ft_stkclear(stack_a);
 	ft_stkclear(stack_b);
 	db_show_size(stack_a, stack_b);

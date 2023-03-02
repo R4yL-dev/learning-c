@@ -6,20 +6,20 @@
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2023/03/02 12:14:29 by lray             ###   ########.fr        #
+#    Updated: 2023/03/02 11:39:02 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= push_swap
+NAME		:= libftstack.a
 
 SRCS 		:= \
-	./moves.c \
-	./debug.c \
-	./push_swap.c
-
-LIBS		:= \
-	./libs/libftprintf.a \
-	./libs/libftstack.a \
+	./ft_stkclear.c \
+	./ft_stkisempty.c \
+	./ft_stknew.c \
+	./ft_stkpeek.c \
+	./ft_stkpop.c \
+	./ft_stkpush.c \
+	./ft_stksize.c
 
 
 OBJS		:= $(SRCS:.c=.o)
@@ -28,13 +28,16 @@ CC 			:= gcc
 CFLAGS		:= -Wall -Wextra -Werror
 CPPFLAGS	:= -I .
 
+AR			:= ar
+ARFLAGS		:= -r -c -s
+
 RM			:= rm -f
 MAKEFLAGS   += --no-print-directory
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) $(LIBS) -o $(NAME)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 	$(info CREATED $(NAME))
 
 %.o : %.c

@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 19:09:56 by lray              #+#    #+#             */
-/*   Updated: 2023/03/02 14:51:43 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/02 16:10:43 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,25 @@ static void	init_stack(t_stack **stack_a, t_stack **stack_b, \
 	int argc, char *argv[])
 {
 	int	i;
-	int	j;
 
-	i = 1;
-	j = 0;
-	if (argc < 2)
+	argc -= 1;
+	i = 0;
+	if (argc < 1)
 		exit(0);
-	while (i < argc)
+	while (argc > 0)
 	{
-		while (argv[i][j])
+		while (argv[argc][i])
 		{
-			if (j == 0 && argv[i][j] == '-')
-				j++;
-			if (!ft_isdigit(argv[i][j]))
+			if (i == 0 && argv[argc][i] == '-')
+				i++;
+			if (!ft_isdigit(argv[argc][i]))
 				ft_puterror(stack_a, stack_b);
-			j++;
+			i++;
 		}
-		if (ft_stkhas(stack_a, ft_atoi(argv[i])))
+		if (ft_stkhas(stack_a, ft_atoi(argv[argc])))
 			ft_puterror(stack_a, stack_b);
-		ft_stkpush(stack_a, ft_atoi(argv[i]));
-		j = 0;
-		i++;
+		ft_stkpush(stack_a, ft_atoi(argv[argc]));
+		i = 0;
+		argc--;
 	}
 }

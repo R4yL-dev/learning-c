@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2023/03/02 14:14:32 by lray             ###   ########.fr        #
+#    Updated: 2023/03/02 15:03:02 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS 		:= \
 
 LIBS		:= \
 	./libs/libftprintf.a \
-	./libs/libftstack.a \
+	./libs/libftstack.a
 
 
 OBJS		:= $(SRCS:.c=.o)
@@ -56,10 +56,6 @@ re :
 
 info-%:
 	$(MAKE) --dry-run --always-make $* | grep -v "info"
-
-tests : $(OBJS)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -g $(OBJS) $(LIBS) -o $(NAME)
-	$(info CREATED $(NAME))
 
 .PHONY : clean fclean re info-
 .SILENT :

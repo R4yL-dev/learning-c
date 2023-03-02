@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:25:34 by lray              #+#    #+#             */
-/*   Updated: 2023/03/02 12:40:33 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/02 14:43:09 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ void	db_show_stack(t_stack **stack_a, t_stack **stack_b)
 
 void	db_show_size(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_printf("Stack A Size : %d | Stack B Size : %d\n", ft_stksize(*stack_a), ft_stksize(*stack_b));
+	ft_printf("Stack A Size : %d | Stack B Size : %d\n", \
+		ft_stksize(*stack_a), ft_stksize(*stack_b));
 }

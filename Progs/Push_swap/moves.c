@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:02:01 by lray              #+#    #+#             */
-/*   Updated: 2023/03/02 12:27:09 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/02 14:44:07 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,7 @@ void	mv_rrotate(t_stack **stack)
 	{
 		tmp = (*stack);
 		while ((*stack)->next && (*stack)->next->next)
-		{
-			(*stack)= (*stack)->next;
-		}
+			(*stack) = (*stack)->next;
 		res = (*stack)->next->data;
 		(*stack)->next = NULL;
 		ft_stkpush(&tmp, res);

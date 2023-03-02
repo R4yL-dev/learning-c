@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:25:34 by lray              #+#    #+#             */
-/*   Updated: 2023/03/02 12:21:08 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/02 12:40:33 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,6 @@ void	db_show_stack(t_stack **stack_a, t_stack **stack_b)
 	}
 	ft_printf("\n");
 	free(tmp);
-
-
-
-
-/* 	while (*stack_a)
-		printf("%d\n", ft_stkpop(stack_a));
-	printf("Stack B\n");
-		printf("%d\n", ft_stkpop(stack_b)); */
 }
 
 void	db_show_size(t_stack **stack_a, t_stack **stack_b)

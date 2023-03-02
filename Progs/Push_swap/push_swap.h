@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:17:01 by lray              #+#    #+#             */
-/*   Updated: 2023/03/02 12:19:02 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/02 13:16:38 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,8 @@
 
 # include "libs/ft_printf.h"
 # include "libs/ft_stack.h"
+
+int	ft_atoi(const char *nptr);
+int	ft_isdigit(int c);
 
 #endif

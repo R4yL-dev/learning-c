@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 19:09:56 by lray              #+#    #+#             */
-/*   Updated: 2023/03/02 16:10:43 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/03 12:17:20 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc, char *argv[])
 	stack_a = NULL;
 	stack_b = NULL;
 	init_stack(&stack_a, &stack_b, argc, argv);
+	ft_printf("Is stack A sorted ? %d\n", is_sorted(&stack_a));
 	db_show_stack(&stack_a, &stack_b);
 	ft_stkclear(&stack_a);
 	ft_stkclear(&stack_b);

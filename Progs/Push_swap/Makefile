@@ -6,17 +6,18 @@
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2023/03/02 15:03:02 by lray             ###   ########.fr        #
+#    Updated: 2023/03/03 12:09:55 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= push_swap
 
 SRCS 		:= \
+	./main.c \
 	./moves.c \
-	./debug.c \
-	./push_swap.c \
-	./push_swap_utils.c
+	./checker.c \
+	./push_swap_utils.c \
+	./debug.c
 
 LIBS		:= \
 	./libs/libftprintf.a \

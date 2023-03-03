@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:17:01 by lray              #+#    #+#             */
-/*   Updated: 2023/03/02 14:49:56 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/03 12:16:29 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 int		ft_atoi(const char *nptr);
 int		ft_isdigit(int c);
 void	ft_puterror(t_stack **stack_a, t_stack **stack_b);
+
+int		is_sorted(t_stack **stack);
 
 void	mv_swap(t_stack **stack);
 void	mv_push(t_stack **stack1, t_stack **stack2);

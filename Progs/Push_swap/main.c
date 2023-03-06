@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 19:09:56 by lray              #+#    #+#             */
-/*   Updated: 2023/03/06 02:14:06 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/06 02:35:16 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,15 @@ int	main(int argc, char *argv[])
 	return (0);
 }
 
+/*
+	Need to rework.
+	This function perform 3 steps :
+		1) check args
+		2) sort args from low to high
+		3) put sorted args in the stack
+	Without reworking, push_swap don't work this a mix of
+	 positive and negative number.
+*/
 static void	init_stack(t_stack **stack_a, t_stack **stack_b, \
 	int argc, char *argv[])
 {
@@ -53,7 +62,7 @@ static void	add_to_stack(t_stack **stack_a, int argc, int *argv)
 {
 	while (argc >= 1)
 	{
-		ft_stkpush(stack_a, argv[argc]);
+		ft_stkpush(stack_a, ft_atoi(argv[argc]));
 		argc--;
 	}
 }

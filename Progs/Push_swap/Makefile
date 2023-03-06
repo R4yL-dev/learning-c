@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2023/03/06 02:40:56 by lray             ###   ########.fr        #
+#    Updated: 2023/03/06 17:10:28 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,9 @@ NAME		:= push_swap
 
 SRCS 		:= \
 	./main.c \
-	./moves.c \
+	./checkargs.c \
 	./sort.c \
-	./check_args.c \
-	./sanitize.c \
+	./moves.c \
 	./push_swap_utils.c \
 	./debug.c
 

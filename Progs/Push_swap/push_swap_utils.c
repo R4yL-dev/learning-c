@@ -6,18 +6,11 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:34:37 by lray              #+#    #+#             */
-/*   Updated: 2023/03/06 02:48:33 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/06 17:12:21 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (2048);
-	return (0);
-}
 
 long	ft_atol(const char *nptr)
 {
@@ -47,7 +40,7 @@ long	ft_atol(const char *nptr)
 
 void	ft_puterror(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	ft_stkclear(stack_a);
 	ft_stkclear(stack_b);
 	exit(1);

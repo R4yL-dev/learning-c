@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 23:49:29 by lray              #+#    #+#             */
-/*   Updated: 2023/03/06 02:12:29 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/06 03:54:10 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	*sanitize(int argc, char *argv[])
 
 	args = malloc(sizeof(int) * argc);
 	sorted_args = malloc(sizeof(int) * argc);
-	if (!sorted_args)
+	if (!sorted_args || !args)
 		return (NULL);
 	nbr_args = argc;
-	while (argc > 0)
+	while (argc > 1)
 	{
 		sorted_args[argc] = ft_atoi(argv[argc]);
 		args[argc] = ft_atoi(argv[argc]);
@@ -38,11 +38,21 @@ int	*sanitize(int argc, char *argv[])
 	i = 0;
 	while (i < nbr_args)
 	{
+		ft_printf("... %d\n", sorted_args[i]);
+		i++;
+	}
+	i = 0;
+	while (i < nbr_args - 1)
+	{
 		j = 0;
-		while (j < nbr_args)
+		while (j < nbr_args - 1)
 		{
 			if (args[i] == sorted_args[j])
+			{
+				ft_printf("YES\n");
+				ft_printf("%d\n", j);
 				args[i] = j;
+			}
 			j++;
 		}
 		i++;
@@ -57,8 +67,9 @@ static void	sort_args(int argc, int *argv)
 	int	j;
 	int	min_idx;
 
+	argc--;
 	i = 0;
-	while (i < argc - 1)
+	while (i < argc)
 	{
 		min_idx = i;
 		j = i + 1;

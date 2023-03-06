@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 14:05:53 by lray              #+#    #+#             */
-/*   Updated: 2023/03/06 02:31:12 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/06 02:39:45 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,22 @@ void	try_sort(t_stack **stack_a, t_stack **stack_b)
 		}
 		i++;
 	}
+}
+
+int	is_sorted(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	tmp = (*stack);
+	while (*stack && (*stack)->next)
+	{
+		if ((*stack)->data > (*stack)->next->data)
+		{
+			(*stack) = tmp;
+			return (0);
+		}
+		*stack = (*stack)->next;
+	}
+	(*stack) = tmp;
+	return (1);
 }

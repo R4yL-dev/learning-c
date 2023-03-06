@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2023/03/06 02:29:03 by lray             ###   ########.fr        #
+#    Updated: 2023/03/06 02:40:56 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,6 @@ SRCS 		:= \
 	./main.c \
 	./moves.c \
 	./sort.c \
-	./checker.c \
 	./check_args.c \
 	./sanitize.c \
 	./push_swap_utils.c \

@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:17:01 by lray              #+#    #+#             */
-/*   Updated: 2023/03/06 02:30:57 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/06 02:48:57 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	mv_push(t_stack **stack1, t_stack **stack2);
 void	mv_rotate(t_stack **stack);
 void	mv_rrotate(t_stack **stack);
 
-int		ft_atoi(const char *nptr);
 long	ft_atol(const char *nptr);
 int		ft_isdigit(int c);
 void	ft_puterror(t_stack **stack_a, t_stack **stack_b);

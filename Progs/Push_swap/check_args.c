@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 23:42:12 by lray              #+#    #+#             */
-/*   Updated: 2023/03/06 02:27:30 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/06 03:19:16 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	check_args(int argc, char *argv[])
 {
+
 	if (!is_valid_args(argc, argv))
 		return (0);
 	if (!only_unique_args(argc, argv))
@@ -52,7 +53,7 @@ int	only_unique_args(int argc, char *argv[])
 	j = i - 1;
 	while (i > 0)
 	{
-		while (j > 0)
+		while (j >= 0)
 		{
 			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 				return (0);

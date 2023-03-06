@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2023/03/05 23:42:33 by lray             ###   ########.fr        #
+#    Updated: 2023/03/06 01:17:53 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,14 @@ SRCS 		:= \
 	./moves.c \
 	./sort.c \
 	./check_args.c \
+	./sanitize.c \
 	./push_swap_utils.c \
 	./debug.c
 
 LIBS		:= \
 	./libs/libftprintf.a \
-	./libs/libftstack.a
+	./libs/libftstack.a \
+	./libs/libft.a
 
 
 OBJS		:= $(SRCS:.c=.o)

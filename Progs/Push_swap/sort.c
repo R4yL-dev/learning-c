@@ -6,11 +6,13 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 14:05:53 by lray              #+#    #+#             */
-/*   Updated: 2023/03/05 23:43:09 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/06 02:05:50 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+//215392
 
 void	try_sort(t_stack **stack_a, t_stack **stack_b)
 {
@@ -25,7 +27,7 @@ void	try_sort(t_stack **stack_a, t_stack **stack_b)
 		while (iterations < size)
 		{
 			iterations++;
-			if (!(((*stack_a)->data >> i) & 1))
+			if ((((*stack_a)->data >> i) & 1) == 0)
 			{
 				ft_printf("pb\n");
 				mv_push(stack_b, stack_a);

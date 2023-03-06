@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   radix.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 14:05:53 by lray              #+#    #+#             */
-/*   Updated: 2023/03/06 17:14:38 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/06 18:56:01 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(int *xp, int *yp);
+static void	exec_pb(t_stack **stack_a, t_stack **stack_b);
+static void	exec_ra(t_stack **stack);
+static void	exec_pa(t_stack **stack_a, t_stack **stack_b);
 
-void	try_sort(t_stack **stack_a, t_stack **stack_b)
+void	radix(t_stack **stack_a, t_stack **stack_b)
 {
 	int	i;
 	int	iterations;
@@ -29,70 +31,30 @@ void	try_sort(t_stack **stack_a, t_stack **stack_b)
 		{
 			iterations++;
 			if ((((*stack_a)->data >> i) & 1) == 0)
-			{
-				ft_printf("pb\n");
-				mv_push(stack_b, stack_a);
-			}
+				exec_pb(stack_a, stack_b);
 			else
-			{
-				ft_printf("ra\n");
-				mv_rotate(stack_a);
-			}
+				exec_ra(stack_a);
 		}
 		while (ft_stksize(*stack_b) > 0)
-		{
-			ft_printf("pa\n");
-			mv_push(stack_a, stack_b);
-		}
+			exec_pa(stack_a, stack_b);
 		i++;
 	}
 }
 
-int	is_sorted(t_stack **stack)
+static void	exec_pb(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*tmp;
-
-	tmp = (*stack);
-	while (*stack && (*stack)->next)
-	{
-		if ((*stack)->data > (*stack)->next->data)
-		{
-			(*stack) = tmp;
-			return (0);
-		}
-		*stack = (*stack)->next;
-	}
-	(*stack) = tmp;
-	return (1);
+	ft_printf("pb\n");
+	mv_push(stack_b, stack_a);
 }
 
-void	sort_array(int *arr, int n)
+static void	exec_ra(t_stack **stack)
 {
-	int	i;
-	int	j;
-	int	min_idx;
-
-	i = 0;
-	while (i < n)
-	{
-		min_idx = i;
-		j = i + 1;
-		while (j < n)
-		{
-			if (arr[j] < arr[min_idx])
-				min_idx = j;
-			j++;
-		}
-		swap(&arr[min_idx], &arr[i]);
-		i++;
-	}
+	ft_printf("ra\n");
+	mv_rotate(stack);
 }
 
-static void	swap(int *xp, int *yp)
+static void	exec_pa(t_stack **stack_a, t_stack **stack_b)
 {
-	int	tmp;
-
-	tmp = *xp;
-	*xp = *yp;
-	*yp = tmp;
+	ft_printf("pa\n");
+	mv_push(stack_a, stack_b);
 }

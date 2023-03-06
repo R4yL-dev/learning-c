@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:17:01 by lray              #+#    #+#             */
-/*   Updated: 2023/03/06 17:10:57 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/06 18:47:54 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,15 @@
 # include "libs/ft_stack.h"
 # include "libs/libft.h"
 
-int		args_isvalid(int argc, char *argv[]);
-int		args_isunique(int argc, char *argv[]);
+int		args_isvalid(int nbr_args, char *args[]);
+int		args_isunique(int nbr_args, char *args[]);
 
-void	try_sort(t_stack **stack_a, t_stack **stack_b);
-int		is_sorted(t_stack **stack);
-void	sort_array(int *arr, int n);
+int		*copy_array(int	*arr, int size);
+void	apply_mask(int *arr, int *mask, int size);
+
+void	radix(t_stack **stack_a, t_stack **stack_b);
+
+void	selection_sort(int *arr, int n);
 
 void	mv_swap(t_stack **stack);
 void	mv_push(t_stack **stack1, t_stack **stack2);
@@ -32,6 +35,7 @@ void	mv_rrotate(t_stack **stack);
 
 long	ft_atol(const char *nptr);
 void	ft_puterror(t_stack **stack_a, t_stack **stack_b);
+int		is_sorted(t_stack **stack);
 
 void	db_show_stack(t_stack **stack_a, t_stack **stack_b);
 void	db_show_size(t_stack **stack_a, t_stack **stack_b);

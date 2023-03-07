@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:09:05 by lray              #+#    #+#             */
-/*   Updated: 2023/03/06 20:18:35 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/07 16:14:56 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,17 @@ int	main(int argc, char *argv[])
 		exit(0);
 	stack_a = NULL;
 	stack_b = NULL;
-	/* if (argc == 2)
-		argv = ft_split((const char *) argv[1], ' '); */
 	if (!check_args(argc, argv))
 		ft_puterror(&stack_a, &stack_b);
 	args_int = convert_args(argc, argv);
 	argc--;
 	sanitize(argc, args_int);
 	args_to_stack(&stack_a, argc, args_int);
-	radix(&stack_a, &stack_b);
 	free(args_int);
+	if (argc == 3)
+		sort3(&stack_a);
+	else
+		radix(&stack_a, &stack_b);
 	ft_stkclear(&stack_a);
 	ft_stkclear(&stack_b);
 	return (0);

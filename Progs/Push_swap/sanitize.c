@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 18:10:09 by lray              #+#    #+#             */
-/*   Updated: 2023/03/06 18:21:33 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/07 16:04:20 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,17 @@ void	apply_mask(int *arr, int *mask, int size)
 		while (j < size)
 		{
 			if (arr[i] == mask[j])
+			{
 				arr[i] = j;
-			++j;
+				i++;
+				j = 0;
+				if (i >= size)
+					break ;
+				continue ;
+			}
+			j++;
 		}
-		++i;
+		i++;
 	}
 	free(mask);
 }

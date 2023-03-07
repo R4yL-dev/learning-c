@@ -2,7 +2,7 @@
 
 ## TODO
 
-- [ ] Add sort for 3 args.
+- [x] Add sort for 3 args.
 - [ ] Add sort for 5 args.
 - [ ] Accept args from env var.
 - [x] Put to norm.

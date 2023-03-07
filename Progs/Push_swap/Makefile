@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2023/03/07 14:55:10 by lray             ###   ########.fr        #
+#    Updated: 2023/03/07 16:17:24 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS 		:= \
 	./sort3.c \
 	./selection_sort.c \
 	./moves.c \
-	./push_swap_utils.c \
+	./utils.c \
 	./debug.c
 
 LIBS		:= \

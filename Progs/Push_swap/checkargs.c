@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 16:13:29 by lray              #+#    #+#             */
-/*   Updated: 2023/03/06 18:23:56 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/09 14:37:48 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	args_isvalid(int nbr_args, char *args[])
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (i < nbr_args)
 	{
 		j = 0;
@@ -42,7 +42,7 @@ int	args_isunique(int nbr_args, char *args[])
 	int	j;
 	int	arg_to_int;
 
-	i = 1;
+	i = 0;
 	while (i < nbr_args)
 	{
 		arg_to_int = ft_atoi(args[i]);

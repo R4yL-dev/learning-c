@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:09:05 by lray              #+#    #+#             */
-/*   Updated: 2023/03/07 16:14:56 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/09 14:59:20 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,23 @@ int	main(int argc, char *argv[])
 
 	if (argc == 1)
 		exit(0);
+	else if (argc == 2)
+	{
+		argv = ft_split(argv[1], ' ');
+		argc = 0;
+		while (argv[argc])
+			argc++;
+	}
+	else
+	{
+		argc--;
+		argv++;
+	}
 	stack_a = NULL;
 	stack_b = NULL;
 	if (!check_args(argc, argv))
 		ft_puterror(&stack_a, &stack_b);
 	args_int = convert_args(argc, argv);
-	argc--;
 	sanitize(argc, args_int);
 	args_to_stack(&stack_a, argc, args_int);
 	free(args_int);
@@ -55,13 +66,13 @@ static int	*convert_args(int nbr_args, char *args[])
 	int	*resp;
 	int	i;
 
-	resp = malloc(sizeof(int) * (nbr_args - 1));
+	resp = malloc(sizeof(int) * (nbr_args));
 	if (!resp)
 		return (NULL);
-	i = 1;
+	i = 0;
 	while (i < nbr_args)
 	{
-		resp[i - 1] = ft_atoi(args[i]);
+		resp[i] = ft_atoi(args[i]);
 		i++;
 	}
 	return (resp);

@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:09:05 by lray              #+#    #+#             */
-/*   Updated: 2023/03/09 14:59:20 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/09 22:25:32 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	int		*args_int;
+	int		*argv_int;
 
+	/*
+		This conditions should be in a function.
+	*/
 	if (argc == 1)
 		exit(0);
 	else if (argc == 2)
@@ -37,18 +40,28 @@ int	main(int argc, char *argv[])
 		argc--;
 		argv++;
 	}
+
 	stack_a = NULL;
 	stack_b = NULL;
 	if (!check_args(argc, argv))
 		ft_puterror(&stack_a, &stack_b);
-	args_int = convert_args(argc, argv);
-	sanitize(argc, args_int);
-	args_to_stack(&stack_a, argc, args_int);
-	free(args_int);
+	argv_int = convert_args(argc, argv);
+	sanitize(argc, argv_int);
+	args_to_stack(&stack_a, argc, argv_int);
+	free(argv_int);
+	db_show_result(&stack_a, &stack_b);
+
+	/*
+		This condition must be in a function.
+	*/
 	if (argc == 3)
 		sort3(&stack_a);
+	else if (argc <= 5)
+		sort5(&stack_a, &stack_b);
 	else
 		radix(&stack_a, &stack_b);
+
+	db_show_result(&stack_a, &stack_b);
 	ft_stkclear(&stack_a);
 	ft_stkclear(&stack_b);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:09:05 by lray              #+#    #+#             */
-/*   Updated: 2023/03/09 22:25:32 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/11 18:18:19 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	main(int argc, char *argv[])
 	sanitize(argc, argv_int);
 	args_to_stack(&stack_a, argc, argv_int);
 	free(argv_int);
-	db_show_result(&stack_a, &stack_b);
 
 	/*
 		This condition must be in a function.
@@ -61,7 +60,6 @@ int	main(int argc, char *argv[])
 	else
 		radix(&stack_a, &stack_b);
 
-	db_show_result(&stack_a, &stack_b);
 	ft_stkclear(&stack_a);
 	ft_stkclear(&stack_b);
 	return (0);

@@ -29,7 +29,7 @@ int		ft_stkpeek(t_stack *stack);
 void	ft_stkclear(t_stack **stack);
 int		ft_stksize(t_stack *stack);
 
-void	mv_swap(t_stack **stack)
+void	mv_swap(t_stack **stack);
 
 void	db_show_stack(t_stack **stack);
 

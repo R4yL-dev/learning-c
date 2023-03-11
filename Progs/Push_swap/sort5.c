@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 17:51:58 by lray              #+#    #+#             */
-/*   Updated: 2023/03/10 00:16:15 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/11 18:41:48 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,36 +20,30 @@ static int	get_last_value(t_stack **stack);
 
 void	sort5(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_printf("SORT 5 !!!\n");
 	if (!is_sorted(stack_a))
 	{
 		if (ft_stksize(*stack_a) == 5)
 			exec_pb(stack_a, stack_b);
 		exec_pb(stack_a, stack_b);
 		sort3(stack_a);
-		ft_printf("_-_-_- %d\n", ft_stkisempty(*stack_b));
 		while (1)
 		{
 			if ((*stack_b)->data < (*stack_a)->data)
-			{
-				ft_printf("1\n");
 				exec_pa(stack_a, stack_b);
-			}
 			else if ((*stack_b)->data > get_last_value(stack_a))
 			{
-				ft_printf("2\n");
-				ft_printf("stack_b->data = %d | get_last_value(stack_a) = %d\n", (*stack_b)->data, get_last_value(stack_a));
 				exec_pa(stack_a, stack_b);
 				exec_rra(stack_a);
+				while (!is_sorted(stack_a))
+					exec_ra(stack_a);
 			}
 			else
 			{
-				ft_printf("3\n");
 				while ((*stack_b)->data > (*stack_a)->data)
 					exec_ra(stack_a);
 				exec_pa(stack_a, stack_b);
 				while (!is_sorted(stack_a))
-					exec_ra(stack_a);
+					exec_rra(stack_a);
 			}
 			if (ft_stkisempty(*stack_b) && is_sorted(stack_a))
 				break ;

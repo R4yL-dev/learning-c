@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:17:01 by lray              #+#    #+#             */
-/*   Updated: 2023/03/09 22:20:48 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/19 20:24:46 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int		*copy_array(int	*arr, int size);
 void	apply_mask(int *arr, int *mask, int size);
 
 void	radix(t_stack **stack_a, t_stack **stack_b);
+
+void	sort2(t_stack **stack_a);
 
 void	sort5(t_stack **stack_a, t_stack **stack_b);
 

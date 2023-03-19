@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2023/03/09 22:21:46 by lray             ###   ########.fr        #
+#    Updated: 2023/03/17 20:32:54 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS 		:= \
 	./checkargs.c \
 	./sanitize.c \
 	./radix.c \
+	./sort2.c \
 	./sort3.c \
 	./sort5.c \
 	./selection_sort.c \

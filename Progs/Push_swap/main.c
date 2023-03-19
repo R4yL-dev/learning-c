@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:09:05 by lray              #+#    #+#             */
-/*   Updated: 2023/03/11 18:18:19 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/19 20:47:20 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,14 @@ int	main(int argc, char *argv[])
 	/*
 		This condition must be in a function.
 	*/
-	if (argc == 3)
+	if (argc == 2)
+		sort2(&stack_a);
+	else if (argc == 3)
 		sort3(&stack_a);
 	else if (argc <= 5)
 		sort5(&stack_a, &stack_b);
 	else
 		radix(&stack_a, &stack_b);
-
 	ft_stkclear(&stack_a);
 	ft_stkclear(&stack_b);
 	return (0);

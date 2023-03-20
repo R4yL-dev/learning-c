@@ -6,11 +6,30 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 16:13:29 by lray              #+#    #+#             */
-/*   Updated: 2023/03/09 14:37:48 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/20 12:13:34 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+char	**args_init(int *argc, char *argv[])
+{
+	if (*argc == 1)
+		exit(0);
+	else if (*argc == 2)
+	{
+		argv = ft_split(argv[1], ' ');
+		*argc = 0;
+		while (argv[*argc])
+			(*argc)++;
+	}
+	else
+	{
+		(*argc)--;
+		argv++;
+	}
+	return (argv);
+}
 
 int	args_isvalid(int nbr_args, char *args[])
 {

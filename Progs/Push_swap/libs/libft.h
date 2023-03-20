@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:19:17 by luca              #+#    #+#             */
-/*   Updated: 2023/03/06 01:17:30 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/20 13:03:21 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_list
 }	t_list;
 
 int		ft_atoi(const char *nptr);
+long	ft_atol(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		ft_isalnum(int c);

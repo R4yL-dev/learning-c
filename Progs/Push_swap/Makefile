@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2023/03/17 20:32:54 by lray             ###   ########.fr        #
+#    Updated: 2023/03/20 13:07:20 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS 		:= \
 	./sort3.c \
 	./sort5.c \
 	./selection_sort.c \
+	./exec_move.c \
 	./moves.c \
 	./utils.c \
 	./debug.c

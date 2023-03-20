@@ -6,15 +6,11 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 14:05:53 by lray              #+#    #+#             */
-/*   Updated: 2023/03/09 22:21:36 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/20 11:42:37 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	exec_pb(t_stack **stack_a, t_stack **stack_b);
-static void	exec_ra(t_stack **stack);
-static void	exec_pa(t_stack **stack_a, t_stack **stack_b);
 
 void	radix(t_stack **stack_a, t_stack **stack_b)
 {
@@ -39,22 +35,4 @@ void	radix(t_stack **stack_a, t_stack **stack_b)
 			exec_pa(stack_a, stack_b);
 		i++;
 	}
-}
-
-static void	exec_pb(t_stack **stack_a, t_stack **stack_b)
-{
-	ft_printf("pb\n");
-	mv_push(stack_b, stack_a);
-}
-
-static void	exec_ra(t_stack **stack)
-{
-	ft_printf("ra\n");
-	mv_rotate(stack);
-}
-
-static void	exec_pa(t_stack **stack_a, t_stack **stack_b)
-{
-	ft_printf("pa\n");
-	mv_push(stack_a, stack_b);
 }

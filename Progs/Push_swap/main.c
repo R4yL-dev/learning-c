@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:09:05 by lray              #+#    #+#             */
-/*   Updated: 2023/03/19 20:47:20 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/20 12:24:19 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,7 @@ int	main(int argc, char *argv[])
 	t_stack	*stack_b;
 	int		*argv_int;
 
-	/*
-		This conditions should be in a function.
-	*/
-	if (argc == 1)
-		exit(0);
-	else if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
-		argc = 0;
-		while (argv[argc])
-			argc++;
-	}
-	else
-	{
-		argc--;
-		argv++;
-	}
-
+	argv = args_init(&argc, argv);
 	stack_a = NULL;
 	stack_b = NULL;
 	if (!check_args(argc, argv))
@@ -49,15 +32,11 @@ int	main(int argc, char *argv[])
 	sanitize(argc, argv_int);
 	args_to_stack(&stack_a, argc, argv_int);
 	free(argv_int);
-
-	/*
-		This condition must be in a function.
-	*/
 	if (argc == 2)
 		sort2(&stack_a);
 	else if (argc == 3)
 		sort3(&stack_a);
-	else if (argc <= 5)
+	else if (argc == 5)
 		sort5(&stack_a, &stack_b);
 	else
 		radix(&stack_a, &stack_b);

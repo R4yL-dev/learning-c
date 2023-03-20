@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2023/03/06 01:14:09 by lray             ###   ########.fr        #
+#    Updated: 2023/03/20 13:01:28 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME		:= libft.a
 
 SRCS 		:= \
 	./ft_atoi.c \
+	./ft_atol.c \
 	./ft_bzero.c \
 	./ft_calloc.c \
 	./ft_isalnum.c \

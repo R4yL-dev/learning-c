@@ -6,18 +6,19 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 16:13:29 by lray              #+#    #+#             */
-/*   Updated: 2023/03/20 12:13:34 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/20 14:39:29 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**args_init(int *argc, char *argv[])
+char	**args_init(int *argc, char *argv[], int *check)
 {
 	if (*argc == 1)
 		exit(0);
 	else if (*argc == 2)
 	{
+		*check = 1;
 		argv = ft_split(argv[1], ' ');
 		*argc = 0;
 		while (argv[*argc])

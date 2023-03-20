@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:09:05 by lray              #+#    #+#             */
-/*   Updated: 2023/03/20 12:24:19 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/20 14:49:40 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,21 @@ int	main(int argc, char *argv[])
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		*argv_int;
+	int		check;
 
-	argv = args_init(&argc, argv);
+	check = 0;
+	argv = args_init(&argc, argv, &check);
 	stack_a = NULL;
 	stack_b = NULL;
 	if (!check_args(argc, argv))
 		ft_puterror(&stack_a, &stack_b);
 	argv_int = convert_args(argc, argv);
+	if (check)
+		free_argv(argc, argv);
 	sanitize(argc, argv_int);
 	args_to_stack(&stack_a, argc, argv_int);
 	free(argv_int);
-	if (argc == 2)
-		sort2(&stack_a);
-	else if (argc == 3)
-		sort3(&stack_a);
-	else if (argc == 5)
-		sort5(&stack_a, &stack_b);
-	else
-		radix(&stack_a, &stack_b);
+	choose_sort(&stack_a, &stack_b, argc);
 	ft_stkclear(&stack_a);
 	ft_stkclear(&stack_b);
 	return (0);

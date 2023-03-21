@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:09:05 by lray              #+#    #+#             */
-/*   Updated: 2023/03/20 14:49:40 by lray             ###   ########.fr       */
+/*   Updated: 2023/03/21 16:47:33 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ int	main(int argc, char *argv[])
 	stack_a = NULL;
 	stack_b = NULL;
 	if (!check_args(argc, argv))
+	{
+		if (check)
+			free_argv(argc, argv);
 		ft_puterror(&stack_a, &stack_b);
+	}
 	argv_int = convert_args(argc, argv);
 	if (check)
 		free_argv(argc, argv);

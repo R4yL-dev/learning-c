@@ -11,3 +11,4 @@
 *.txt
 Progs/Push_swap/push_swap
 Progs/Push_swap/checker_linux
+.DS_Store

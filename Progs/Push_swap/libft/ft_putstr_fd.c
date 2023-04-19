@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stknew.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 22:52:37 by lray              #+#    #+#             */
-/*   Updated: 2023/02/20 22:56:51 by lray             ###   ########.fr       */
+/*   Created: 2022/11/02 00:01:09 by lray              #+#    #+#             */
+/*   Updated: 2023/02/20 23:13:45 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stack.h"
+#include "libft.h"
 
-t_stack	*ft_stknew(int data)
+void	ft_putstr_fd(char *s, int fd)
 {
-	t_stack	*node;
-
-	node = (t_stack *)malloc(sizeof(t_stack));
-	if (node == NULL)
-		return (NULL);
-	node->data = data;
-	node->next = NULL;
-	return (node);
+	write(fd, s, ft_strlen(s));
 }

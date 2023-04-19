@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stknew.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
+/*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 22:52:37 by lray              #+#    #+#             */
-/*   Updated: 2023/02/20 22:56:51 by lray             ###   ########.fr       */
+/*   Created: 2022/09/29 14:41:49 by luca              #+#    #+#             */
+/*   Updated: 2022/10/06 17:57:02 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stack.h"
+/*
+* Cette fonction met en minusculeles caractères majuscule.
+* Si le caractère n'est pas une majuscule, la fonction le retour.
+*/
 
-t_stack	*ft_stknew(int data)
+#include "libft.h"
+
+int	ft_tolower(int c)
 {
-	t_stack	*node;
-
-	node = (t_stack *)malloc(sizeof(t_stack));
-	if (node == NULL)
-		return (NULL);
-	node->data = data;
-	node->next = NULL;
-	return (node);
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
 }

@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/18 13:13:15 by lray              #+#    #+#             */
-/*   Updated: 2023/02/18 22:43:54 by lray             ###   ########.fr       */
+/*   Created: 2022/11/01 23:51:51 by lray              #+#    #+#             */
+/*   Updated: 2023/02/20 23:13:26 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
+/*
+	Desc :
+		Écrit le caractère c sur le descripteur de fichier donnée.
 
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdint.h>
+	Params :
+		- c : Le caractère à écrire.
+		- fd : Le descripteur de fichier sur lequel écrire.
 
-# define HEX_LOW "0123456789abcdef"
-# define HEX_UP "0123456789ABCDEF"
+	Ret :
+		- Aucun
+*/
 
-int	ft_printf(const char *str, ...);
-int	ft_putchar(const char c);
-int	ft_putstr(const char *str);
-int	ft_putptr(uintptr_t addr);
-int	ft_put10(int nbr);
-int	ft_putu10(unsigned int nbr);
-int	ft_put16(uintptr_t nbr, char *set);
+#include "libft.h"
 
-#endif
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}

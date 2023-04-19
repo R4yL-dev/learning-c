@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:19:17 by luca              #+#    #+#             */
-/*   Updated: 2023/04/19 17:23:13 by lray             ###   ########.fr       */
+/*   Updated: 2023/04/19 17:36:19 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdint.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 8
+#  define BUFFER_SIZE 512
 # endif
 
 # define HEX_LOW "0123456789abcdef"

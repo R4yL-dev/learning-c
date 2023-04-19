@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:17:01 by lray              #+#    #+#             */
-/*   Updated: 2023/03/20 14:47:32 by lray             ###   ########.fr       */
+/*   Updated: 2023/04/19 18:04:47 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <limits.h>
-# include "libs/ft_printf.h"
-# include "libs/ft_stack.h"
-# include "libs/libft.h"
+# include "libft/libft.h"
 
 char	**args_init(int *argc, char *argv[], int *check);
 int		args_isvalid(int nbr_args, char *args[]);

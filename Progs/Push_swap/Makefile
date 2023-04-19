@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2023/03/20 14:35:15 by lray             ###   ########.fr        #
+#    Updated: 2023/04/19 18:15:05 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,20 +23,16 @@ SRCS 		:= \
 	./selection_sort.c \
 	./exec_move.c \
 	./moves.c \
-	./utils.c \
-	./debug.c
-
-LIBS		:= \
-	./libs/libftprintf.a \
-	./libs/libftstack.a \
-	./libs/libft.a
-
+	./utils.c
 
 OBJS		:= $(SRCS:.c=.o)
 
 CC 			:= gcc
 CFLAGS		:= -Wall -Wextra -Werror
-CPPFLAGS	:= -I .
+CPPFLAGS	:= -I./ -I./libft/
+
+LIBS		:= \
+	./libft/libft.a
 
 RM			:= rm -f
 MAKEFLAGS   += --no-print-directory
@@ -44,18 +40,21 @@ MAKEFLAGS   += --no-print-directory
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) $(LIBS) -o $(NAME)
+	@make -C libft/
+	$(CC) $(OBJS) $(CFLAGS) $(CPPFLAGS) $(LIBS) -o $(NAME)
 	$(info CREATED $(NAME))
 
 %.o : %.c
-	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 	$(info CREATED $@)
 
 clean :
+	@make clean -C libft/
 	$(RM) $(OBJS)
 	$(info DELETED objects files)
 
 fclean : clean
+	@make fclean -C libft/
 	$(RM) $(NAME)
 	$(info DELETED $(NAME))
 

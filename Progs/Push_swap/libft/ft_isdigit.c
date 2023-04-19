@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stknew.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
+/*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 22:52:37 by lray              #+#    #+#             */
-/*   Updated: 2023/02/20 22:56:51 by lray             ###   ########.fr       */
+/*   Created: 2022/09/27 16:16:54 by lray              #+#    #+#             */
+/*   Updated: 2022/09/30 19:41:46 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stack.h"
+/*
+* La fonction ft_isdigit renvoie une valeur en dessus de 0 si le caractères c
+*	est un chiffre.
+* Si ce n'est pas le cas, elle retourne 0.
+*/
 
-t_stack	*ft_stknew(int data)
+#include "libft.h"
+
+int	ft_isdigit(int c)
 {
-	t_stack	*node;
-
-	node = (t_stack *)malloc(sizeof(t_stack));
-	if (node == NULL)
-		return (NULL);
-	node->data = data;
-	node->next = NULL;
-	return (node);
+	if (c >= '0' && c <= '9')
+		return (2048);
+	return (0);
 }

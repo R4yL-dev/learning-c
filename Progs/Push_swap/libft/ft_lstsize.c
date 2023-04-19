@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stkhas.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
+/*   By: lray <lray@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 13:46:34 by lray              #+#    #+#             */
-/*   Updated: 2023/03/02 14:16:59 by lray             ###   ########.fr       */
+/*   Created: 2022/11/03 15:48:27 by lray              #+#    #+#             */
+/*   Updated: 2022/11/03 19:21:30 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stack.h"
+/*
+	Desc :
+		Compte le nombre d'éléments de la liste.
 
-int	ft_stkhas(t_stack **stack, int data)
+	Params :
+		- lst : Le début de la liste.
+
+	Ret :
+		La taille de la liste.
+*/
+
+#include "libft.h"
+
+int	ft_lstsize(t_list *lst)
 {
-	t_stack	*tmp;
+	size_t	i;
 
-	tmp = *stack;
-	while (*stack)
+	i = 0;
+	while (lst)
 	{
-		if ((*stack)->data == data)
-			return (1);
-		*stack = (*stack)->next;
+		lst = lst->next;
+		i++;
 	}
-	*stack = tmp;
-	return (0);
+	return (i);
 }

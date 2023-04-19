@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stknew.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 22:52:37 by lray              #+#    #+#             */
-/*   Updated: 2023/02/20 22:56:51 by lray             ###   ########.fr       */
+/*   Created: 2022/10/05 20:33:57 by lray              #+#    #+#             */
+/*   Updated: 2023/02/20 23:15:10 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stack.h"
+#include "libft.h"
 
-t_stack	*ft_stknew(int data)
+char	*ft_strdup(const char *s)
 {
-	t_stack	*node;
+	int		size;
+	int		i;
+	char	*resp;
 
-	node = (t_stack *)malloc(sizeof(t_stack));
-	if (node == NULL)
+	size = ft_strlen(s);
+	resp = (char *)malloc(sizeof(char) * (size + 1));
+	if (resp == NULL)
 		return (NULL);
-	node->data = data;
-	node->next = NULL;
-	return (node);
+	i = 0;
+	while (i < size)
+	{
+		*(resp + i) = *(char *)(s + i);
+		i++;
+	}
+	resp[i] = '\0';
+	return (resp);
 }

@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stknew.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 22:52:37 by lray              #+#    #+#             */
-/*   Updated: 2023/02/20 22:56:51 by lray             ###   ########.fr       */
+/*   Created: 2022/10/05 19:08:50 by lray              #+#    #+#             */
+/*   Updated: 2023/02/20 23:11:36 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_stack.h"
+#include "libft.h"
 
-t_stack	*ft_stknew(int data)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	t_stack	*node;
+	void	*resp;
 
-	node = (t_stack *)malloc(sizeof(t_stack));
-	if (node == NULL)
+	if (!nmemb || !size)
+		return (malloc(0));
+	resp = malloc(nmemb * size);
+	if (!resp)
 		return (NULL);
-	node->data = data;
-	node->next = NULL;
-	return (node);
+	ft_memset((unsigned char *)resp, 0, nmemb * size);
+	return (resp);
 }

@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 13:20:02 by lray              #+#    #+#             */
-/*   Updated: 2023/02/18 22:44:00 by lray             ###   ########.fr       */
+/*   Updated: 2023/04/06 11:54:18 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,15 @@ int	ft_putstr(const char *str)
 	int	len;
 
 	len = 0;
-	while (*str)
+	if (str == NULL)
+		len = ft_putstr("(null)");
+	else
 	{
-		len += ft_putchar(*str);
-		str++;
+		while (*str)
+		{
+			len += ft_putchar(*str);
+			str++;
+		}
 	}
 	return (len);
 }

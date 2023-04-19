@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/18 20:13:28 by lray              #+#    #+#             */
-/*   Updated: 2023/02/18 22:47:25 by lray             ###   ########.fr       */
+/*   Created: 2023/04/17 15:54:40 by lray              #+#    #+#             */
+/*   Updated: 2023/04/17 16:02:26 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 
 int	main(void)
 {
-	int	resp1;
-	int	resp2;
+	char	c = 'A';
+	char	*str = "Salut 42 !!!";
+	int		num = 42;
+	int		resp = 0;
 
-	resp1 = ft_printf("%% %c %s %d %i %x %X %p %u", \
-		'x', "xxx", -2222, 2222, 2222, 2222, &resp1, 2222);
-	ft_printf("\n");
-	resp2 = printf("%% %c %s %d %i %x %X %p %u", \
-		'x', "xxx", -2222, 2222, 2222, 2222, &resp1, 2222);
-	printf("\nresp1 = %d\nresp2 = %d\n", resp1, resp2);
+	resp = ft_printf("%c %s %p %d %i %u %x %X %%", c, str, &num, num, num, num, num, num);
+	printf("\n");
+	printf("resp ft_printf = %d\n", resp);
+	resp = printf("%c %s %p %d %i %u %x %X %%", c, str, &num, num, num, num, num, num);
+	printf("\n");
+	printf("resp printf = %d\n", resp);
 	return (0);
 }

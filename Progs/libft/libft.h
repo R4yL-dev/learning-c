@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:19:17 by luca              #+#    #+#             */
-/*   Updated: 2023/03/20 13:00:26 by lray             ###   ########.fr       */
+/*   Updated: 2023/04/19 17:23:13 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
+# include <stdarg.h>
+# include <stdint.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 8
+# endif
+
+# define HEX_LOW "0123456789abcdef"
+# define HEX_UP "0123456789ABCDEF"
 
 typedef struct s_list
 {
@@ -72,4 +82,28 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+
+int		ft_printf(const char *str, ...);
+int		ft_putchar(const char c);
+int		ft_putstr(const char *str);
+int		ft_putptr(uintptr_t addr);
+int		ft_put10(int nbr);
+int		ft_putu10(unsigned int nbr);
+int		ft_put16(uintptr_t nbr, char *set);
+
+char	*get_next_line(int fd);
+int		has_newline(t_list *reserve);
+void	free_all(t_list *reserve);
+t_list	*get_last_node(t_list *reserve);
+void	make_line(char **line, t_list *reserve);
+char	*get_content(t_list *last, int i);
+
+void	ft_stkpush(t_stack **stack, int data);
+int		ft_stkpop(t_stack **stack);
+t_stack	*ft_stknew(int data);
+int		ft_stkisempty(t_stack *stack);
+int		ft_stkpeek(t_stack *stack);
+void	ft_stkclear(t_stack **stack);
+int		ft_stksize(t_stack *stack);
+
 #endif

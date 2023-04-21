@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:02:01 by lray              #+#    #+#             */
-/*   Updated: 2023/04/19 18:36:52 by lray             ###   ########.fr       */
+/*   Updated: 2023/04/21 17:20:23 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	mv_rotate(t_stack **stack)
 	}
 }
 
-void	mv_rrotate(t_stack **stack)
+/* void	mv_rrotate(t_stack **stack)
 {
 	int		res;
 	t_stack	*tmp;
@@ -70,4 +70,24 @@ void	mv_rrotate(t_stack **stack)
 		ft_stkpush(&tmp, res);
 		(*stack) = tmp;
 	}
+} */
+
+void	mv_rrotate(t_stack **stack)
+{
+	t_stack	*last;
+	t_stack	*new_last;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
+	last = *stack;
+	while (last->next != NULL)
+		last = last->next;
+	new_last = ft_stknew(last->data);
+	last = *stack;
+	while (last->next->next != NULL)
+		last = last->next;
+	free(last->next);
+	last->next = NULL;
+	new_last->next = *stack;
+	*stack = new_last;
 }

@@ -1,7 +1,5 @@
 *.out
 *.swp
-.vscode/
-.editorconfig
 *.h.gch
 *.o
 *.zip
@@ -9,6 +7,5 @@
 *.tar.gz
 *.a
 *.txt
-Progs/Push_swap/push_swap
-Progs/Push_swap/checker_linux
-.DS_Store
+*.tmp
+*.DS_Store

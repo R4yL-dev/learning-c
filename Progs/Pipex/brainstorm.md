@@ -19,6 +19,7 @@
 		- [1.5.9. unlink()](#159-unlink)
 		- [1.5.10. wait()](#1510-wait)
 		- [1.5.11. waitpid()](#1511-waitpid)
+	- [Déroulement](#déroulement)
 	- [1.6. Liens utiles](#16-liens-utiles)
 		- [1.6.1. Vidéos](#161-vidéos)
 
@@ -721,6 +722,12 @@ Lorsqu'un processus fils se termine, le processus parent est réveillé et peut 
 
 Notez que la fonction `waitpid()` est bloquante, c'est-à-dire qu'elle ne retourne que lorsque le processus fils a terminé son exécution. Si vous voulez attendre la fin d'un processus fils sans bloquer le processus parent, vous pouvez utiliser l'option `WNOHANG`, qui permet de retourner immédiatement si aucun processus fils n'a terminé son exécution.
 
+## Déroulement
+
+1. Vérifier que le bon nombre d'argument est reçu
+2. Ouvrir le `file_1` avec `open()` et les bons paramètre (Lecture seul, erreur si non existant)
+3. Ouvrire le `file_2` avec `open()` et les bons paramètre
+
 ## 1.6. Liens utiles
 
 ### 1.6.1. Vidéos
@@ -728,3 +735,79 @@ Notez que la fonction `waitpid()` est bloquante, c'est-à-dire qu'elle ne retour
 - [The fork() function in C](https://www.youtube.com/watch?v=cex9XrZCU14)
 - [Waiting for processes to finish (using the wait function) in C](https://www.youtube.com/watch?v=tcYo6hipaSA)
 - [Communicating between processes (using pipes) in C](https://www.youtube.com/watch?v=Mqb2dVRe0uo)
+
+```c
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
+#include <sys/wait.h>
+
+#define CMD1_POS 2
+#define CMD2_POS 3
+#define FILE1_POS 1
+#define FILE2_POS 4
+
+void	exit_error(char *msg)
+{
+	perror(msg);
+	exit(EXIT_FAILURE);
+}
+
+void	child_process(char *cmd, char **envp, int in_fd, int out_fd)
+{
+	char	**cmd_args;
+	char	*path;
+
+	if (!(cmd_args = ft_split(cmd, ' ')))
+		exit_error("Failed to split command");
+	if (!(path = ft_strjoin("/bin/", cmd_args[0])))
+		exit_error("Failed to join command path");
+	if (dup2(in_fd, STDIN_FILENO) == -1)
+		exit_error("Failed to dup2");
+	if (dup2(out_fd, STDOUT_FILENO) == -1)
+		exit_error("Failed to dup2");
+	close(in_fd);
+	close(out_fd);
+	execve(path, cmd_args, envp);
+	exit_error("Failed to execute command");
+}
+
+int		main(int argc, char **argv, char **envp)
+{
+	int		file1;
+	int		file2;
+	int		pipes[2];
+	pid_t	pid1;
+	pid_t	pid2;
+
+	if (argc != 5)
+		exit_error("Invalid number of arguments");
+	if ((file1 = open(argv[FILE1_POS], O_RDONLY)) == -1)
+		exit_error("Failed to open file 1");
+	if ((file2 = open(argv[FILE2_POS], O_CREAT | O_WRONLY | O_TRUNC, 0644)) == -1)
+		exit_error("Failed to open file 2");
+	if (pipe(pipes) == -1)
+		exit_error("Failed to create pipe");
+
+	if ((pid1 = fork()) == -1)
+		exit_error("Failed to fork");
+	else if (pid1 == 0)
+		child_process(argv[CMD1_POS], envp, file1, pipes[1]);
+	close(pipes[1]);
+
+	if ((pid2 = fork()) == -1)
+		exit_error("Failed to fork");
+	else if (pid2 == 0)
+		child_process(argv[CMD2_POS], envp, pipes[0], file2);
+	close(pipes[0]);
+
+	waitpid(pid1, NULL, 0);
+	waitpid(pid2, NULL, 0);
+	close(file1);
+	close(file2);
+	return (0);
+}
+```

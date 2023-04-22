@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 18:13:21 by lray              #+#    #+#             */
-/*   Updated: 2023/04/22 18:20:42 by lray             ###   ########.fr       */
+/*   Updated: 2023/04/22 19:36:31 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <errno.h>
 # include <sys/wait.h>
 # include <stdio.h>
+# include <string.h>
 # include "libft/libft.h"
 
 # define CMD1_POS 2

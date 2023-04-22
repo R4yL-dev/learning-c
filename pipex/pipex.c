@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 18:12:56 by lray              #+#    #+#             */
-/*   Updated: 2023/04/22 18:37:44 by lray             ###   ########.fr       */
+/*   Updated: 2023/04/22 21:31:49 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	main(int argc, char **argv, char **envp)
 	waitpid(pid2, NULL, 0);
 	close(file1);
 	close(file2);
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 /*

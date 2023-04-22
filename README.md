@@ -1,6 +1,13 @@
-# README
+# My learning of C at 42
 
-This repository is where I will store the programs and notes that I will produce during my learning of C.
-I also plan to use this place to store my configuration files.
+## Finished projects
 
-test
+- Libft - 125%
+- ft_printf - 100%
+- get_next_line - 100%
+
+## Ongoing projects
+
+- push_swap - to validate
+- pipex - functional prototype
+- so_long - experimentation with MLX

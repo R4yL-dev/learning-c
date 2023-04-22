@@ -9,3 +9,7 @@
 *.txt
 *.tmp
 *.DS_Store
+infile
+outfile
+push_swap_tester/
+checker*

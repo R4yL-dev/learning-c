@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 18:13:21 by lray              #+#    #+#             */
-/*   Updated: 2023/04/22 19:36:31 by lray             ###   ########.fr       */
+/*   Updated: 2023/04/23 20:40:28 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 # define FILE1_POS 1
 # define FILE2_POS 4
 
-int	main(int argc, char **argv, char **envp);
+char	*has_cmd(char *cmd, char **envp);
+void	exit_error(int err, char *msg);
+void	free_array(char **arr);
 
 #endif

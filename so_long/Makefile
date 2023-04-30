@@ -5,22 +5,28 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/07 18:09:36 by lray              #+#    #+#              #
-#    Updated: 2023/04/11 16:36:36 by lray             ###   ########.fr        #
+#    Created: 2023/04/29 17:30:08 by lray              #+#    #+#              #
+#    Updated: 2023/04/30 17:56:01 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= so_long
 
 SRCS 		:= \
-	main.c
-
+	./main.c \
+	./parse_args.c \
+	./map.c \
+	./error.c \
+	./debug.c
 
 OBJS		:= $(SRCS:.c=.o)
 
 CC 			:= gcc
-CFLAGS		:= -Wall -Wextra -Werror
-CPPFLAGS	:= -I .
+CFLAGS		:= -Wall -Wextra -Werror -g
+CPPFLAGS	:= -I./ -I./libft/
+
+LIBS		:= \
+	./libft/libft.a
 
 RM			:= rm -f
 MAKEFLAGS   += --no-print-directory
@@ -28,20 +34,21 @@ MAKEFLAGS   += --no-print-directory
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@make -C mlx/
-	$(CC) $(OBJS) $(CFLAGS) -Imlx ./mlx/libmlx.a -framework OpenGL -framework AppKit -o $(NAME)
+	@make -C libft/
+	$(CC) $(OBJS) $(CFLAGS) $(CPPFLAGS) $(LIBS) -o $(NAME)
 	$(info CREATED $(NAME))
 
 %.o : %.c
-	$(CC) $(CFLAGS) -Imlx -c $< -o $@
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 	$(info CREATED $@)
 
 clean :
-	@make clean -C mlx/
+	@make clean -C libft/
 	$(RM) $(OBJS)
 	$(info DELETED objects files)
 
 fclean : clean
+	@make fclean -C libft/
 	$(RM) $(NAME)
 	$(info DELETED $(NAME))
 

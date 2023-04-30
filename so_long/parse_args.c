@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 17:35:37 by lray              #+#    #+#             */
-/*   Updated: 2023/04/30 20:34:52 by lray             ###   ########.fr       */
+/*   Updated: 2023/04/30 20:43:20 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	parse_args(int *argc, char ***argv)
 	}
 	if (!is_ber((*argv)[0]))
 	{
-		put_error("The extension of the card must be .ber");
+		put_error("The extension of the map must be .ber");
 		return (0);
 	}
 	if (!is_valide_path((*argv)[0]))

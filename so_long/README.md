@@ -16,7 +16,7 @@
   - [ ] Is map surronded by wall ?
   - [ ] As map one play and exit and at least one collectible ?
   - [ ] Can the player access all collectibles and the exit ?
-- [ ] Initialize collectible structure
+- [ ] Initialize items and player structure.
   - [ ] Get player position.
   - [ ] Get collectibles position.
   - [ ] Get exit position.

@@ -6,13 +6,13 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 17:32:37 by lray              #+#    #+#             */
-/*   Updated: 2023/04/30 20:36:38 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/01 02:51:01 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	get_cel(t_map *map, unsigned int x, unsigned int y);
+//static int	get_cel(t_map *map, unsigned int x, unsigned int y);
 
 int	main(int argc, char **argv)
 {
@@ -28,12 +28,12 @@ int	main(int argc, char **argv)
 	}
 	dbmap_show_format(map);
 	dbmap_show_infos(map);
-	get_cel(map, 18, 8);
+	//get_cel(map, 18, 8);
 	map_free(map);
 	return (EXIT_SUCCESS);
 }
 
-static int	get_cel(t_map *map, unsigned int x, unsigned int y)
+/* static int	get_cel(t_map *map, unsigned int x, unsigned int y)
 {
 	if (x >= map->nbrs_cols)
 	{
@@ -47,4 +47,4 @@ static int	get_cel(t_map *map, unsigned int x, unsigned int y)
 	}
 	ft_printf("Char x:%d y:%d -> %c\n", x, y, map->content[x + (y * (map->nbrs_cols))]);
 	return (1);
-}
+} */

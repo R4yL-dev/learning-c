@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 17:54:47 by lray              #+#    #+#             */
-/*   Updated: 2023/04/30 20:07:47 by lray             ###   ########.fr       */
+/*   Updated: 2023/04/30 21:04:30 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	dbmap_show_format(t_map *map)
 	int	i;
 
 	i = 0;
+	ft_printf("\n");
 	while (map->content[i])
 	{
 		if (i % map->nbrs_cols == 0 && i != 0)

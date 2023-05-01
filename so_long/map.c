@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 17:04:36 by lray              #+#    #+#             */
-/*   Updated: 2023/04/30 20:29:38 by lray             ###   ########.fr       */
+/*   Updated: 2023/04/30 21:03:34 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ Initialize map content with the map in string.
 */
 static int	map_load(t_map *map, char *map_str)
 {
-	ft_printf("\n");
 	map->content = malloc(sizeof(char) * (ft_strlen(map_str) + 1));
 	if (!map->content)
 	{

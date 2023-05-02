@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 17:04:36 by lray              #+#    #+#             */
-/*   Updated: 2023/04/30 21:03:34 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/02 15:13:20 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	map_init(t_map **map, char *path)
 	(*map)->content = NULL;
 	(*map)->nbrs_cols = 0;
 	(*map)->nbrs_rows = 0;
+	(*map)->is_rectangle = 1;
+	(*map)->is_surrounded = 0;
 	map_str = map_read((*map), path);
 	if (!map_str)
 		return (0);
@@ -67,7 +69,10 @@ static char	*map_read(t_map *map, char *path)
 			break ;
 		map->nbrs_rows++;
 		tmp_line = ft_strtrim(line, "\n");
-		map->nbrs_cols = ft_strlen(tmp_line);
+		if (map->nbrs_cols == 0)
+			map->nbrs_cols = ft_strlen(tmp_line);
+		if (ft_strlen(tmp_line) != map->nbrs_cols)
+			map->is_rectangle = 0;
 		free(line);
 		tmp_buf = ft_strdup(buf);
 		if (ft_strncmp(buf, "", 1))

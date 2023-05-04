@@ -11,9 +11,8 @@
   - [X] Get the number of rows.
   - [X] Get the number of colonnes.
 - [ ] Check if map is valide.
-  - [ ] Is map a rectangle ?
-  - [ ] Is the map big enough (4x4) ?
-  - [ ] Is map surronded by wall ?
+  - [x] Is map a rectangle ?
+  - [x] Is map surronded by wall ?
   - [ ] As map one play and exit and at least one collectible ?
   - [ ] Can the player access all collectibles and the exit ?
 - [ ] Initialize items and player structure.

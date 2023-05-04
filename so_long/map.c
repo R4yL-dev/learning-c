@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 17:04:36 by lray              #+#    #+#             */
-/*   Updated: 2023/05/02 15:13:20 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/03 15:57:58 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,23 @@ int	map_init(t_map **map, char *path)
 	char	*map_str;
 
 	(*map) = malloc(sizeof(t_map));
-	if (!map)
+	if (!(*map))
 	{
 		put_error("Malloc failed");
 		return (0);
 	}
+	(*map)->player = malloc(sizeof(t_player));
+	(*map)->exit = malloc(sizeof(t_exit));
 	(*map)->content = NULL;
 	(*map)->nbrs_cols = 0;
 	(*map)->nbrs_rows = 0;
 	(*map)->is_rectangle = 1;
 	(*map)->is_surrounded = 0;
+	(*map)->nbrs_items = 0;
+	(*map)->player->x = 0;
+	(*map)->player->y = 0;
+	(*map)->exit->x = 0;
+	(*map)->exit->y = 0;
 	map_str = map_read((*map), path);
 	if (!map_str)
 		return (0);
@@ -111,6 +118,10 @@ void	map_free(t_map *map)
 	{
 		if (map->content)
 			free(map->content);
+		if (map->player)
+			free(map->player);
+		if (map->exit)
+			free(map->exit);
 		free(map);
 		map = NULL;
 	}

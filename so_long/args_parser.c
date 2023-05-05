@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 17:35:37 by lray              #+#    #+#             */
-/*   Updated: 2023/04/30 20:43:20 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/05 15:36:23 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	is_ber(char *path);
 static int	is_valide_path(char *path);
 
-int	parse_args(int *argc, char ***argv)
+int	args_parser(int *argc, char ***argv)
 {
 	(*argc)--;
 	(*argv)++;

@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 17:31:38 by lray              #+#    #+#             */
-/*   Updated: 2023/05/03 15:11:44 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/05 17:46:23 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,17 @@ typedef struct s_map
 
 
 /*Parse arguments.*/
-int		parse_args(int *argc, char ***argv);
+int		args_parser(int *argc, char ***argv);
 
 /*Initialize map with file in path.*/
-int		map_init(t_map **map, char *path);
+int		map_parser(t_map **map, char *path);
+
+int		map_checker(t_map *map);
+
+int		map_init(t_map **map);
+int		map_copy(t_map *map, t_map *copy);
 /*Clean map*/
 void	map_free(t_map *map);
-
-int		map_check(t_map *map);
 
 int		get_cell(t_map *map, unsigned int x, unsigned int y);
 int		set_cell(t_map *map, unsigned int x, unsigned int y, int d);

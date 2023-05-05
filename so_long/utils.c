@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:29:55 by lray              #+#    #+#             */
-/*   Updated: 2023/05/03 15:13:55 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/05 18:03:51 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	set_cell(t_map *map, unsigned int x, unsigned int y, int d)
 		put_error("y must not be greater than the number of rows");
 		return (0);
 	}
-	if (d != '0' && d != '1' && d != 'P' && d != 'E' && d != 'C')
+	if (d != '0' && d != '1' && d != 'P' && d != 'E' && d != 'C' && d != 'F')
 	{
 		put_error("The new value of the cell must be 0, 1, P, E or C");
 		return (0);

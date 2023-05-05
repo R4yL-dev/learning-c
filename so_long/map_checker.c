@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_check.c                                        :+:      :+:    :+:   */
+/*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:12:06 by lray              #+#    #+#             */
-/*   Updated: 2023/05/03 18:25:25 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/05 18:24:51 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ static int	is_surrounded(t_map *map);
 static int	valid_playground(t_map *map);
 static int	valid_item(int item);
 static int	store_data(t_map *map, unsigned int item, unsigned int x, unsigned int y);
+static int	valid_path(t_map *map);
+static void	flood(t_map *map, unsigned int x, unsigned int y, int arr[2]);
 
-int	map_check(t_map *map)
+int	map_checker(t_map *map)
 {
 	if (!map->is_rectangle)
 	{
@@ -32,6 +34,11 @@ int	map_check(t_map *map)
 	if (!valid_playground(map))
 	{
 		put_error("The map must be composed of 1 and 0 as well as a player, an exit and at least one collectible");
+		return (0);
+	}
+	if (!valid_path(map))
+	{
+		put_error("All collectibles and the exit must be accessible by the player.");
 		return (0);
 	}
 	return (1);
@@ -120,4 +127,51 @@ static int	store_data(t_map *map, unsigned int item, unsigned int x, unsigned in
 		return (0);
 	}
 	return (1);
+}
+
+static int	valid_path(t_map *map)
+{
+	t_map *copy;
+	int		arr[2];
+
+	arr[0] = 1;
+	arr[1] = map->nbrs_items;
+	map_init(&copy);
+	map_copy(map, copy);
+	flood(copy, map->player->x, map->player->y, arr);
+	if (arr[0] != 0 || arr[1] != 0)
+	{
+		map_free(copy);
+		return (0);
+	}
+	map_free(copy);
+	return (1);
+}
+
+static void	flood(t_map *map, unsigned int x, unsigned int y, int arr[2])
+{
+	int	item;
+
+	item = get_cell(map, x, y);
+	if (arr[0] == 0 && arr[1] == 0)
+		return ;
+	if (item == 'C')
+	{
+		arr[1]--;
+		set_cell(map, x, y, 'F');
+	}
+	if (x == map->exit->x && y == map->exit->y)
+	{
+		arr[0] = 0;
+		set_cell(map, x, y, 'F');
+	}
+	if (item == '0')
+		set_cell(map, x, y, 'F');
+	if (item == '1' || item == 'F')
+		return ;
+	flood(map, x + 1, y, arr);
+	flood(map, x - 1, y, arr);
+	flood(map, x, y + 1, arr);
+	flood(map, x , y - 1, arr);
+
 }

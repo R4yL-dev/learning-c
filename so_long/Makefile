@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/29 17:30:08 by lray              #+#    #+#              #
-#    Updated: 2023/05/02 15:32:06 by lray             ###   ########.fr        #
+#    Updated: 2023/05/05 15:41:20 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,10 @@ NAME		:= so_long
 
 SRCS 		:= \
 	./main.c \
-	./parse_args.c \
-	./map.c \
-	./map_check.c \
+	./args_parser.c \
+	./map_parser.c \
+	./map_checker.c \
+	./map_utils.c \
 	./utils.c \
 	./error.c \
 	./debug.c

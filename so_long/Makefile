@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/29 17:30:08 by lray              #+#    #+#              #
-#    Updated: 2023/05/05 15:41:20 by lray             ###   ########.fr        #
+#    Updated: 2023/05/06 00:00:54 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ SRCS 		:= \
 	./map_checker.c \
 	./map_utils.c \
 	./utils.c \
-	./error.c \
 	./debug.c
 
 OBJS		:= $(SRCS:.c=.o)

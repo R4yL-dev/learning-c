@@ -10,11 +10,11 @@
   - [X] Get the file content in one string.
   - [X] Get the number of rows.
   - [X] Get the number of colonnes.
-- [ ] Check if map is valide.
-  - [x] Is map a rectangle ?
-  - [x] Is map surronded by wall ?
-  - [ ] As map one play and exit and at least one collectible ?
-  - [ ] Can the player access all collectibles and the exit ?
+- [X] Check if map is valide.
+  - [X] Is map a rectangle ?
+  - [X] Is map surronded by wall ?
+  - [X] As map one play and exit and at least one collectible ?
+  - [X] Can the player access all collectibles and the exit ?
 - [ ] Initialize items and player structure.
   - [ ] Get player position.
   - [ ] Get collectibles position.

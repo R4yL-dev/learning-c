@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 17:31:38 by lray              #+#    #+#             */
-/*   Updated: 2023/05/03 15:11:44 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/06 17:53:45 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,33 +32,27 @@ typedef struct s_map
 	char			*content;
 	unsigned int	nbrs_rows;
 	unsigned int	nbrs_cols;
-	unsigned int	is_rectangle;
-	unsigned int	is_surrounded;
 	unsigned int	nbrs_items;
 	t_player		*player;
 	t_exit			*exit;
 }	t_map;
 
+int		args_parser(int *argc, char ***argv);
 
-/*Parse arguments.*/
-int		parse_args(int *argc, char ***argv);
+int		map_parser(t_map **map, char *path);
 
-/*Initialize map with file in path.*/
-int		map_init(t_map **map, char *path);
-/*Clean map*/
+int		map_checker(t_map *map);
+
+int		map_init(t_map **map);
+int		map_set_content(t_map *map, char *map_str);
+int		map_copy(t_map *map, t_map *copy);
 void	map_free(t_map *map);
-
-int		map_check(t_map *map);
 
 int		get_cell(t_map *map, unsigned int x, unsigned int y);
 int		set_cell(t_map *map, unsigned int x, unsigned int y, int d);
-
-/*Show error message on stderr.*/
+void	flood(t_map *map, unsigned int x, unsigned int y, int arr[2]);
 void	put_error(char *msg);
 
-/*Show the formatted map.*/
 void	dbmap_show_format(t_map *map);
-/*Show all infos about the map.*/
 void	dbmap_show_infos(t_map *map);
-
 #endif

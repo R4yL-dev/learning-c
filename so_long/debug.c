@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 17:54:47 by lray              #+#    #+#             */
-/*   Updated: 2023/05/05 22:48:04 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/08 17:24:40 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,28 @@ void	dbmap_show_infos(t_map *map)
 		ft_printf("map->exit->x\t\t:\t%d\n", map->exit->x);
 		ft_printf("map->exit->y\t\t:\t%d\n", map->exit->y);
 	}
+	ft_printf("--------------------\n\n");
+}
+
+void	dbgame_show_infos(t_game *game)
+{
+	ft_printf("\n--------------------\n");
+	ft_printf("GAME INFOS\n");
+	ft_printf("game->mlx\t:\t%p\n", game->mlx);
+	ft_printf("game->win\t:\t%p\n", game->win);
+	ft_printf("--------------------\n\n");
+}
+
+void	dbimg_show_infos(t_img *img)
+{
+	ft_printf("\n--------------------\n");
+	ft_printf("IMG INFOS\n");
+	ft_printf("img->img\t\t:\t%p\n", img->img);
+	ft_printf("img->addr\t\t:\t%s\n", img->addr);
+	ft_printf("img->bpp\t\t:\t%d\n", img->bpp);
+	ft_printf("img->line_length\t:\t%d\n", img->line_length);
+	ft_printf("img->endian\t\t:\t%d\n", img->endian);
+	ft_printf("img->width\t\t:\t%d\n", img->width);
+	ft_printf("img->heigth\t\t:\t%d\n", img->heigth);
 	ft_printf("--------------------\n\n");
 }

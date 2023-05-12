@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/29 17:30:08 by lray              #+#    #+#              #
-#    Updated: 2023/05/06 00:00:54 by lray             ###   ########.fr        #
+#    Updated: 2023/05/08 17:31:56 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ SRCS 		:= \
 	./map_parser.c \
 	./map_checker.c \
 	./map_utils.c \
+	./game.c \
+	./img.c \
 	./utils.c \
 	./debug.c
 
@@ -26,6 +28,7 @@ OBJS		:= $(SRCS:.c=.o)
 CC 			:= gcc
 CFLAGS		:= -Wall -Wextra -Werror -g
 CPPFLAGS	:= -I./ -I./libft/
+MLX			:= -Imlx ./mlx/libmlx.a -framework OpenGL -framework AppKit
 
 LIBS		:= \
 	./libft/libft.a
@@ -37,7 +40,8 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	@make -C libft/
-	$(CC) $(OBJS) $(CFLAGS) $(CPPFLAGS) $(LIBS) -o $(NAME)
+	@make -C mlx
+	$(CC) $(OBJS) $(CFLAGS) $(CPPFLAGS) $(MLX) $(LIBS) -o $(NAME)
 	$(info CREATED $(NAME))
 
 %.o : %.c
@@ -46,6 +50,7 @@ $(NAME) : $(OBJS)
 
 clean :
 	@make clean -C libft/
+	@make clean -C mlx/
 	$(RM) $(OBJS)
 	$(info DELETED objects files)
 

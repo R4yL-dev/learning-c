@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 17:31:38 by lray              #+#    #+#             */
-/*   Updated: 2023/05/12 17:05:30 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/13 20:09:39 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,20 @@
 
 # include "libft/libft.h"
 # include <mlx/mlx.h>
+
+# define MAP_NAME "so_long"
+# define SPRITE_SIZE 64
+# define KEY_ESC 53
+# define KEY_UP 126
+# define KEY_DOWN 125
+# define KEY_LEFT 123
+# define KEY_RIGTH 124
+# define KEY_W 13
+# define KEY_S 1
+# define KEY_A 0
+# define KEY_D 2
+# define ON_KEYDOWN 2
+# define ON_DESTROY 17
 
 typedef struct s_img
 {
@@ -51,7 +65,6 @@ typedef struct s_map
 	t_exit			*exit;
 }	t_map;
 
-
 typedef struct s_game
 {
 	void	*mlx;
@@ -69,8 +82,6 @@ typedef struct s_game
 	t_img	player_right;
 }	t_game;
 
-
-
 int		args_parser(int *argc, char ***argv);
 
 int		map_parser(t_map **map, char *path);
@@ -86,10 +97,24 @@ int		get_cell(t_map *map, unsigned int x, unsigned int y);
 int		set_cell(t_map *map, unsigned int x, unsigned int y, int d);
 void	flood(t_map *map, unsigned int x, unsigned int y, int arr[2]);
 void	put_error(char *msg);
-void	game_quit(t_game *game);
 
 void	game_init(t_game *game, t_map *map);
 void	game_builder(t_game *game, t_map *map);
+void	game_quit(t_game *game);
+
+void	game_collect_item(t_game *game);
+void	game_switch_exit(t_game *game);
+void	game_is_ended(t_game *game);
+void	game_draw_playground(t_game *game);
+
+void	handler_closebtn(t_game *game);
+void	handler_keypress(int keycode, t_game *game);
+void	handler_loop(t_game *game);
+
+void	move_left(t_game *game);
+void	move_right(t_game *game);
+void	move_up(t_game *game);
+void	move_down(t_game *game);
 
 void	img_load(t_game *game);
 void	img_delete(t_game *game);

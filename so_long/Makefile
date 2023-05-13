@@ -6,7 +6,7 @@
 #    By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/29 17:30:08 by lray              #+#    #+#              #
-#    Updated: 2023/05/08 17:31:56 by lray             ###   ########.fr        #
+#    Updated: 2023/05/13 18:59:48 by lray             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,9 @@ SRCS 		:= \
 	./map_checker.c \
 	./map_utils.c \
 	./game.c \
+	./game_utils.c \
+	./handler.c \
+	./player_move.c \
 	./img.c \
 	./utils.c \
 	./debug.c

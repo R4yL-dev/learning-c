@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 17:31:38 by lray              #+#    #+#             */
-/*   Updated: 2023/05/13 20:09:39 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/14 01:12:08 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
+	int		nbrs_step;
 	t_map	*map;
 	t_img	wall;
 	t_img	ground;
@@ -111,10 +112,10 @@ void	handler_closebtn(t_game *game);
 void	handler_keypress(int keycode, t_game *game);
 void	handler_loop(t_game *game);
 
-void	move_left(t_game *game);
-void	move_right(t_game *game);
-void	move_up(t_game *game);
-void	move_down(t_game *game);
+int		move_left(t_game *game);
+int		move_right(t_game *game);
+int		move_up(t_game *game);
+int		move_down(t_game *game);
 
 void	img_load(t_game *game);
 void	img_delete(t_game *game);

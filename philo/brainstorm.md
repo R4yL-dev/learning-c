@@ -13,6 +13,13 @@
 		- [1.7.1. memset()](#171-memset)
 		- [1.7.2. usleep()](#172-usleep)
 		- [1.7.3. gettimeofday()](#173-gettimeofday)
+		- [1.7.4. pthread\_create()](#174-pthread_create)
+		- [1.7.5. pthread\_detach()](#175-pthread_detach)
+		- [1.7.6. pthread\_join()](#176-pthread_join)
+		- [1.7.7. pthread\_mutex\_init()](#177-pthread_mutex_init)
+		- [1.7.8. pthread\_mutex\_destroy()](#178-pthread_mutex_destroy)
+		- [1.7.9. pthread\_mutex\_lock()](#179-pthread_mutex_lock)
+		- [1.7.10. pthread\_mutex\_unlock()](#1710-pthread_mutex_unlock)
 
 
 ## 1.2. C'est quoi un thread ?
@@ -227,3 +234,17 @@ int main()
     return 0;
 }
 ```
+
+### 1.7.4. pthread_create()
+
+### 1.7.5. pthread_detach()
+
+### 1.7.6. pthread_join()
+
+### 1.7.7. pthread_mutex_init()
+
+### 1.7.8. pthread_mutex_destroy()
+
+### 1.7.9. pthread_mutex_lock()
+
+### 1.7.10. pthread_mutex_unlock()

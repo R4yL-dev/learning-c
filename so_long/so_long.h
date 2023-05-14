@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 17:31:38 by lray              #+#    #+#             */
-/*   Updated: 2023/05/14 01:12:08 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/14 02:20:32 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 # include "libft/libft.h"
 # include <mlx/mlx.h>
 
-# define MAP_NAME "so_long"
+# define WIN_TITLE "so_long"
 # define SPRITE_SIZE 64
 # define KEY_ESC 53
 # define KEY_UP 126
 # define KEY_DOWN 125
 # define KEY_LEFT 123
-# define KEY_RIGTH 124
+# define KEY_RIGHT 124
 # define KEY_W 13
 # define KEY_S 1
 # define KEY_A 0

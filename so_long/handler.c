@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:32:32 by lray              #+#    #+#             */
-/*   Updated: 2023/05/14 01:15:38 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/14 02:18:16 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,18 @@ void	handler_keypress(int keycode, t_game *game)
 	resp = 0;
 	if (keycode == KEY_ESC)
 		game_quit(game);
-	else
+	if (keycode == KEY_UP || keycode == KEY_W)
+		resp = move_up(game);
+	else if (keycode == KEY_LEFT || keycode == KEY_A)
+		resp = move_left(game);
+	else if (keycode == KEY_DOWN || keycode == KEY_S)
+		resp = move_down(game);
+	else if (keycode == KEY_RIGHT || keycode == KEY_D)
+		resp = move_right(game);
+	if (resp)
 	{
-		if (keycode == KEY_UP || keycode == KEY_W)
-			resp = move_up(game);
-		if (keycode == KEY_LEFT || keycode == KEY_A)
-			resp = move_left(game);
-		if (keycode == KEY_DOWN || keycode == KEY_S)
-			resp = move_down(game);
-		if (keycode == KEY_RIGTH || keycode == KEY_D)
-			resp = move_right(game);
-		if (resp)
-		{
-			game->nbrs_step++;
-			ft_printf("Number of steps : %d\n");
-		}
+		game->nbrs_step++;
+		ft_printf("Number of steps : %d\n");
 	}
 }
 

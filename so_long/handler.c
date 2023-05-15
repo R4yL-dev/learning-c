@@ -6,18 +6,19 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 18:32:32 by lray              #+#    #+#             */
-/*   Updated: 2023/05/14 02:18:16 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/15 14:47:28 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	handler_closebtn(t_game *game)
+int	handler_closebtn(t_game *game)
 {
 	game_quit(game);
+	return (1);
 }
 
-void	handler_keypress(int keycode, t_game *game)
+int	handler_keypress(int keycode, t_game *game)
 {
 	int	resp;
 
@@ -35,14 +36,16 @@ void	handler_keypress(int keycode, t_game *game)
 	if (resp)
 	{
 		game->nbrs_step++;
-		ft_printf("Number of steps : %d\n");
+		ft_printf("Number of steps : %d\n", game->nbrs_step);
 	}
+	return (1);
 }
 
-void	handler_loop(t_game *game)
+int	handler_loop(t_game *game)
 {
 	game_collect_item(game);
 	game_switch_exit(game);
 	game_is_ended(game);
 	game_draw_playground(game);
+	return (1);
 }

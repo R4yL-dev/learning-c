@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 17:31:38 by lray              #+#    #+#             */
-/*   Updated: 2023/05/14 02:20:32 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/15 14:46:21 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,9 +108,9 @@ void	game_switch_exit(t_game *game);
 void	game_is_ended(t_game *game);
 void	game_draw_playground(t_game *game);
 
-void	handler_closebtn(t_game *game);
-void	handler_keypress(int keycode, t_game *game);
-void	handler_loop(t_game *game);
+int		handler_closebtn(t_game *game);
+int		handler_keypress(int keycode, t_game *game);
+int		handler_loop(t_game *game);
 
 int		move_left(t_game *game);
 int		move_right(t_game *game);

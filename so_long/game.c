@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 17:08:46 by lray              #+#    #+#             */
-/*   Updated: 2023/05/14 02:03:24 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/15 14:58:27 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void	game_builder(t_game *game, t_map *map)
 				put_img(game, game->ground.img, x, y);
 			if (get_cell(map, x, y) == 'C')
 				put_img(game, game->item.img, x, y);
-			else if ((x == map->exit->x) && (y == map->exit->y))
+			if ((x == map->exit->x) && (y == map->exit->y))
 				put_img(game, game->map->exit->exit_sprit.img, x, y);
-			else if ((x == map->player->x) && (y == map->player->y))
+			if ((x == map->player->x) && (y == map->player->y))
 				put_img(game, game->map->player->player_sprit.img, x, y);
 			x++;
 		}
@@ -58,7 +58,7 @@ void	game_builder(t_game *game, t_map *map)
 static void	put_img(t_game *game, t_img *img, unsigned int x, unsigned int y)
 {
 	mlx_put_image_to_window(game->mlx, game->win, \
-		game->ground.img, x * 64, y * 64);
+		img, x * 64, y * 64);
 }
 
 void	game_quit(t_game *game)

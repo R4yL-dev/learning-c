@@ -4,30 +4,30 @@
 
 - [1. Brainstorm](#1-brainstorm)
 	- [1.1. TOC](#11-toc)
-	- [Questionnements](#questionnements)
-		- [1.2. C'est quoi un thread ?](#12-cest-quoi-un-thread-)
-		- [1.3. C'est quoi un processus ?](#13-cest-quoi-un-processus-)
-		- [1.4. Différances entre thread et processus](#14-différances-entre-thread-et-processus)
-		- [1.5. C'est quoi un mutex ?](#15-cest-quoi-un-mutex-)
-		- [1.6. C'est quoi un data race ?](#16-cest-quoi-un-data-race-)
-		- [C'est quoi un deadlock ?](#cest-quoi-un-deadlock-)
-	- [1.7. Fonctions autorisées](#17-fonctions-autorisées)
-		- [1.7.1. memset()](#171-memset)
-		- [1.7.2. usleep()](#172-usleep)
-		- [1.7.3. gettimeofday()](#173-gettimeofday)
-		- [1.7.4. pthread\_create()](#174-pthread_create)
-		- [1.7.5. pthread\_detach()](#175-pthread_detach)
-		- [1.7.6. pthread\_join()](#176-pthread_join)
-		- [1.7.7. pthread\_mutex\_init()](#177-pthread_mutex_init)
-		- [1.7.8. pthread\_mutex\_destroy()](#178-pthread_mutex_destroy)
-		- [1.7.9. pthread\_mutex\_lock()](#179-pthread_mutex_lock)
-		- [1.7.10. pthread\_mutex\_unlock()](#1710-pthread_mutex_unlock)
-	- [Ressources](#ressources)
+	- [1.2. Questionnements](#12-questionnements)
+		- [1.2.1. C'est quoi un thread ?](#121-cest-quoi-un-thread-)
+		- [1.2.2. C'est quoi un processus ?](#122-cest-quoi-un-processus-)
+		- [1.2.3. Différances entre thread et processus](#123-différances-entre-thread-et-processus)
+		- [1.2.4. C'est quoi un mutex ?](#124-cest-quoi-un-mutex-)
+		- [1.2.5. C'est quoi un data race ?](#125-cest-quoi-un-data-race-)
+		- [1.2.6. C'est quoi un deadlock ?](#126-cest-quoi-un-deadlock-)
+	- [1.3. Fonctions autorisées](#13-fonctions-autorisées)
+		- [1.3.1. memset()](#131-memset)
+		- [1.3.2. usleep()](#132-usleep)
+		- [1.3.3. gettimeofday()](#133-gettimeofday)
+		- [1.3.4. pthread\_create()](#134-pthread_create)
+		- [1.3.5. pthread\_detach()](#135-pthread_detach)
+		- [1.3.6. pthread\_join()](#136-pthread_join)
+		- [1.3.7. pthread\_mutex\_init()](#137-pthread_mutex_init)
+		- [1.3.8. pthread\_mutex\_destroy()](#138-pthread_mutex_destroy)
+		- [1.3.9. pthread\_mutex\_lock()](#139-pthread_mutex_lock)
+		- [1.3.10. pthread\_mutex\_unlock()](#1310-pthread_mutex_unlock)
+	- [1.4. Ressources](#14-ressources)
 
 
-## Questionnements
+## 1.2. Questionnements
 
-### 1.2. C'est quoi un thread ?
+### 1.2.1. C'est quoi un thread ?
 
 Une thread (ou fil d'exécution) est une séquence d'instruction qui peut être exécutée simultanément avec d'autres threads dans un programme informatique. Un thread est un sous-processus léger qui partage la même mémoire et les mêmes ressources système que les autres threads d'un même processus.
 
@@ -37,7 +37,7 @@ Les threads peuvent être créés, gérés et synchronisés dans un programme à
 
 Cependant, l'utilisation de plusieurs threads dans un programme peut également causer des problèmes de synchronisation et de concurrence si les threads accèdent simultanément à des ressources partagées sans les protéger avec des méchanismes de synchronisation tels que les mutex, les sémaphores ou les variables de condition.
 
-### 1.3. C'est quoi un processus ?
+### 1.2.2. C'est quoi un processus ?
 
 Un processus est une instance en cours d'exécution d'un programme informatique. Chaque processus dispose de son propre espace mémoire privé et des ses propres ressources système, telles que les fichiers ouverts, les sockets de réseau et les variables d'environnement.
 
@@ -47,11 +47,11 @@ Les processus peuvent être exécutés en mode utilsiateur ou en mode privilégi
 
 Les processus peuvent communiquer entre eux en utilisant des mécanisme de communication interprocessus tels que les pipes, les sockets de réseau, les signaux ou les mémoires partagées. Les processus peuvent également être gérer par le système d'exploitation en utilisant des outls tels que le planificateur de processus, qui contrôle l'ordre d'exécution des processus en fonction de leur priorité et de leur état.
 
-### 1.4. Différances entre thread et processus
+### 1.2.3. Différances entre thread et processus
 
 Les processus sont des entités autonomes et indépendantes qui peuvent communiquer entre elles, tandis que les threads sont des sous-processus légers qui partagent la méme mémoire et les mêmes ressources système dans un même processus. Les threads peuvent être utilisés pour exécuter des tâches parallèles dans un même programme, ce qui peut améliorer les performances et l'efficacité, mais nécessite également une gestion appropriée de la synchronisation de la concurrence.
 
-### 1.5. C'est quoi un mutex ?
+### 1.2.4. C'est quoi un mutex ?
 
 Un mutex est un objet de synchronisation utilisé pour garantir que deux threads ou processus n'accèdent pas simultanément à une ressources partagée, telle qu'une variable ou une zone mémoire, qui pourrait entrainer des erreurs de cohérence de données ou des conflits de concurrence.
 
@@ -61,19 +61,19 @@ En pratique, un mutex est utilisé pour bloquer l'accès à une ressource partag
 
 Les mutex sont souvent utilisés en conjonction avec d'autres objets de synchronisation tels que les sémaphores ou les variable conditionnelles pour mettre en place des méchanismes de synchronisation plus complexes et éviter les problèmes de concurrence et de synchonisation entre les threads ou processus.
 
-### 1.6. C'est quoi un data race ?
+### 1.2.5. C'est quoi un data race ?
 
 Un data race est un problème de concurrence qui se produit lorsqu'au moins deux threads accèdent simultanément à la même variable ou à la même zone de mémoire partagée, sans synchronisation appropriée entre eux, et qu'au moins l'un de ces accès est une opération d'écriture.
 
 Lorsque'un data race se produit, le résultat du programme devient indéterminé et peut varier en fonction de l'ordre d'exécution des threads, de la plate-forme matérielle, du compilateur ou d'autres facteurs. Cela peut entrainer des erreurs de comportement ou des plantages de l'application, et peut être difficile à diagnostiquer et à corriger.
 
-### C'est quoi un deadlock ?
+### 1.2.6. C'est quoi un deadlock ?
 
 Un deadlock, ou blocage mutuel en français, est une situation dans laquelle deux ou plusieurs threads ou processus se bloque les uns les autres en attendant qu'une ressource qu'ils ont tous demandé soit libérée, sans que l'un d'entre eux ne puisse avancer.
 
 Par exemple, supposons que deux threads, A et B, aient besoin de deux ressources R1 et R2 respectivement pour terminer leur tâche. Si le thread A obtient la ressource R1 et le thread B obtient la ressource R2, et que chaqun tente ensuite d'obtenir la ressource qu'il n'a pas encore, ils se bloqueront mutuellement, car la ressource demandée est détenue par l'autre thread. Dans ce cas, les threads A et B sont tous deux bloqués et ne peuvent pas continuer, même s'ils ont encore des ressources disponible.
 
-## 1.7. Fonctions autorisées
+## 1.3. Fonctions autorisées
 
 - memset()*,
 - printf(),
@@ -90,7 +90,7 @@ Par exemple, supposons que deux threads, A et B, aient besoin de deux ressources
 - pthread_mutex_lock()*,
 - pthread_mutex_unlock()*
 
-### 1.7.1. memset()
+### 1.3.1. memset()
 
 La fonction `memset()` est une fonction de la bibliothèque standard. Elle est utilisée pour remplir un bloc de mémoire avec une valeur donnée.
 
@@ -164,7 +164,7 @@ Nom:
 Salaire: 0.00
 ```
 
-### 1.7.2. usleep()
+### 1.3.2. usleep()
 
 la fonction `usleep()` est une fonction de la bibliothèque standard. Elle permet de suspendre l'exécution du programme pendant un certain nombre de microsecondes.
 
@@ -195,7 +195,7 @@ int main()
 }
 ```
 
-### 1.7.3. gettimeofday()
+### 1.3.3. gettimeofday()
 
 La fonction `gettimeofday()` est une fonction de la bibliothèque standard. Elle permet d'obtenir le temps actuel en microsecondes depuis le 1er janvier 1970 à minuit (temps UNIX).
 
@@ -246,21 +246,21 @@ int main()
 }
 ```
 
-### 1.7.4. pthread_create()
+### 1.3.4. pthread_create()
 
-### 1.7.5. pthread_detach()
+### 1.3.5. pthread_detach()
 
-### 1.7.6. pthread_join()
+### 1.3.6. pthread_join()
 
-### 1.7.7. pthread_mutex_init()
+### 1.3.7. pthread_mutex_init()
 
-### 1.7.8. pthread_mutex_destroy()
+### 1.3.8. pthread_mutex_destroy()
 
-### 1.7.9. pthread_mutex_lock()
+### 1.3.9. pthread_mutex_lock()
 
-### 1.7.10. pthread_mutex_unlock()
+### 1.3.10. pthread_mutex_unlock()
 
-## Ressources
+## 1.4. Ressources
 
 - [GH de widium - Très bonne explication](https://github.com/widium/Philosopher)
 - [Playlist YT de CodeVault sur les threads](https://www.youtube.com/playlist?list=PLfqABt5AS4FmuQf70psXrsMLEDQXNkLq2)

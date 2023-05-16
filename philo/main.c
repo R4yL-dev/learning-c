@@ -6,13 +6,18 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 18:38:17 by lray              #+#    #+#             */
-/*   Updated: 2023/05/14 18:48:25 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/16 14:52:19 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+#include <stdlib.h>
 
 int	main()
 {
+	int *str = "salut";
+
+	str[9] = 'C';
+
 	return (0);
 }

@@ -248,11 +248,205 @@ int main()
 
 ### 1.3.4. pthread_create()
 
+La fonction `pthread_create()` est une fonction de la bibliothèque pthread. Elle permet de créer un nouveau thread dans un programme C/C++. Elle prend en paramètre un pointeur vers unevariable de type `pthread_t` qui représente le thread créé, ainsi qu un pointeur vers une fonction qui sera exécutée par le thread.
+
+```c
+int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine)(void *), void *arg);
+```
+
+- `thread` est un pointeur vers unevariable de type `thread_t` qui sera utilisée pour identifier le thread créé.
+- `attr` est un pointeur vers une structure `pthread_attr_t` contenant des attributs spécifiques au thread (par exemple, la taille de la pile, la planification, etc). Si `attr` est NULL,les attributes par défaut sont utilisés.
+- `start_routine` est un pointeur vers une fonctionque sera exécutée par le thread. Cette fonction doit prendre un paramètre de type `void*` et retourner un pointeurde type `void*`.
+- `arg` est un pointeur générique qui est passé en tantqu argument à la fonction `start_routine`. Il peut être utilisépour transmettre des données au thread.
+
+Lorsque la fonction `pthread_create()` est appelée, un mnouveau thread est créé et commence à exécuter la fonction spécifiée par `start_routine` en parallèle avec le thread appelant.Le nouveau thread partage le même espace d adressage que le thread appelant, ce qui signifie qu-il peut accéder aux variables globales et partager des données avec d autres threads.
+
+La fonction `pthread_create` renvoie 0 si le thread a pu demarrer avec succè et un code d erreur si un problème c est produit.
+
+Il est important de noter que la fonction `pthread_create()` ne garantit pas l ordre d exécution des threads.L ordonnancement des threads est déterminé par le systeme d exploitation et peut varier à chaque exécutiondu programme. Pour synchoniser les threads et gérer l accès concurrentiel aux ressources partagées,d autres méchanisme de synchronisation, tels que les mutex ou les sémaphores,doivent être utilisés.
+
+```c
+#include <stdio.h>
+#include <pthread.h>
+
+void *routine(void *message)
+{
+	char *msg = (char *)message;
+	printf("%s\n", msg);
+	pthread_exit(NULL);
+}
+
+int main()
+{
+	pthread_t thread;
+	char *message = "Hello la team !";
+
+	int result = pthread_create(&thread, NULL, routine, (void *)message);
+	if (result == 0)
+	{
+		printf("Erreur lors de la création du thread.");
+		return (-1);
+	}
+	pthread_join(thread, NULL);
+	printf("Fin de l exectution du thread.");
+	return (0);
+}
+```
+
 ### 1.3.5. pthread_detach()
+
+La fonction `pthread_detach()` est utilisée pour détacher un thread. Lorsqu un thread est détaché, il peut se terminer de manière autonome sans nécessiterqu un autre thread appelle la fonction `pthread_join()` pour récupérer ses ressources.
+
+```c
+int pthread_detach(pthread_t thread);
+```
+
+- `thread` est le thread qu lon souhaite détacher.
+
+Lorsque la fonction `pthread_detach()` est appelée avec un thread en tant que paramètre, elle marque le thread spécifié comme détacher. Cela signifie que le thread peut se terminer de manièreautonome et libérer ses ressources lorsqu ila terminé sonexécution, sans qu un autre thread ne doive appeler explicitement `pthread_join()`.
+
+Une fois qu un thread est détaché, il ne peut plus être rejoint (`pthread_join()`) ou détaché à nouveau. La fonction `pthread_detach()` doit être appelée avant que le thread n achève son exécution.
+
+Il est recommandé de détacher les threads qui sont créés uniquement pour effectuer des tâches autonome et qui n ont pas besoin d être attendus ou dans les résultat ne sont pas nécessaires pour le thread principal. Cela permet d évité le besoin de garder une référence active au thread et simplifie la gestion des ressources.
+
+```c
+#include <stdio.h>
+#include <pthread.h>
+
+void *routine(void *arg)
+{
+	printf("Thread en cours d execution.\n");
+	pthread_exit(NULL);
+}
+
+int main()
+{
+	pthread_t thread;
+	int result = pthread_create(&thread, NULL, routine, NULL);
+
+	if (result != 0)
+	{
+		printf("Erreur lors de la création du thread.\n");
+		return (-1);
+	}
+	result = pthread_detach(thread);
+	if (result != 0)
+	{
+		printf("Erreur lors du detachement du thread.\n");
+		return (-1);
+	}
+	printf("Thread principal continue son execution\n");
+	return (0);
+}
+```
 
 ### 1.3.6. pthread_join()
 
+La focntion `pthread_join()` est utilisée pour attendre la fin d un thread. Elle permet à un thread appelant de bloquer son exécution jusqu à ce que le thread spécifié se termine.
+
+```c
+int pthread_join(pthread_t thread, void **retval);
+```
+
+- `thread` est le thread que l on souhaite rejoindre.
+- `retval` est un poinbteur vers un pointeur générique dans lequel la valeur de retour du thread sera stockée. Si cette valeur de retourn n est pas nécessaire, on peut passer `NULL` à `retval`.
+
+Lorsque la fonction `pthread_join()` est appelée avec un thread en tant que paramètre, le thread appelant se bloque jusqu à ce que le thread spécifié se termine. Une fois que le thread civle a terminé son exécutiuo, le thread appelant reprend son exécution.
+
+De plus, si `retval` n est pas `NULL`, la valeur de retour du thread cible est stockée à l adresse spéciifié par `retval`. Cette valeur de retour peut être utilisée pour récupérer dfes informations du thread ciblem telles qu un code de sortie ou un résultat de calcule.
+
+Il est important de noter que `pthread_join()` be libère pars automatiquement les ressources associées au thread cible. Elle attend simplement que le thread se termine et permet au thread appelant de récupérer la valeur de retour et de contonuer son exécution. Après l appel à `pthread_join()`, le thread cible est considéré comme"joignable", ce que signifie qu il peut être rejoint ultérieurement avec `pthread_join()` ou détacher avec `pthread_detach`.
+
+Il est nessécaire de rejoindre tous les threads "joignable" créér avec `pthread_create()` afin d éviter des fuites de ressources et d assurer la terminaison appropriée de tous les threads.
+
+```c
+#include <stdio.h>
+#include <pthread.h>
+
+void *thread_function(void *arg) {
+    int thread_id = *(int *)arg;
+    printf("Thread %d en cours d'exécution.\n", thread_id);
+
+    // Effectuer des calculs ou d'autres tâches
+    // ...
+
+    int *result = malloc(sizeof(int));
+    *result = thread_id * 2;
+    pthread_exit(result);
+}
+
+int main() {
+    pthread_t thread1, thread2;
+    int thread_id1 = 1;
+    int thread_id2 = 2;
+
+    // Création du premier thread
+    int result1 = pthread_create(&thread1, NULL, thread_function, (void *)&thread_id1);
+    if (result1 != 0) {
+        printf("Erreur lors de la création du thread 1.\n");
+        return -1;
+    }
+
+    // Création du deuxième thread
+    int result2 = pthread_create(&thread2, NULL, thread_function, (void *)&thread_id2);
+    if (result2 != 0) {
+        printf("Erreur lors de la création du thread 2.\n");
+        return -1;
+    }
+
+    // Attente de la fin du premier thread
+    int *thread1_result;
+    pthread_join(thread1, (void **)&thread1_result);
+    printf("Thread 1 terminé. Résultat : %d\n", *thread1_result);
+    free(thread1_result);
+
+    // Attente de la fin du deuxième thread
+    int *thread2_result;
+    pthread_join(thread2, (void **)&thread2_result);
+    printf("Thread 2 terminé. Résultat : %d\n", *thread2_result);
+    free(thread2_result);
+
+    printf("Threads terminés. Fin du programme.\n");
+
+    return 0;
+}
+
+```
+
 ### 1.3.7. pthread_mutex_init()
+
+La fonction `pthread_mutex_init()` est utilisée pour initaliser un mutex (verrou) avant son utilisation dans un programmemulti-threadé. Un mutex est un méchanisme de synchronisationqui permet de contrôler l accès concurrent à une ressource partagée par plussieurs threads. Le mutex garantit qu un seul thread à la fois peut accéder à cette ressource, assurant ainsi la cohérence des données et évitant les conditions de concurrence.
+
+```c
+int pthread_mutex_init(pthread_mutex_t *mutex, const pthread_mutexattr_r *attr);
+```
+
+- `mutex` est un pointeur vers la structure du mutex à initialiser.
+- `attr` est un pointeur facultatif vers un objet `pthread_mutexattr_t` contenant des attributs de configuration supplémentaires pour le mutex.Si vous ne souhaitez pas spécifier d attributs supplémentaire, vous pouvez passer `NULL` à cet argument.
+
+```c
+#include <stdio.h>
+#include <pthread.h>
+
+pthread_mutex_t mutex; // Déclaration du mutex
+
+int main() {
+    // Initialisation du mutex
+    if (pthread_mutex_init(&mutex, NULL) != 0) {
+        printf("Erreur lors de l'initialisation du mutex.\n");
+        return -1;
+    }
+
+    // Utilisation du mutex pour synchroniser l'accès à une ressource partagée
+
+    // ...
+
+    // Destruction du mutex lorsque vous avez terminé son utilisation
+    pthread_mutex_destroy(&mutex);
+
+    return 0;
+}
+```
 
 ### 1.3.8. pthread_mutex_destroy()
 

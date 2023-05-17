@@ -6,8 +6,13 @@
 			"label": "GCC build project",
 			"command": "/usr/bin/gcc",
 			"args": [
+				"-pthread",
 				"-fdiagnostics-color=always",
 				"-g",
+				"-fsanitize=address",
+				"-Werror",
+				"-Wextra",
+				"-Wall",
 				"${fileDirname}/*.c",
 				"-o",
 				"${fileDirname}/bin/philo"

@@ -22,6 +22,9 @@
 		- [1.3.8. pthread\_mutex\_destroy()](#138-pthread_mutex_destroy)
 		- [1.3.9. pthread\_mutex\_lock()](#139-pthread_mutex_lock)
 		- [1.3.10. pthread\_mutex\_unlock()](#1310-pthread_mutex_unlock)
+	- [Structure de données](#structure-de-données)
+		- [Philosophes](#philosophes)
+		- [Fork](#fork)
 	- [1.4. Ressources](#14-ressources)
 
 
@@ -450,9 +453,178 @@ int main() {
 
 ### 1.3.8. pthread_mutex_destroy()
 
+La fonction `pthread_mutex_destroy()` est utilisé pour détruire un mutex (verrou). Il est important de détruire chaque mutex avant la fin de l exécution du programme afin d éviter les fuites de mémoire.
+
+```c
+int pthread_mhutex_destroy(pthread_mutex_t *mutex);
+```
+
+- `mutex`, un pointeur vers la structure du mutex à détruire.
+
+```c
+#include <stdio.h>
+#include <pthread.h>
+
+pthread_mutex_t mutex; // Déclaration du mutex
+
+int main() {
+    // Initialisation du mutex
+    if (pthread_mutex_init(&mutex, NULL) != 0) {
+        printf("Erreur lors de l'initialisation du mutex.\n");
+        return -1;
+    }
+
+    // Utilisation du mutex pour synchroniser l'accès à une ressource partagée
+
+    // ...
+
+    // Destruction du mutex lorsque vous avez terminé son utilisation
+    pthread_mutex_destroy(&mutex);
+
+    return 0;
+}
+```
+
 ### 1.3.9. pthread_mutex_lock()
 
+La fonction `pthread_mutex_lock` est utilisée pour acquérir un mutex das un programme. Lorsqu un thread appelle cette fonction, il tente de verouillier le mutex. Si le mutex est déjà verrouillié  par un autre thread, le thread en cours d exécution sera mis en pause jusqu a ce que le mutedx soit dispoknible.
+
+```c
+int pthread_mutex_lock(pthread_mutex_t *mutex);
+```
+
+- `mutex` est un pointeur vers la structure du mutex.
+
+```c
+#include <stdio.h>
+#include <pthread.h>
+
+pthread_mutex_t mutex; // Déclaration du mutex
+
+void* threadFunction(void* arg) {
+    // Tentative d'acquérir le verrou du mutex
+    pthread_mutex_lock(&mutex);
+
+    // Section critique du code protégée par le mutex
+
+    // ...
+
+    // Libération du verrou du mutex
+    pthread_mutex_unlock(&mutex);
+
+    return NULL;
+}
+
+int main() {
+    // Initialisation du mutex
+    if (pthread_mutex_init(&mutex, NULL) != 0) {
+        printf("Erreur lors de l'initialisation du mutex.\n");
+        return -1;
+    }
+
+    // Création du thread
+    pthread_t thread;
+    if (pthread_create(&thread, NULL, threadFunction, NULL) != 0) {
+        printf("Erreur lors de la création du thread.\n");
+        return -1;
+    }
+
+    // Attente de la fin du thread
+    if (pthread_join(thread, NULL) != 0) {
+        printf("Erreur lors de l'attente du thread.\n");
+        return -1;
+    }
+
+    // Destruction du mutex lorsque vous avez terminé son utilisation
+    pthread_mutex_destroy(&mutex);
+
+    return 0;
+}
+```
+
 ### 1.3.10. pthread_mutex_unlock()
+
+La fonction `pthread_mutex_unlock()` est utilisée pour libérer un mutex précédament acquis. Elle premet de signalé la fin d une section critique du code et de permettre à d autres threads d acquérir le mutex pour accéder à la meme ressource partagée.
+
+```c
+int pthread_mutex_unlock(pthread_mutex_t *mutex);
+```
+
+Il est important de noté qu il faut que se soit le thread qui a acquis le mutex qui doit le libérer.
+
+```c
+#include <stdio.h>
+#include <pthread.h>
+
+pthread_mutex_t mutex; // Déclaration du mutex
+
+void* threadFunction(void* arg) {
+    // Acquérir le verrou du mutex
+    pthread_mutex_lock(&mutex);
+
+    // Section critique du code protégée par le mutex
+
+    // ...
+
+    // Libérer le verrou du mutex
+    pthread_mutex_unlock(&mutex);
+
+    return NULL;
+}
+
+int main() {
+    // Initialisation du mutex
+    if (pthread_mutex_init(&mutex, NULL) != 0) {
+        printf("Erreur lors de l'initialisation du mutex.\n");
+        return -1;
+    }
+
+    // Création du thread
+    pthread_t thread;
+    if (pthread_create(&thread, NULL, threadFunction, NULL) != 0) {
+        printf("Erreur lors de la création du thread.\n");
+        return -1;
+    }
+
+    // Attente de la fin du thread
+    if (pthread_join(thread, NULL) != 0) {
+        printf("Erreur lors de l'attente du thread.\n");
+        return -1;
+    }
+
+    // Destruction du mutex lorsque vous avez terminé son utilisation
+    pthread_mutex_destroy(&mutex);
+
+    return 0;
+}
+```
+
+## Structure de données
+
+### Philosophes
+
+```c
+typedef struct s_philo
+{
+    int         id;
+    useconds_t  time_to_die;
+    useconds_t  time_to_eat;
+    useconds_t  time_to_sleep;
+	int         nbrs_time_eat;
+    t_philo     *next;
+    t_fork      *fork;
+}   t_philo;
+```
+
+### Fork
+
+```c
+typedef struct s_fork
+{
+	int             is_used
+    pthread_mutex_t mutex;
+}   t_fork;
+```
 
 ## 1.4. Ressources
 

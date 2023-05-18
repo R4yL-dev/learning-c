@@ -1,6 +1,8 @@
 {
 	"files.associations": {
 		"libft.h": "c",
-		"philo.h": "c"
+		"philo.h": "c",
+		"__threading_support": "c",
+		"__mutex_base": "c"
 	}
 }

@@ -6,11 +6,18 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 00:27:36 by lray              #+#    #+#             */
-/*   Updated: 2023/05/21 00:49:03 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/29 15:16:26 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+/*
+	FIXME:
+		- Il faut que je change les fonctions d affichage des structures.
+		Les structs supervisor et fork vont disparetre. La fork va etre un mutex
+		dans la struct philo.
+*/
 
 void	dbcontext(t_context *ctx)
 {

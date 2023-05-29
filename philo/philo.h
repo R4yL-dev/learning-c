@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 18:40:19 by lray              #+#    #+#             */
-/*   Updated: 2023/05/21 00:17:01 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/29 15:25:13 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,20 @@
 # include <sys/types.h>
 # include <sys/time.h>
 
+/*
+	TODO:
+		- Supprimer la struct supervisor
+		- Supprimer la struct fork (fork doit etre un mutex dans la struct philo)
+		- Creer une structure pour les timings. Cette structure est stockee dans
+		la structure philo et elle doit etre initalisee a la creation du philo avec
+		les params passer une parametre.
+		- Il faut que j ajoute des status pour chaque philo. Ce status determine ce
+		qu est entrain de faire le philo. C est ce status que va check le superviseur
+		afin de determiner si il doit aretter la simulation.
+		Le status est un int et il faut que je fasse des define afin de rendre le
+		programme plus comprehencible.
+*/
+
 typedef struct s_supervisor
 {
 	int				is_a_philo_dead;
@@ -34,12 +48,17 @@ typedef struct s_fork
 	pthread_mutex_t	mutex;
 }	t_fork;
 
+/*
+	TODO:
+		- Comprendre pourquoi depuis linux je dois utiliser __useconds_t
+		alors que depuis MacOS je dois utiliser useconds_t.
+*/
 typedef struct s_philo
 {
 	int				id;
-	__useconds_t	time_to_die;
-	__useconds_t	time_to_eat;
-	__useconds_t	time_to_sleep;
+	useconds_t	time_to_die;
+	useconds_t	time_to_eat;
+	useconds_t	time_to_sleep;
 	int				nbrs_time_eat;
 	pthread_t		thread;
 	t_fork			*fork;

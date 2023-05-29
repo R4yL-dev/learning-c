@@ -6,12 +6,21 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 20:52:03 by lray              #+#    #+#             */
-/*   Updated: 2023/05/20 17:22:59 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/29 15:30:07 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+/*
+		FIXME:
+			- Il faut que je change le fonctionnement des forks.
+			La fork n est plus une structure mais un mutex dans la
+			strucutre philo. Je fait ce changement car je n'ai pas besoin
+			de fork->is_used.
+			J ai quand meme besoin d une fonction qui initialise le mutex et
+			une fonction qui le detruit.
+*/
 t_fork	*fork_new()
 {
 	t_fork	*new;

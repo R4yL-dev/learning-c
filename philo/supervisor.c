@@ -6,11 +6,23 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 18:18:32 by lray              #+#    #+#             */
-/*   Updated: 2023/05/21 00:21:12 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/29 15:20:20 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+/*
+	TODO:
+		- Il faut que je reface completement le fonctionnement du superviseur.
+		Le superviseur ne sera plus un thread a par avec sa propre routine.
+		Il faut qu il soit une boucle infine dans le thread principal.
+		Dans la boucle infine, il verifie le statue de toutue les philo en
+		permanance et decide si oui ou non il doit aretter la simu.
+
+		L appel du superviseur dois se faire une fois que les thread des philos
+		ont ete lancer et avant de de faire le thread_join().
+*/
 
 void	*supervisor_routine(void *arg)
 {

@@ -26,7 +26,6 @@
 	- [Structure de données](#structure-de-données)
 		- [Context](#context)
 		- [Philosophes](#philosophes)
-		- [Fork](#fork)
 	- [1.4. Ressources](#14-ressources)
 
 
@@ -636,6 +635,15 @@ typedef struct s_context
 }	t_context;
 ```
 
+```c
+typedef struct s_timing
+{
+	int	time_to_die;
+	int	time_to_eat;
+	int	time_to_sleep;
+}	t_timing;
+```
+
 ### Philosophes
 
 ```c
@@ -646,20 +654,11 @@ typedef struct s_philo
 	__useconds_t	time_to_eat;
 	__useconds_t	time_to_sleep;
 	int				nbrs_time_eat;
+	timing_t		timing;
 	pthread_t		thread;
-	t_fork			*fork;
+	pthread_mutex_t	fork;
 	struct s_philo	*next;
 }	t_philo;
-```
-
-### Fork
-
-```c
-typedef struct s_fork
-{
-	int				is_used;
-	pthread_mutex_t	mutex;
-}	t_fork;
 ```
 
 ## 1.4. Ressources

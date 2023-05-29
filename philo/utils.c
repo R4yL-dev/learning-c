@@ -6,22 +6,22 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:55:14 by lray              #+#    #+#             */
-/*   Updated: 2023/05/18 19:33:23 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/19 22:46:01 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void ft_puterror(char *msg)
+void	ft_puterror(char *msg)
 {
 	write(2, "Error\n", 6);
 	write(2, msg, ft_strlen(msg));
 	write(2, "\n", 1);
 }
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -31,15 +31,15 @@ int ft_strlen(char *str)
 
 int	ft_atoi(const char *nptr)
 {
-	size_t i;
-	int resp;
-	int sign;
+	size_t	i;
+	int		resp;
+	int		sign;
 
 	i = 0;
 	resp = 0;
 	sign = 1;
-	while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '\v' ||
-		   nptr[i] == '\r' || nptr[i] == '\n' || nptr[i] == '\f')
+	while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '\v' || \
+		nptr[i] == '\r' || nptr[i] == '\n' || nptr[i] == '\f')
 		i++;
 	if (nptr[i] == '+' || nptr[i] == '-')
 	{

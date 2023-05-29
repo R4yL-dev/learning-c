@@ -22,7 +22,9 @@
 		- [1.3.8. pthread\_mutex\_destroy()](#138-pthread_mutex_destroy)
 		- [1.3.9. pthread\_mutex\_lock()](#139-pthread_mutex_lock)
 		- [1.3.10. pthread\_mutex\_unlock()](#1310-pthread_mutex_unlock)
+	- [Déroulement du programme](#déroulement-du-programme)
 	- [Structure de données](#structure-de-données)
+		- [Context](#context)
 		- [Philosophes](#philosophes)
 		- [Fork](#fork)
 	- [1.4. Ressources](#14-ressources)
@@ -599,21 +601,55 @@ int main() {
 }
 ```
 
+## Déroulement du programme
+
+1. Parser les argument.
+2. Construire le contexte.
+   1. Construir les philos et leur fourchette.
+3. Lancer le thread pour le superviseur et lui donner le contexte.
+4. Le superviseurs lance la simulation (run tous les threads des philos).
+5. Le superviseurs attend qu on philo meur (retourne).
+   1. Le superviseurs annonce la mort du philo au autres philos.
+6. Attendre la fin de tous les philos et clean la mémoire.
+
 ## Structure de données
+
+### Context
+
+Ce que je veux stocker dans le contexte ?
+
+- Le timestampe du début de la simulation
+- Le nombre de philos
+- Si un philo est mort
+- Le mutex pour l affichage
+- La liste des philos
+
+
+```c
+typedef struct s_context
+{
+	t_time			start;
+	int				nbrs_philos;
+	int				is_a_philo_dead;
+	pthread_mutex_t	mutex_print;
+	t_philos		*philos;
+}	t_context;
+```
 
 ### Philosophes
 
 ```c
 typedef struct s_philo
 {
-    int         id;
-    useconds_t  time_to_die;
-    useconds_t  time_to_eat;
-    useconds_t  time_to_sleep;
-	int         nbrs_time_eat;
-    t_philo     *next;
-    t_fork      *fork;
-}   t_philo;
+	int				id;
+	__useconds_t	time_to_die;
+	__useconds_t	time_to_eat;
+	__useconds_t	time_to_sleep;
+	int				nbrs_time_eat;
+	pthread_t		thread;
+	t_fork			*fork;
+	struct s_philo	*next;
+}	t_philo;
 ```
 
 ### Fork
@@ -621,9 +657,9 @@ typedef struct s_philo
 ```c
 typedef struct s_fork
 {
-	int             is_used
-    pthread_mutex_t mutex;
-}   t_fork;
+	int				is_used;
+	pthread_mutex_t	mutex;
+}	t_fork;
 ```
 
 ## 1.4. Ressources

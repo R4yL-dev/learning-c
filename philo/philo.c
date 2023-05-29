@@ -6,45 +6,113 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:54:20 by lray              #+#    #+#             */
-/*   Updated: 2023/05/18 21:37:03 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/22 19:10:56 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-/*
-	FIXME: Il faut que je rework le system de philo.
-		Il faut que j applique la logique de la liste chainee.
-		je veux faire une fonction philo_add qui prend en parametre
-		la tete de la liste (premier philo) ainsi que les params du philo;
-
-
-*/
-
-t_philo	*philo_init(t_philo *philos, int id, int *params)
+t_philo	*philos_init(t_context *ctx, int *params)
 {
-	philos->id = id;
-	philos->time_to_die = params[1] * 1000;
-	philos->time_to_eat = params[2] * 1000;
-	philos->time_to_sleep = params[3] * 1000;
-	philos->nbrs_time_eat = params[4];
-	philos->thread = NULL;
-	fork_init(&philos->fork);
+	t_philo	*head;
+	t_philo	*prev;
+	t_philo	*new;
+	int		i;
 
-	printf("id = %d\n", philos->id);
-	printf("time_to_die = %d\n", philos->time_to_die);
-	printf("time_to_eat = %d\n", philos->time_to_eat);
-	printf("time_to_eat = %d\n", philos->time_to_sleep);
-	printf("nbrs_time_eat = %d\n", philos->nbrs_time_eat);
-	printf("Thread = %p\n", philos->thread);
-	return (philos);
+	head = philo_new();
+	philo_set(head, params, 1);
+	head->sv = ctx->supervisor;
+	head->next = head;
+	if (params[0] > 1)
+	{
+		prev = head;
+		i = 1;
+		while (i < params[0])
+		{
+			new = philo_new();
+			if (!new)
+				return (NULL);
+			philo_set(new, params, i + 1);
+			new->sv = ctx->supervisor;
+			prev->next = new;
+			prev = new;
+			i++;
+		}
+		new->next = head;
+	}
+	return (head);
 }
 
-void	philo_add(t_philo *head, int *params)
+void	philos_run(t_context *ctx)
 {
-	(void) params;
-	if (head == NULL)
+	t_philo	*philo;
+	int		nbrs_threads;
+	int		*resp;
+
+	philo = ctx->philos;
+	nbrs_threads = ctx->nbrs_philos;
+	while(nbrs_threads)
 	{
-		printf("COUCOU\n");
+		pthread_create(&philo->thread, NULL, philos_routine, philo);
+		philo = philo->next;
+		nbrs_threads--;
 	}
+	while (1)
+	{
+
+	}
+	while(nbrs_threads)
+	{
+		pthread_join(philo->thread, (void **)&resp);
+		if (*resp == 0)
+			ctx->supervisor->is_a_philo_dead = 1;
+		//pthread_detach(philo->thread);
+		philo = philo->next;
+		nbrs_threads--;
+	}
+}
+
+void	*philos_routine(void *arg)
+{
+	t_philo	*philo;
+
+	philo = arg;
+	if (philo->id == 1)
+	{
+		usleep(8000000);
+		philo->sv->is_a_philo_dead = 1;
+		printf("JE SUIS MORT\n");
+	}
+	else
+	{
+		while (!philo->sv->is_a_philo_dead)
+		{
+			printf("JE SUIS THRED #%d\n",philo->id);
+			usleep(400000);
+		}
+
+	}
+	//dbphilo(philo);
+	/* pthread_mutex_lock(&philo->fork->mutex);
+	thread_say_take_his_fork(philo);
+	pthread_mutex_lock(&philo->next->fork->mutex);
+	thread_say_take_other_fork(philo);
+	thread_say_start_eating(philo);
+	usleep(400000);
+	thread_say_stop_eating(philo);
+	thread_say_down_other_fork(philo);
+	pthread_mutex_unlock(&philo->next->fork->mutex);
+	thread_say_down_his_fork(philo);
+	pthread_mutex_unlock(&philo->fork->mutex); */
+	return (NULL);
+}
+
+void	philos_delete(t_philo *head)
+{
+	t_philo	*next;
+
+	next = head->next;
+	while (next != head)
+		next = philo_delete(&next);
+	philo_delete(&head);
 }

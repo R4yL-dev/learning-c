@@ -1,46 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   supervisor.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/14 18:38:17 by lray              #+#    #+#             */
-/*   Updated: 2023/05/22 19:06:35 by lray             ###   ########.fr       */
+/*   Created: 2023/05/20 18:18:32 by lray              #+#    #+#             */
+/*   Updated: 2023/05/21 00:21:12 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char **argv)
+void	*supervisor_routine(void *arg)
 {
-	int			*args;
 	t_context	*ctx;
 
-	args = malloc(sizeof(int) * 5);
-	if (!args)
+	ctx = arg;
+	philos_run(ctx);
+	return (NULL);
+}
+
+t_supervisor *supervisor_init()
+{
+	t_supervisor *sv;
+
+	sv = malloc(sizeof(t_supervisor));
+	if (!sv)
 	{
 		ft_puterror("Malloc failed");
-		return (1);
+		return (NULL);
 	}
-	if (!args_parser(&argc, &argv, args))
+	sv->is_a_philo_dead = 0;
+	sv->thread = 0;
+	if (pthread_mutex_init(&sv->mutex_print, NULL) != 0)
 	{
-		free(args);
-		return (1);
+		ft_puterror("Mutex creation failed");
+		return (NULL);
 	}
-	ctx = context_init(args);
-	if (!ctx)
-	{
-		free(args);
-		return (1);
-	}
-	free(args);
-	//dbcontext(ctx);
-	simulation_run(ctx);
-	// RUN SIMU
-	//thread_start(philos, args[0]);
-	//thread_wait_end(philos, args[0]);
-	//philos_delete(philos);
-	// DELETE CTX
-	return (0);
+	return (sv);
 }

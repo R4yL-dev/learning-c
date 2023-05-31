@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 18:38:17 by lray              #+#    #+#             */
-/*   Updated: 2023/05/22 19:06:35 by lray             ###   ########.fr       */
+/*   Updated: 2023/05/31 18:43:59 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,14 @@ int	main(int argc, char **argv)
 	int			*args;
 	t_context	*ctx;
 
-	args = malloc(sizeof(int) * 5);
+	args = args_parser(argc, argv);
 	if (!args)
-	{
-		ft_puterror("Malloc failed");
 		return (1);
-	}
-	if (!args_parser(&argc, &argv, args))
-	{
-		free(args);
-		return (1);
-	}
 	ctx = context_init(args);
 	if (!ctx)
-	{
-		free(args);
 		return (1);
-	}
-	free(args);
-	//dbcontext(ctx);
-	simulation_run(ctx);
+	context_show(ctx);
 	// RUN SIMU
-	//thread_start(philos, args[0]);
-	//thread_wait_end(philos, args[0]);
-	//philos_delete(philos);
-	// DELETE CTX
+	context_delete(ctx);
 	return (0);
 }

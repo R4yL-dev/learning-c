@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:54:20 by lray              #+#    #+#             */
-/*   Updated: 2023/05/31 18:24:50 by lray             ###   ########.fr       */
+/*   Updated: 2023/06/01 16:27:38 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_philo	*philos_list_init(int *params)
 	t_philo	*new;
 	int		i;
 
-	head = philo_init(1, params);
+	head = philo_init(1);
 	head->next = head;
 	if (params[0] > 1)
 	{
@@ -27,7 +27,7 @@ t_philo	*philos_list_init(int *params)
 		i = 1;
 		while (i < params[0])
 		{
-			new = philo_init(i + 1, params);
+			new = philo_init(i + 1);
 			if (!new)
 				return (NULL);
 			prev->next = new;

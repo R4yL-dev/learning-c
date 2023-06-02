@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 18:38:17 by lray              #+#    #+#             */
-/*   Updated: 2023/05/31 18:43:59 by lray             ###   ########.fr       */
+/*   Updated: 2023/06/02 13:36:31 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int	main(int argc, char **argv)
 	ctx = context_init(args);
 	if (!ctx)
 		return (1);
-	context_show(ctx);
-	// RUN SIMU
+	//simu_run(ctx);
 	context_delete(ctx);
 	return (0);
 }

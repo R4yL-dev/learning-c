@@ -6,11 +6,11 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 01:57:26 by lray              #+#    #+#             */
-/*   Updated: 2023/06/01 17:03:12 by lray             ###   ########.fr       */
+/*   Updated: 2023/06/04 04:30:53 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../headers/philo.h"
 
 t_philo	*philo_init(int id)
 {
@@ -25,6 +25,7 @@ t_philo	*philo_init(int id)
 	new->id = id;
 	new->status = 0;
 	new->nbrs_time_eat = 0;
+	new->last_meal_time = 0;
 	if (pthread_mutex_init(&new->fork, NULL) != 0)
 	{
 		ft_puterror("Mutex creation failed");
@@ -38,7 +39,8 @@ t_philo	*philo_init(int id)
 void	philo_talk(t_philo *philo, char *msg)
 {
 	pthread_mutex_lock(philo->print_mutex);
-	printf("[%ldms] %d ", time_get_interval(philo->timing->start, time_get_current()), philo->id);
+	printf("[%ldms] %d ", \
+		time_get_interval(philo->timing->start, time_get_current()), philo->id);
 	printf("%s\n", msg);
 	pthread_mutex_unlock(philo->print_mutex);
 }
@@ -54,7 +56,6 @@ void	philo_show(t_philo *philo)
 	printf("philo->print_mutex\t:\t%p\n", philo->print_mutex);
 	printf("philo->next\t\t:\t%p\n", philo->next);
 }
-
 
 void	philo_delete(t_philo *philo)
 {

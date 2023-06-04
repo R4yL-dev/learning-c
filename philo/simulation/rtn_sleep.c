@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rtn_sleep.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/14 18:38:17 by lray              #+#    #+#             */
-/*   Updated: 2023/06/04 03:11:17 by lray             ###   ########.fr       */
+/*   Created: 2023/06/04 03:17:12 by lray              #+#    #+#             */
+/*   Updated: 2023/06/04 04:08:42 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../headers/philo.h"
 
-int	main(int argc, char **argv)
+int	rtn_sleep(t_philo *philo)
 {
-	int			*args;
-	t_context	*ctx;
-
-	args = args_parser(argc, argv);
-	if (!args)
-		return (1);
-	ctx = context_init(args);
-	if (!ctx)
-		return (1);
-	simu_run(ctx);
-	context_delete(ctx);
-	return (0);
+	if (!is_alive(philo))
+		return (0);
+	philo_talk(philo, "is sleeping");
+	if (!will_survive(philo, philo->timing->time_to_sleep))
+	{
+		calculate_sleep(philo);
+		return (0);
+	}
+	else
+	{
+		time_sleep(philo->timing->time_to_sleep);
+		if (!is_alive(philo))
+			return (0);
+	}
+	return (1);
 }

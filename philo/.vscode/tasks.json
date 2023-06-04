@@ -4,17 +4,28 @@
 		{
 			"type": "cppbuild",
 			"label": "GCC build project",
-			"command": "/usr/bin/gcc",
+            "command": "",
+            "args": [
+                "make",
+                "--directory=${workspaceFolder};",
+                "make",
+                "--directory=${workspaceFolder}/subfolder"
+            ],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "compiler: /usr/bin/gcc"
+		},
+		{
+			"type": "cppbuild",
+			"label": "Make build project",
+			"command": "",
 			"args": [
-				"-pthread",
-				"-fdiagnostics-color=always",
-				"-g",
-				"-Werror",
-				"-Wextra",
-				"-Wall",
-				"${fileDirname}/*.c",
-				"-o",
-				"${fileDirname}/bin/philo"
+				"make"
 			],
 			"options": {
 				"cwd": "${fileDirname}"

@@ -6,11 +6,11 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:49:22 by lray              #+#    #+#             */
-/*   Updated: 2023/05/31 18:39:48 by lray             ###   ########.fr       */
+/*   Updated: 2023/06/04 04:30:03 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../headers/philo.h"
 
 static int	nbrs_args(int argc);
 static int	args_convert(int argc, char **argv, int *resp);
@@ -22,7 +22,7 @@ int	*args_parser(int argc, char **argv)
 
 	argc--;
 	argv++;
-	if(!nbrs_args(argc))
+	if (!nbrs_args(argc))
 		return (NULL);
 	resp = malloc(sizeof(int) * 5);
 	if (!resp)
@@ -50,7 +50,7 @@ static int	nbrs_args(int argc)
 static int	args_convert(int argc, char **argv, int *resp)
 {
 	int	i;
-	int conv;
+	int	conv;
 
 	i = 0;
 	while (i < argc)
@@ -71,7 +71,7 @@ static int	args_convert(int argc, char **argv, int *resp)
 static int	args_valide(int argc, int *resp)
 {
 	int	i;
-	int check;
+	int	check;
 
 	check = 0;
 	i = 0;

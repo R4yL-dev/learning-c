@@ -5,6 +5,9 @@
 		"__threading_support": "c",
 		"__mutex_base": "c",
 		"unistd.h": "c",
-		"random": "c"
+		"random": "c",
+		"types.h": "c",
+		"stdio.h": "c",
+		"phiengine.h": "c"
 	}
 }

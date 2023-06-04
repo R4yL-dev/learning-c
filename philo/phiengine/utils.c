@@ -6,11 +6,11 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 18:55:14 by lray              #+#    #+#             */
-/*   Updated: 2023/06/01 15:43:58 by lray             ###   ########.fr       */
+/*   Updated: 2023/06/04 02:49:53 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../headers/philo.h"
 
 void	ft_puterror(char *msg)
 {

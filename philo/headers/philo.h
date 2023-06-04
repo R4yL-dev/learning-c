@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/14 18:38:17 by lray              #+#    #+#             */
-/*   Updated: 2023/06/04 03:11:17 by lray             ###   ########.fr       */
+/*   Created: 2023/05/14 18:40:19 by lray              #+#    #+#             */
+/*   Updated: 2023/06/04 03:00:35 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#ifndef PHILO_H
+# define PHILO_H
 
-int	main(int argc, char **argv)
-{
-	int			*args;
-	t_context	*ctx;
+# include <stdio.h>
+# include <unistd.h>
+# include <pthread.h>
+# include <stdlib.h>
+# include <time.h>
+# include <sys/types.h>
+# include <sys/time.h>
 
-	args = args_parser(argc, argv);
-	if (!args)
-		return (1);
-	ctx = context_init(args);
-	if (!ctx)
-		return (1);
-	simu_run(ctx);
-	context_delete(ctx);
-	return (0);
-}
+# include "structures.h"
+# include "phiengine.h"
+# include "simulation.h"
+#endif

@@ -6,11 +6,11 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 15:24:21 by lray              #+#    #+#             */
-/*   Updated: 2023/06/01 15:33:07 by lray             ###   ########.fr       */
+/*   Updated: 2023/06/04 04:31:55 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../headers/philo.h"
 
 long int	time_get_current(void)
 {
@@ -38,4 +38,3 @@ void	time_sleep(long int ms)
 		usleep(ms / 1000);
 	}
 }
-

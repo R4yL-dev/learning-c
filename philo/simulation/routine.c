@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/14 18:38:17 by lray              #+#    #+#             */
-/*   Updated: 2023/06/04 03:11:17 by lray             ###   ########.fr       */
+/*   Created: 2023/06/02 14:14:09 by lray              #+#    #+#             */
+/*   Updated: 2023/06/04 04:21:23 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../headers/philo.h"
 
-int	main(int argc, char **argv)
+void	*routine(void *arg)
 {
-	int			*args;
-	t_context	*ctx;
+	t_philo	*philo;
 
-	args = args_parser(argc, argv);
-	if (!args)
-		return (1);
-	ctx = context_init(args);
-	if (!ctx)
-		return (1);
-	simu_run(ctx);
-	context_delete(ctx);
-	return (0);
+	philo = (t_philo *)arg;
+	philo->last_meal_time = time_get_current();
+	if (philo->id % 2 == 0)
+		time_sleep(philo->timing->time_to_eat / 2);
+	while (1)
+	{
+		if (!rtn_eat(philo))
+			break ;
+		if (!rtn_sleep(philo))
+			break ;
+		if (!rtn_think(philo))
+			break ;
+	}
+	return (NULL);
 }

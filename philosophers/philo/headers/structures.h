@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 02:42:14 by lray              #+#    #+#             */
-/*   Updated: 2023/06/04 02:54:08 by lray             ###   ########.fr       */
+/*   Updated: 2023/06/04 17:45:23 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_philo
 	pthread_t		thread;
 	pthread_mutex_t	*print_mutex;
 	pthread_mutex_t	*status_mutex;
+	pthread_mutex_t	*nbrs_meal_mutex;
 	struct s_philo	*next;
 }	t_philo;
 
@@ -46,5 +47,6 @@ typedef struct s_context
 	t_philo			*philos;
 	pthread_mutex_t	print_mutex;
 	pthread_mutex_t	status_mutex;
+	pthread_mutex_t	nbrs_meal_mutex;
 }	t_context;
 #endif

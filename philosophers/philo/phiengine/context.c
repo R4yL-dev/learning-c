@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:09:17 by lray              #+#    #+#             */
-/*   Updated: 2023/06/04 04:28:41 by lray             ###   ########.fr       */
+/*   Updated: 2023/06/04 17:44:36 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	context_delete(t_context *ctx)
 	timing_delete(ctx->timing);
 	pthread_mutex_destroy(&ctx->print_mutex);
 	pthread_mutex_destroy(&ctx->status_mutex);
+	pthread_mutex_destroy(&ctx->nbrs_meal_mutex);
 	free(ctx);
 }
 
@@ -69,6 +70,7 @@ static int	set_mutex_and_timing(t_context *ctx)
 	{
 		philo->print_mutex = &ctx->print_mutex;
 		philo->status_mutex = &ctx->status_mutex;
+		philo->nbrs_meal_mutex = &ctx->nbrs_meal_mutex;
 		philo->timing = ctx->timing;
 		philo = philo->next;
 		i++;
@@ -89,6 +91,11 @@ static int	init_mutex(t_context *ctx)
 		return (0);
 	}
 	if (pthread_mutex_init(&ctx->status_mutex, NULL) != 0)
+	{
+		ft_puterror("Mutex creation failed");
+		return (0);
+	}
+	if (pthread_mutex_init(&ctx->nbrs_meal_mutex, NULL) != 0)
 	{
 		ft_puterror("Mutex creation failed");
 		return (0);

@@ -6,47 +6,49 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 15:10:33 by lray              #+#    #+#             */
-/*   Updated: 2023/06/04 02:50:09 by lray             ###   ########.fr       */
+/*   Updated: 2023/06/04 18:54:14 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/philo.h"
 
-static void	kill_all_philos(t_context *ctx);
+static void	supervisor_signals_the_end(t_context *ctx);
 
 void	supervisor_run(t_context *ctx)
 {
 	t_philo		*philo;
-	int			status;
 
 	philo = ctx->philos;
 	while (1)
 	{
-		pthread_mutex_lock(&ctx->status_mutex);
-		status = philo->status;
-		pthread_mutex_unlock(&ctx->status_mutex);
-		if (status == DEAD)
+		if (!is_alive(philo))
 		{
-			pthread_mutex_lock(&ctx->status_mutex);
 			kill_all_philos(ctx);
-			pthread_mutex_unlock(&ctx->status_mutex);
 			break ;
+		}
+		if (have_eat_enough(ctx, philo))
+		{
+			if (have_everybody_eat_enough(ctx))
+			{
+				kill_all_philos(ctx);
+				supervisor_signals_the_end(ctx);
+				break ;
+			}
 		}
 		philo = philo->next;
 	}
 }
 
-static void	kill_all_philos(t_context *ctx)
+static void	supervisor_signals_the_end(t_context *ctx)
 {
-	t_philo	*philo;
-	int		i;
+	long int	start;
+	int			nbrs_meal;
 
-	philo = ctx->philos;
-	i = 0;
-	while (i < ctx->nbrs_philos)
-	{
-		philo->status = DEAD;
-		philo = philo->next;
-		i++;
-	}
+	start = ctx->timing->start;
+	nbrs_meal = ctx->nbrs_time_eat;
+	pthread_mutex_lock(&ctx->print_mutex);
+	printf("[%ldms]   \t", time_get_interval(start, time_get_current()));
+	printf("Supervisor\t");
+	printf("All philosophers have eaten at least %d time(s)\n", nbrs_meal);
+	pthread_mutex_unlock(&ctx->print_mutex);
 }

@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 02:42:19 by lray              #+#    #+#             */
-/*   Updated: 2023/06/04 04:11:20 by lray             ###   ########.fr       */
+/*   Updated: 2023/06/04 19:12:03 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 void	simu_run(t_context *ctx);
 
 void	*routine(void *arg);
+void	*routine_solo(void *arg);
 int		is_alive(t_philo *philo);
 int		will_survive(t_philo *philo, int time_to_test);
 void	calculate_sleep(t_philo *philo);
@@ -33,5 +34,8 @@ int		rtn_sleep(t_philo *philo);
 int		rtn_think(t_philo *philo);
 
 void	supervisor_run(t_context *ctx);
+void	kill_all_philos(t_context *ctx);
+int		have_eat_enough(t_context *ctx, t_philo *philo);
+int		have_everybody_eat_enough(t_context *ctx);
 
 #endif

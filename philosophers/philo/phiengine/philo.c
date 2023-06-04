@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 01:57:26 by lray              #+#    #+#             */
-/*   Updated: 2023/06/04 04:30:53 by lray             ###   ########.fr       */
+/*   Updated: 2023/06/04 18:47:32 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,12 @@ t_philo	*philo_init(int id)
 
 void	philo_talk(t_philo *philo, char *msg)
 {
+	long int	start;
+
+	start = philo->timing->start;
 	pthread_mutex_lock(philo->print_mutex);
-	printf("[%ldms] %d ", \
-		time_get_interval(philo->timing->start, time_get_current()), philo->id);
+	printf("[%ldms]   \t", time_get_interval(start, time_get_current()));
+	printf("Philo n° %d\t", philo->id);
 	printf("%s\n", msg);
 	pthread_mutex_unlock(philo->print_mutex);
 }

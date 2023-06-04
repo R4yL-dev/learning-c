@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 03:12:37 by lray              #+#    #+#             */
-/*   Updated: 2023/06/04 04:19:49 by lray             ###   ########.fr       */
+/*   Updated: 2023/06/04 17:52:21 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ int	rtn_eat(t_philo *philo)
 		philo->last_meal_time = time_get_current();
 	}
 	put_down_both_fork(philo);
+	pthread_mutex_lock(philo->nbrs_meal_mutex);
 	philo->nbrs_time_eat += 1;
+	pthread_mutex_unlock(philo->nbrs_meal_mutex);
 	return (1);
 }
 

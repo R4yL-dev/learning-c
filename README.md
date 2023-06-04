@@ -8,7 +8,9 @@
 - get_next_line (100%)
 - push_swap (84%)
 - pipex (100%)
+- so_long (100%)
+- Exam rank02 (100%)
 
 ## Ongoing projects
 
-- so_long
+- Philosophers

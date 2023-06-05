@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 02:42:14 by lray              #+#    #+#             */
-/*   Updated: 2023/06/04 17:45:23 by lray             ###   ########.fr       */
+/*   Updated: 2023/06/05 14:53:11 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ typedef struct s_philo
 
 typedef struct s_context
 {
-	int				all_philos_alive;
 	int				nbrs_philos;
 	int				nbrs_time_eat;
 	t_timing		*timing;

@@ -627,20 +627,23 @@ Ce que je veux stocker dans le contexte ?
 ```c
 typedef struct s_context
 {
-	t_time			start;
 	int				nbrs_philos;
-	int				is_a_philo_dead;
-	pthread_mutex_t	mutex_print;
-	t_philos		*philos;
+	int				nbrs_time_eat;
+	t_timing		*timing;
+	t_philo			*philos;
+	pthread_mutex_t	print_mutex;
+	pthread_mutex_t	status_mutex;
+	pthread_mutex_t	nbrs_meal_mutex;
 }	t_context;
 ```
 
 ```c
 typedef struct s_timing
 {
-	int	time_to_die;
-	int	time_to_eat;
-	int	time_to_sleep;
+	int			time_to_die;
+	int			time_to_eat;
+	int			time_to_sleep;
+	long int	start;
 }	t_timing;
 ```
 
@@ -650,13 +653,15 @@ typedef struct s_timing
 typedef struct s_philo
 {
 	int				id;
-	__useconds_t	time_to_die;
-	__useconds_t	time_to_eat;
-	__useconds_t	time_to_sleep;
+	int				status;
 	int				nbrs_time_eat;
-	timing_t		timing;
-	pthread_t		thread;
+	long int		last_meal_time;
+	t_timing		*timing;
 	pthread_mutex_t	fork;
+	pthread_t		thread;
+	pthread_mutex_t	*print_mutex;
+	pthread_mutex_t	*status_mutex;
+	pthread_mutex_t	*nbrs_meal_mutex;
 	struct s_philo	*next;
 }	t_philo;
 ```

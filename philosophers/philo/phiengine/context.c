@@ -6,7 +6,7 @@
 /*   By: lray <lray@student.42lausanne.ch >         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 17:09:17 by lray              #+#    #+#             */
-/*   Updated: 2023/06/04 17:44:36 by lray             ###   ########.fr       */
+/*   Updated: 2023/06/05 14:50:55 by lray             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ t_context	*context_init(int *params)
 		ft_puterror("Malloc failed");
 		return (NULL);
 	}
-	ctx->all_philos_alive = 1;
 	ctx->nbrs_philos = params[0];
 	ctx->nbrs_time_eat = params[4];
 	ctx->timing = timing_init(params);
@@ -39,7 +38,6 @@ t_context	*context_init(int *params)
 
 void	context_show(t_context *ctx)
 {
-	printf("ctx->all_philos_alive\t:\t%d\n", ctx->all_philos_alive);
 	printf("ctx->nbrs_philo\t\t:\t%d\n", ctx->nbrs_philos);
 	printf("ctx->nbrs_time_eat\t:\t%d\n", ctx->nbrs_time_eat);
 	timing_show(ctx->timing);

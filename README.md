@@ -10,7 +10,6 @@
 - pipex (100%)
 - so_long (100%)
 - Exam rank02 (100%)
+- Philosophers (100%)
 
 ## Ongoing projects
-
-- Philosophers

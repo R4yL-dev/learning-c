@@ -23,6 +23,7 @@ int	main(int argc, char **argv)
 	ctx = context_init(args);
 	if (!ctx)
 		return (1);
+
 	simu_run(ctx);
 	context_delete(ctx);
 	return (0);
